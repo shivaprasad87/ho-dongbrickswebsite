@@ -130,7 +130,7 @@ a.button.border.white:hover {
 }
 
 .listing-badges .featured {
-    background-color: #0499c1
+    background-color: #db1239
 }
 
 .list-layout .listing-img-container:after {
@@ -139,7 +139,6 @@ a.button.border.white:hover {
 
 #titlebar.property-titlebar span.property-badge,
 .back-to-listings:hover,
-.home-slider-price,
 .img-box:hover:before,
 .layout-switcher a.active,
 .layout-switcher a:hover,
@@ -151,6 +150,9 @@ a.button.border.white:hover {
 .pagination-next-prev ul li a:hover,
 .property-features.checkboxes li:before {
     background-color: #0499c1
+}
+.home-slider-price{
+    background-color: #0498c100
 }
 
 .post-img:after,
@@ -184,10 +186,6 @@ a.button.border.white:hover {
 .custom-zoom-in:hover,
 .custom-zoom-out:hover,
 .infoBox-close:hover,
-.listing-carousel.owl-theme .owl-controls .owl-next:after,
-.listing-carousel.owl-theme .owl-controls .owl-prev:before,
-.listing-carousel.owl-theme.outer .owl-controls .owl-next:hover::after,
-.listing-carousel.owl-theme.outer .owl-controls .owl-prev:hover::before,
 .slick-next:after,
 .slick-prev:after {
     background-color: #0499c1

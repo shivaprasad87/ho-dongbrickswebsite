@@ -29,57 +29,79 @@ if (($images = $this->properties_model->getWhere(array('property_id' => $propert
          $this->load->view('inc/head2'); $this->load->view('inc/header');
 
 ?>
-<!-- Page Banner Start--
-<section class="page-banner padding">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 text-center">
-        <h1 class="text-uppercase">Property Details </h1><!-- 
-        <p> Lorem ipsum dolor sit amet consectetur adipiscing elit.</p> --
-        <ol class="breadcrumb text-center">
-          <li><a href="<?=base_url();?>">Home</a></li>
-          <li><a href="<?=base_url('listing');?>">Properties</a></li>
-          <li class="active">Property Details </li>
-        </ol>
+<div class="reserveserenityforever_info fixed">
+  <div class=container>
+  
+    <div class="reserveserenityforever_list">
+      <div class="serenepark_info">
+        <div class="serenepark_img">
+        <img src="<?=base_url('assets/')?>images/logo-02.png" alt="">
+         </div>
+        <div class="serenepark_cont">
+          <h6><?= $property->title ? $property->title : '' ?></h6>
+          <p><?= $property->location . ', ' . $property->city_name ?></p>
+        </div>
+      </div>
+      <div class="clearflix"></div>
+      <div class="reserveserenityforever_left">
+        <div class="show_interior_exterior_info">
+          <ul></ul>
+        </div>
+        <div class="reserveserenityforever_video">
+          <a data-fancybox="video_modal" onclick="getvideo('https://www.youtube.com/embed/nozC84fRUoQ')" href="#myVideo" 
+            style="background-image: url('<?=base_url('assets/')?>images//popular-location-01.jpg');">
+          </a>
+    
+          <span id="vdata"></span>
+        </div>
+      
+      </div>
+      <div class="reserveserenityforever_right">
+        <div class="show_interior_exterior_info">
+          <ul></ul>
+        </div>
+        <div class="show_interior_exterior_list">
+          <div class="show_interior_exterior_listinner demo-gallery showall_list">
+            
+              
+              
+            <ul class="lightgallery" class="list-unstyled row">
+            
+              <li data-src="<?=base_url('assets/')?>images/popular-location-01.jpg" >
+                <a><img class="img-responsive" src="<?=base_url('assets/')?>images/popular-location-01.jpg"></a>
+              
+              </li>
+              <li data-src="<?=base_url('assets/')?>images/popular-location-02.jpg">
+                <a><img class="img-responsive" src="<?=base_url('assets/')?>images/popular-location-02.jpg"></a>
+            </li>
+            <li data-src="<?=base_url('assets/')?>images/popular-location-03.jpg">
+              <a><img class="img-responsive" src="<?=base_url('assets/')?>images/popular-location-03.jpg"></a>
+            </li>
+            <li data-src="<?=base_url('assets/')?>images/popular-location-04.jpg">
+              <a><img class="img-responsive" src="<?=base_url('assets/')?>images/popular-location-04.jpg"></a>
+            </li>
+            
+            
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
+    
   </div>
-</section>
-<!-- Page Banner End -->
-
-
-
-<!-- Property Detail Start -->
-<section id="property" class="padding_top padding_bottom_half">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-8 listing1 property-details">
-        <h2 class="text-uppercase"><?= $property->title ? $property->title : '' ?></h2>
-        <p class="bottom30"><?= $property->location . ', ' . $property->city_name ?></p>
-        <div id="property-d-1" class="owl-carousel">
-          <?php
-          foreach ($gallery_images as $key => $value) {
-            ?>
-          <div class="item"><img src="<?=base_url($value);?>" alt="image" style="width: 100%!important;height: 100%!important;"/></div>
-
-            <?php
-          }
-          ?> 
-        </div>
-        <div id="property-d-1-2" class="owl-carousel">
-          <?php
-           foreach ($gallery_images as $key => $value) {
-            ?>
-          <div class="item"><img src="<?=base_url($value);?>" alt="image"/></div>
-
-            <?php
-          }
-          ?> 
-        </div>
-        <!-- <div class="property_meta bg-black bottom40">
-          <span><i class="icon-select-an-objecto-tool"></i><?=$property->issue_date;?></span>
-          <span><i class=" icon-microphone"></i><?= $property->prop_type ?></span>
-          <?php
+</div>
+<div class="container ">
+  <div class="highlights">
+    <ul>
+      <li>
+        <p>Starting Price</p><?php echo "Rs. ".  (($row = $this->properties_model->getPropertyParam(array('property_id' => $property->id),
+                  'property_flat_types', null,
+                  'MIN(total) as amount')) != null) ? number_format_short($row->amount) : 0 
+             ." - ".  (($row = $this->properties_model->getPropertyParam(array('property_id' => $property->id),
+                  'property_flat_types', null,
+                  'MAX(total) as amount')) != null) ? number_format_short($row->amount) : 0 ;?>*</h6>
+      </li>
+      <?php
           if (($flatTypes = $this->properties_model->getPropertyFlatType(null,
                                                         $property->id)) != null) {
               $bhk='';
@@ -94,900 +116,961 @@ if (($images = $this->properties_model->getWhere(array('property_id' => $propert
           } 
           $propType   = $this->properties_model->getPropertyType(['id'=>$property->property_type_id]);
           ?>
-          <span><i class="icon-safety-shower"></i><?= $bhk/*.' '.$propType['name']*/?></span>
-          <span><i class="icon-old-television"></i><?php
-                                                    if($property->possession_date!='0000-00-00')
-                                                    echo  date('M, Y', strtotime($property->possession_date));
-                                                    else 
-                                                    echo "Ready"; ?></span>
-          <span><i class="icon-garage"></i>Garage</span>
-        </div> -->
-        <h2 class="text-uppercase">Property Description</h2>
-        <p class="bottom30"><?= $property->description?$property->description:''; ?> </p>
-        <!-- <div class="text-it-p bottom40">
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam power nonummy nibh tempor cum soluta nobis eleifend option congue nihil imperdiet doming Lorem ipsum dolor sit amet. consectetuer elit sed diam power nonummy</p>
-        </div> -->
-        <h2 class="text-uppercase bottom20">Project Highlights</h2> 
-        <div class="row property-d-table bottom40">
-          <div class="col-md-6 col-sm-6 col-xs-12">
-            <table class="table table-striped table-responsive">
-              <tbody>
-                <!-- <tr>
-                  <td><b>Property Id</b></td>
-                  <td class="text-right">5456</td>
-                </tr> -->
-                <?php
-                        if (($flatTypes = $this->properties_model->getPropertyFlatType(null,
-                                $property->id)) != null) {
-                            foreach ($flatTypes as $flatType) {
-                                ?>
-                                <tr>
-                                  <td><b><?= $flatType->flat_type ?></b></td>
-                                  <td class="text-right">
-                                    <?= $this->properties_model->getPropertyRange(array(
-                    'property_id' => $property->id,
-                    'flat_type_id' => $flatType->flat_type_id
-                ), 'property_flat_types',
-                    'size') ?>
-                                        <?= $this->properties_model->getPropertyParam(array(
-                    'property_id' => $property->id,
-                    'flat_type_id' => $flatType->flat_type_id
-                ), 'property_flat_types', 'unit') ?>
-                                </td> 
+      <li>
+        <p>Configurations</p>
+        <h6><?php echo $bhk; $bhk=''; ?></h6>
+      </li>
+      <li>
+        <p>Possession Time</p>
+        <h6><?php
+            if($property->possession_date!='0000-00-00')
+            echo  date('M, Y', strtotime($property->possession_date));
+            else 
+            echo "Ready"; ?></h6>
+      </li>
+    
+    </ul>
+  </div>
 
-                                  <tr>
-                                    <td><b>Price</b></td>
-                                    <td class="text-right">
-                                    <?php
-                if ($flatType->price_on_request) {
-                    echo "Price on Request";
-                } else {
-                    ?> 
-                                        <?= (($row = $this->properties_model->getPropertyParam(array(
-                            'property_id' => $property->id,
-                            'flat_type_id' => $flatType->flat_type_id
-                        ), 'property_flat_types', null,
-                            'MIN(total) as amount')) != null) ? number_format_short($row->amount) : 0 ?>
-                                            -
-                                            <?= (($row = $this->properties_model->getPropertyParam(array(
-                            'property_id' => $property->id,
-                            'flat_type_id' => $flatType->flat_type_id
-                        ), 'property_flat_types', null,
-                            'MAX(total) as amount')) != null) ? number_format_short($row->amount) : 0 ?>
-                                                <?php
-                }
-                ?>
-                                </td>
+</div>
 
-                                
-                            </tr>
-                            <?php
-    }
-}  
-?> 
-                <tr>
-                  <td><b>Bedrooms</b></td>
-                  <td class="text-right"><?=$property->bedrooms;?></td>
-                </tr> 
-                <tr>
-                  <td><b>No. Floors</b></td>
-                  <td class="text-right"><?=$property->floors;?></td>
-                </tr>
-                
-                <tr>
-                  <td><b>Available From</b></td>
-                  <td class="text-right"><?php
-                if($property->possession_date!='0000-00-00')
-                {
-                    $date1 = date("Y-m-d");
-                    $date2 = date("Y-m-d", strtotime($property->possession_date)); 
-                    if($date1 > $date2)
-                        echo "Ready";
-                    else
-                echo  date('M, Y', strtotime($property->possession_date));
-                }
-                else 
-                echo "Ready"; 
-                ?></td>
-                </tr>
-              </tbody>
-            </table>
+<div class="container property-details ">
+<div class="row">
+  <div class="col-lg-8 ">
+    <div class="div-shadow">
+      <div class="col-pad">
+        <div class="property-banner">
+          <img src="<?=base_url('assets/')?>images/popular-location-04.jpg" class="img-responsive">
+          <div class="prop-status">
+            Under Construction
           </div>
-          <div class="col-md-6 col-sm-6 col-xs-12">
-            <table class="table table-striped table-responsive">
-              <tbody>
-                <tr>
-                  <td><b>Status</b></td>
-                  <td class="text-right"><?=$property->issue_date;?></td>
-                </tr>
-                <tr>
-                  <td><b>Type</b></td>
-                  <td class="text-right"><?= $bhk?></td>
-                </tr> 
-                <tr>
-                  <td><b>Towers</b></td>
-                  <td class="text-right"> <?=$property->towers?></td>
-                </tr>
-                <tr>
-                  <td><b>Location</b></td>
-                  <td class="text-right"><?= $property->location . ', ' . $property->city_name ?></td>
-                </tr>  
-                <tr>
-                  <td><b>RERA</b></td>
-                  <td class="text-right"><?=$property->rera_number?$property->rera_number:'Not Updated'?></td>
-                </tr> 
-             <!--    <tr>
-                  <td><b>Floors</b></td>
-                  <td class="text-right"><?=$property->floors;?></td>
-                </tr>
-                <tr>
-                  <td><b>Plumbing</b></td>
-                  <td class="text-right">Full Copper Plumbing</td>
-                </tr> -->
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <h2 class="text-uppercase bottom20">Amenities</h2>
-        <div class="row bottom40"> 
-            <?php
-            $i=0;
-              if (isset($property->amenities) && $property->amenities) {
-                  foreach ($property->amenities as $amenity) {
-                      if($i==0 || $i==4 || $i==8 || $i==12 || $i==16 || $i==20 || $i==24  || $i==28 || $i==32 || $i==36 || $i==40)
-                      {
-                        if($i>0)
-                          echo "</div>";
-
-                        echo '<div class="col-md-4 col-sm-6 col-xs-6"><ul class="pro-list">';
-                      }
-                            echo '<li>'.ucwords($amenity->name).'</li>';
-                      if($i==3 || $i==7 || $i==11 || $i==15 || $i==19 || $i==23 || $i==27 || $i==31 || $i==35 || $i==39)
-                      {
-                        echo '</ul>';
-                      } 
-                      $i++;
-                  }
-              }
-              ?> 
         </div>
       </div>
-      <!--  <h2 class="text-uppercase">Features</h2>
-        <p class="bottom20">Amenities and Features of <?= $property->title ? $property->title : '' ?>
-        </p>
-         <div class="row bottom40">
-           <?php
-            if (isset($property->amenities) && $property->amenities) {
-                foreach ($property->amenities as $amenity) {
-                    ?>
-          <div class="col-md-4 col-sm-4 col-xs-4">
-            <div class="pro-img">
-              <figure class="wpf-demo-gallery">
-                <img src="<?= base_url('uploads/amenities/' . $amenity->image) ?>" alt="image"/>
-                <figcaption class="view-caption">    
-                  <a data-fancybox-group="gallery" class="fancybox" href="<?= base_url('uploads/amenities/' . $amenity->image) ?>"><i class="icon-focus"></i></a>
-                </figcaption>
-              </figure>
+
+      <div class="property-title1 mt-10">
+        <p><?= $property->title ? $property->title : '' ?></p>
+        <h1></h1>
+        <span><?= $property->location . ', ' . $property->city_name ?></span>
+        <p class="font9">RERA : <br> <?=$property->rera_number?$property->rera_number:'Not Updated'?></p>
+      </div>
+      <hr>
+      <div class=" mt-10">
+        <div class="project_price_details_info">
+          <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+              <p>SBA</p><h6> 5649 sqft</h6>
             </div>
-          </div> 
-          <?php } } ?> 
-        </div> -->
-        <?php
-        if($property->walkthrough)
-        {
-            ?>
-
-
-
-
-        <h2 class="text-uppercase bottom20">Video Presentation</h2>
-        <div class="row bottom40">
-          <div class="col-md-12 padding-b-20">
-            
-              <div>
-             <iframe width="100%" height="450" src="https://www.youtube.com/embed/<?= getYoutubeVideoId($property->walkthrough) ?>?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
-              </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+              <p>No. Of Units</p><h6> <?=$property->units?> Units</h6>
+            </div>
               
-            <!-- <div class="pro-video">
-              <figure class="wpf-demo-gallery">
-                <video  class="video" controls>
-                  <source src="video/video.mp4" type="video/mp4">
-                  <source src="video/video.html" type="video/ogg">
-                </video>
-              </figure>
-            </div> -->
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+              <p>No. Of Floors</p><h6><?=$property->floors?> Floors</h6>
+            </div>
+
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+              <p>No. Of Towers</p><h6> <?=$property->towers?> Towers</h6>
+            </div>
+
+            
           </div>
         </div>
-        <?php
-          }
-              ?>
+      
+      </div>
+      <div class="projectoverview_info  mt-10">
+        <h6>Project Overview:</h6>
+        <?= $property->description?$property->description:''; ?>
+        <!-- <a href="#" class="show-more-button">Show More <i class="fa fa-angle-down"></i></a> -->
+        <center><div class="btn btn-info" data-toggle="modal" data-target="#main-pop">Download Brochure</div></center>
+      </div>
+    </div>
+
+<!--     <div class="div_info mt-10" id="Offers">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="individualproject_title">
+    
+            <h5 itemprop="name"><?= $property->title ? $property->title : '' ?> Special Offers</h5>
+            
+          </div>
+    
+      
+    
+          <div class=" specification_list">
+            <div class="col-md-6">
+              <ul class="list-4 color">
+                <li>Lorem ipsum dolor sit amet</li>
+                <li>Consectetur adipiscing elit</li>
+                <li>Integer molestie lorem at massa</li>
+                
+              </ul>
 
 
+            </div>
+            <div class="col-md-6">
+              <ul class="list-4 color">
+                
+                <li>Lorem ipsum dolor sit amet</li>
+                <li>Consectetur adipiscing elit</li>
+                <li>Integer molestie lorem at massa</li>
+                
+              </ul>
+            </div>
           
-      <div class="mb-30 Gallery">
-        <h2 class="text-uppercase">Gallery</h2>
-        <p class="bottom20">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras et dui vestibulum, bibendum purus sit amet, 
-          vulputate mauris. Ut adipiscing gravida tincidunt.
-        </p>
+          </div>
+          <center class="mt-10"><div class="btn btn-offer" data-toggle="modal" data-target="#">Talk To Us</div></center>
+    
+        </div>
+      </div>
+    </div> -->
+
+    <div class="div_info mt-10" id="Amenities">
+      <span class="hashtag_top"> &nbsp; </span>
+      
+      <div class="individualproject_title">
+      
+          
+        <h5 itemprop="name"><?= $property->title ? $property->title : '' ?> Amenities</h5>
+      
+      </div>
+      <div class="amenities_list" id="content-1">
+        <ul>
+          <li>
+            <div class="amenities_img">
+               <div class="amenities childrensPlayArea" data-name="Children's Play Area"></div>
+            </div>
+            <div class="amenities_cont">Children's Play Area</div>
+          </li>
+          
+          <li><div class="amenities_img"><div class="amenities communityHall" data-name="Multipurpose Hall"></div></div><div class="amenities_cont">Multipurpose Hall</div></li>
+          
+          <li><div class="amenities_img"><div class="amenities joggingTrack" data-name="Jogging Track"></div></div><div class="amenities_cont">Jogging Track</div></li>
+          
+          <li><div class="amenities_img"><div class="amenities gymnasium" data-name="Gymnasium"></div></div><div class="amenities_cont">Gymnasium</div></li>
+          
+          <li><div class="amenities_img"><div class="amenities internet" data-name="Internet"></div></div><div class="amenities_cont">Internet</div></li>
+          
+          <li><div class="amenities_img"><div class="amenities library" data-name="Library"></div></div><div class="amenities_cont">Library</div></li>
+          
+          <li><div class="amenities_img"><div class="amenities lift" data-name="Lift"></div></div><div class="amenities_cont">Lift</div></li>
+          
+          <li><div class="amenities_img"><div class="amenities security" data-name="Security"></div></div><div class="amenities_cont">Security</div></li>
+          
+          <li><div class="amenities_img"><div class="amenities swimmingPool" data-name="Swimming Pool"></div></div><div class="amenities_cont">Swimming Pool</div></li>
+          
+          <li><div class="amenities_img"><div class="amenities gasLine" data-name="Gas Line"></div></div><div class="amenities_cont">Gas Line</div></li>
+          
+          <li><div class="amenities_img"><div class="amenities intercom" data-name="Intercom"></div></div><div class="amenities_cont">Intercom</div></li>
+          
+          <li><div class="amenities_img"><div class="amenities powerBackup" data-name="Power Backup"></div></div><div class="amenities_cont">Power Backup</div></li>
+          
+          <li><div class="amenities_img"><div class="amenities washingMarea" data-name="Washing Machine Area"></div></div><div class="amenities_cont">Washing Machine Area</div></li>
+          
+          <li><div class="amenities_img"><div class="amenities gatedCommunity" data-name="Gated Community"></div></div><div class="amenities_cont">Gated Community</div></li>
+          
+          <li><div class="amenities_img"><div class="amenities parking" data-name="Parking"></div></div><div class="amenities_cont">Parking</div></li>
+          
+          <li><div class="amenities_img"><div class="amenities utilityStores" data-name="Utility Stores"></div></div><div class="amenities_cont">Utility Stores</div></li>
+          
+          <li><div class="amenities_img"><div class="amenities basketball" data-name="Basketball"></div></div><div class="amenities_cont">Basketball</div></li>
+          
+          <li><div class="amenities_img"><div class="amenities cricket" data-name="Cricket"></div></div><div class="amenities_cont">Cricket</div></li>
+          
+          <li><div class="amenities_img"><div class="amenities badminton" data-name="Badminton"></div></div><div class="amenities_cont">Badminton</div></li>
+          
+          <li><div class="amenities_img"><div class="amenities squash" data-name="Squash"></div></div><div class="amenities_cont">Squash</div></li>
+          
+          <li><div class="amenities_img"><div class="amenities spa" data-name="Spa"></div></div><div class="amenities_cont">Spa</div></li>
+          
+          <li><div class="amenities_img"><div class="amenities tennis" data-name="Tennis"></div></div><div class="amenities_cont">Tennis</div></li>
+        
+        </ul>
+      </div>
+      </div>
+
+    <div class="div_info mt-10" id="Gallery">
+      <span class="hashtag_top"> &nbsp; </span>
+      
+      <div class="individualproject_title">
+      
+        <a class="link" href="" title="" target="_blank" itemprop="url">
+          
+        <h5 itemprop="name"><?= $property->title ? $property->title : '' ?> Gallery</h5>
+        </a>
+      </div>
+
+      <div class="sppb-row">
+
+        <ul class="nav-gallery nav-tabs mytab" role="tablist"
+          style="margin-top: 20px; margin-bottom: 35px;">
+  
+          <li role="presentation" class="active">
+            <a href="#General" aria-controls="settings" role="tab"
+              data-toggle="tab" aria-expanded="false">Elevation
+            </a>
+          </li>
+  
+          
+  
+          <li role="presentation" class="">
+            <a href="#floorplan" aria-controls="profile" role="tab"
+              data-toggle="tab" aria-expanded="true"> Floorplan
+            </a>
+          </li>
+          
+  
+          <li role="presentation" class="">
+            <a href="#Masterplan" aria-controls="profile" role="tab"
+              data-toggle="tab" aria-expanded="true">Masterplan
+            </a>
+          </li>
+  
+        </ul>
+  
+        <div class="tab-content delay-09s animated wow animated"
+          style="visibility: visible; animation-name: fadeInDown;">
+  
+          <div role="tabpanel" class="tab-pane fade active in" id="General">
+          
+            <div class="row general bottom40">
+            <div class="demo-gallery">
+              <ul class="lightgallery" class="list-unstyled row">
+                <li class="col-xs-6 col-sm-4 col-md-6 col-lg-6" data-src="<?=base_url('assets/')?>images/listing-03.jpg"  >
+                  <a href="">
+                    <img class="img-responsive" src="<?=base_url('assets/')?>images/listing-03.jpg">
+                  </a>
+                </li>
+                <li class="col-xs-6 col-sm-4 col-md-6 col-lg-6" data-src="<?=base_url('assets/')?>images/listing-02.jpg" >
+                  <a href="">
+                    <img class="img-responsive" src="<?=base_url('assets/')?>images/listing-02.jpg">
+                  </a>
+                </li>
+                <li class="col-xs-6 col-sm-4 col-md-6 col-lg-6" data-src="<?=base_url('assets/')?>images/listing-01.jpg" >
+                  <a href="">
+                    <img class="img-responsive" src="<?=base_url('assets/')?>images/listing-01.jpg">
+                  </a>
+                </li>
+                <li class="col-xs-6 col-sm-4 col-md-6 col-lg-6" data-src="<?=base_url('assets/')?>images/listing-03.jpg"  >
+                  <a href="">
+                    <img class="img-responsive" src="<?=base_url('assets/')?>images/listing-03.jpg">
+                  </a>
+                </li>
+                <li class="col-xs-6 col-sm-4 col-md-6 col-lg-6" data-src="<?=base_url('assets/')?>images/listing-02.jpg" >
+                  <a href="">
+                    <img class="img-responsive" src="<?=base_url('assets/')?>images/listing-02.jpg">
+                  </a>
+                </li>
+                <li class="col-xs-6 col-sm-4 col-md-6 col-lg-6" data-src="<?=base_url('assets/')?>images/listing-01.jpg" >
+                  <a href="">
+                    <img class="img-responsive" src="<?=base_url('assets/')?>images/listing-01.jpg">
+                  </a>
+                </li>
+              
+              </ul>
+            </div>
+           
+          </div>
+  
+          </div>
+  
+          <div role="tabpanel" class="tab-pane fade  " id="Masterplan">
+  
+            <div class="row masterplan bottom40">
+            <div class="demo-gallery">
+              <ul class="lightgallery" class="list-unstyled row">
+                <li class="col-xs-12 col-sm-4 col-md-6 col-lg-12" data-src="<?=base_url('assets/')?>images/Gallery/masterplan.jpg"  >
+                  <a href="">
+                    <img class="img-responsive" src="<?=base_url('assets/')?>images/Gallery/masterplan.jpg">
+                  </a>
+                </li>
+                
+              
+              </ul>
+            </div>
+            </div>
+            
+          </div>
+  
+  
+          <div role="tabpanel" class="tab-pane fade  " id="floorplan">
+  
+            <div class="row general bottom40">
+            <div class="demo-gallery">
+              <ul class="lightgallery" class="list-unstyled row">
+                <li class="col-xs-6 col-sm-4 col-md-6 col-lg-6" data-src="<?=base_url('assets/')?>images/Gallery/Floor/f1.jpg"  >
+                  <a href="">
+                    <img class="img-responsive" src="<?=base_url('assets/')?>images/Gallery/Floor/f1.jpg">
+                  </a>
+                </li>
+                <li class="col-xs-6 col-sm-4 col-md-6 col-lg-6" data-src="<?=base_url('assets/')?>images/Gallery/Floor/f2.jpg" >
+                  <a href="">
+                    <img class="img-responsive" src="<?=base_url('assets/')?>images/Gallery/Floor/f2.jpg">
+                  </a>
+                </li>
+                <li class="col-xs-6 col-sm-4 col-md-6 col-lg-6" data-src="<?=base_url('assets/')?>images/Gallery/Floor/f3.jpg" >
+                  <a href="">
+                    <img class="img-responsive" src="<?=base_url('assets/')?>images/Gallery/Floor/f3.jpg">
+                  </a>
+                </li>
+                <li class="col-xs-6 col-sm-4 col-md-6 col-lg-6" data-src="<?=base_url('assets/')?>images/Gallery/Floor/f4.jpg"  >
+                  <a href="">
+                    <img class="img-responsive" src="<?=base_url('assets/')?>images/Gallery/Floor/f4.jpg">
+                  </a>
+                </li>
+                <li class="col-xs-6 col-sm-4 col-md-6 col-lg-6" data-src="<?=base_url('assets/')?>images/Gallery/Floor/f5.jpg" >
+                  <a href="">
+                    <img class="img-responsive" src="<?=base_url('assets/')?>images/Gallery/Floor/f5.jpg">
+                  </a>
+                </li>
+                <li class="col-xs-6 col-sm-4 col-md-6 col-lg-6" data-src="<?=base_url('assets/')?>images/Gallery/Floor/f6.jpg" >
+                  <a href="">
+                    <img class="img-responsive" src="<?=base_url('assets/')?>images/Gallery/Floor/f6.jpg">
+                  </a>
+                </li>
+              
+              </ul>
+            </div>
+            </div>
+            
+          
+          </div>
+  
+  
+          </div>
+  
+  
+        </div>
 
         
-        <div class="row">
+    </div>
 
-          <ul class="nav nav-tabs mytab" role="tablist" style="margin-top: 20px;">
- <li role="presentation" class="active">
-          <a href="#General" aria-controls="settings" role="tab"
-              data-toggle="tab" aria-expanded="false">Elevation
-          </a>
-</li>
-                                                                                </li>
-<?php if (($images = $this->properties_model->getWhere(array('property_id' => $property->id),
-                                                                                 'property_master_plans')))
-    {
-?>
-<li role="presentation" class="">
-                  <a href="#Masterplan" aria-controls="profile" role="tab"
-                      data-toggle="tab" aria-expanded="true">Masterplan
-                  </a>
-</li>
-<?php } 
- if (($images = $this->properties_model->getWhere(array('property_id' => $property->id),
-  'property_floor_plans')))
-{
-?>
-<li role="presentation" class="">
-  <a href="#floorplan" aria-controls="profile" role="tab"
-      data-toggle="tab" aria-expanded="true"> Floorplan
-  </a>
-</li>
-
-    <?php
-}
-?>
-          </ul>
-
-          <div class="tab-content delay-09s animated animated" style="visibility: visible; ">
-              <!-- General -->
-              <div role="tabpanel" class="tab-pane fade active in" id="General">
-
-                <div class="row">
-                  <?php
-             if (($images = $this->properties_model->getWhere(array('property_id' => $property->id),
-               'property_elevations')) != null) {
-                  foreach ($images as $i => $image) {
+    <div class="row div_info mt-10" id="Specification">
+      <div class="individualproject_title">
+      
+        <a class="link" href="" title="" target="_blank" itemprop="url">
+          
+        <h5 itemprop="name"><?= $property->title ? $property->title : '' ?> Specification</h5>
+        </a>
+      </div>
+  
+      <div class="col-md-12">
+      
+        <!-- Toggles Container -->
+        <div class="style-2">
+          <?php
+          if (($specifications = $this->properties_model->getPropertySpecification($property->id)) != null) 
+          {           
+            foreach ($specifications as $k => $specification) {
+              if (($items = $this->properties_model->getPropertySpecification($property->id,
+                                                                $specification->id)) != null) {
+          ?>
+          <div class="toggle-wrap">
+            <span class="trigger "><a href="#"><?= $specification->name ?><i class="sl sl-icon-plus"></i></a></span>
+            <div class="toggle-container">
+              <p><?php
+                    $s=1;
+                foreach (explode(',', $items) as $item) {
                     ?>
-                  <div class="col-md-4 col-sm-4 col-xs-12">
-                    <div class="pro-img">
-                      <figure class="wpf-demo-gallery">
-                        <img src="<?= base_url($image->image) ?>" alt="image"/>
-                        <figcaption class="view-caption">    
-                          <a data-fancybox-group="gallery" class="fancybox" href="<?= base_url($image->image) ?>"><i class="icon-focus"></i></a>
-                        </figcaption>
-                      </figure>
-                    </div>
-                  </div> 
-                      <?php
-                      }
-                      }
-                      else
-                      {
-                      echo  "<center>No Image Found<center>";
-                      }
-                      ?>
-                  
-                </div>
-              </div>
+                                            <?= $s.". ".$item ."<br />"?>
 
-              <!-- Masterplan -->
-              <div role="tabpanel" class="tab-pane fade  " id="Masterplan">
-                <div class="row">
-
-                  <?php
-               if (($images = $this->properties_model->getWhere(array('property_id' => $property->id),
-                'property_master_plans'))) {
-
-                 foreach ($images as $i => $image) {
-                  ?>
-                    <div class="col-md-6 col-sm-4 col-xs-12">
-                      <div class="pro-img">
-                        <figure class="wpf-demo-gallery">
-                          <img src="<?= base_url($image->image) ?>" alt="image"/>
-                          <figcaption class="view-caption">    
-                            <a data-fancybox-group="gallery" class="fancybox" href="<?= base_url($image->image) ?>"><i class="icon-focus"></i></a>
-                          </figcaption>
-                        </figure>
-                      </div>
-                    </div>
-                            <?php
-                            }
-                            }
-
-                            ?>
-
-                </div>
-              </div>
-
-            <!-- floorplan -->
-              <div role="tabpanel" class="tab-pane fade  " id="floorplan">
-                 <div class="row">
-    <?php
-      if (($images =  $this->properties_model->getWhere(array('property_id' => $property->id),'property_floor_plans'))) {
-          foreach ($images as $i => $image) {
-              ?>
-                    <div class="col-md-6 col-sm-4 col-xs-12">
-                      <div class="pro-img">
-                        <figure class="wpf-demo-gallery">
-                          <img src="<?= base_url($image->image) ?>" alt="image"/>
-                          <figcaption class="view-caption">    
-                            <a data-fancybox-group="gallery" class="fancybox" href="<?= base_url($image->image) ?>"><i class="icon-focus"></i></a>
-                          </figcaption>
-                        </figure>
-                      </div>
-                    </div>
-    <?php
-        }
-    }
-    ?>
-                 </div>
-
-              </div>
-
-
+                                                <?php
+                    $s++;
+                }
+                ?></p>
+            </div>
+          </div>
+          <?php
+}
+ }
+}
+          ?>
+  
+          <!-- <div class="toggle-wrap">
+            <span class="trigger"><a href="#">Flooring<i class="sl sl-icon-plus"></i></a></span>
+            <div class="toggle-container">
+              <p><ul><li>Living, Dining, Kitchen &amp; Bedrooms- Vitrified tiles – Varmora / AGL or equivalent brand</li>
+                <li>Toilet flooring  - Anti skid Ceramic tiles – Varmora / AGL or equivalent brand </li>
+                <li>Toilet dadoing up to 7 feet- ceramic glazed tiles – Varmora / AGL or equivalent brand</li>
+                <li>Kitchen dadoing above the counter to height of 2 feet- ceramic glazed tiles – 
+                  Varmora/AGL or equivalent brand (only supply)</li>
+                <li>Balcony -   Anti skid Ceramic tiles – Varmora / AGL or equivalent brand</li>
+                <li>Common Area- Anti skid Ceramic tiles – flooring and skirting</li></ul></p>
+            </div>
+          </div>
+          <div class="toggle-wrap">
+            <span class="trigger "><a href="#">Toilet<i class="sl sl-icon-plus"></i></a></span>
+            <div class="toggle-container">
+              <p><ul><li>Sanitary fittings - American standard or equivalent brand -  Wall hung EWC, wash   basin</li>
+                <li>CP fittings - Jaquar or equivalent make – Shower spout, Diverter, Shower head, Pillar cock,concealed cistern, Flush plate, angle value, health faucet</li>
+                <li>Provision for geyser and Exhaust fan in toilets.</li></ul></p>
+            </div>
+          </div>
+  
+          <div class="toggle-wrap">
+            <span class="trigger"><a href="#">Kitchen<i class="sl sl-icon-plus"></i></a></span>
+            <div class="toggle-container">
+              <p><ul><li>Granite top &amp; single bowl Futura / Jayna sink with drain board or equivalent brand to be provided (only supply)
+              </li>
+              <li>Provision for Chimney in kitchen.</li>
+              <li>Provision for Water purifier
+              </li></ul></p>
+            </div>
+          </div>
+          <div class="toggle-wrap">
+            <span class="trigger "><a href="#">Windows<i class="sl sl-icon-plus"></i></a></span>
+            <div class="toggle-container">
+              <p><ul><li>2 Track UPVC windows with glazed shutters and mosquito mesh 
+                Kommerling or equivalent brand 
+               
+               </li></ul></p>
+            </div>
           </div>
 
+          <div class="toggle-wrap">
+            <span class="trigger"><a href="#">Doors<i class="sl sl-icon-plus"></i></a></span>
+            <div class="toggle-container">
+              <p><ul><li>Main Door -Tata steel or equivalent brand -Super Quality steel door &amp; frame                        
+              </li>                      
+              <li>Internal doors - Tata steel or equivalent brand </li>
+              <li>Toilet doors - FRP door</li>
+              <li>Balcony doors - Kommerling or equivalent brand- 2 Track UPVC glazed shutter with mosquito mesh</li>
+              <li>Common door - Fire rated steel doors for fire exit</li></ul></p>
+            </div>
+          </div>
+
+          <div class="toggle-wrap">
+            <span class="trigger "><a href="#">Electrical<i class="sl sl-icon-plus"></i></a></span>
+            <div class="toggle-container">
+              <p><ul><li>Modular switches of Schneider or Equivalent Brand
+              </li>
+              <li> ELCB and MCB with independent EB meter of approved brand</li>
+              <li>Good quality concealed copper wiring of approved brand</li>
+              <li>Provision for Washing Machine point.</li></ul></p>
+            </div>
+          </div>
+  
+        
+          <div class="toggle-wrap">
+            <span class="trigger"><a href="#">Elevator<i class="sl sl-icon-plus"></i></a></span>
+            <div class="toggle-container">
+              <p><ul><li>Schindler / Johnson lifts or equivalent brand
+            
+              </li></ul></p>
+            </div>
+          </div>
+          <div class="toggle-wrap">
+            <span class="trigger"><a href="#"> Water Supply  <i class="sl sl-icon-plus"></i></a></span>
+            <div class="toggle-container">
+              <p><ul><li>Bore well water supply / Municipal water supply if available
+              </li>
+              </ul></p>
+            </div>
+          </div>
+
+          <div class="toggle-wrap">
+            <span class="trigger "><a href="#"> Power Backup <i class="sl sl-icon-plus"></i></a></span>
+            <div class="toggle-container">
+              <p><ul><li>Power backup for common areas, lift lobbies and
+                0.5 KW power backup for each flat through limiter switch
+                
+                </li></ul></p>
+            </div>
+          </div>
+   -->
+  
+        </div>
+        <!-- Toggles Container / End -->
+      </div>
+    
+    </div>
+
+    
+             <?php
+              if($property->walkthrough)
+              {
+              ?>
+    <div class="div_info mt-10" id="Video">
+      
+        <!-- Video -->
+        <div class="individualproject_title ">
+      
+          
+            
+          <h5 itemprop="name"><?= $property->title ? $property->title : '' ?> Walkthrough Video</h5>
           
         </div>
-        <!-- End of gallery row -->
+        
+        <div class="responsive-iframe">
+          
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/<?= getYoutubeVideoId($property->walkthrough) ?>?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
+        </div>
+    
+    </div>
+            <?php
+                                        }
 
+    if($property->map)
+    {
+      ?>
+
+    <div class="div_info mt-10" id="Location">
+      <div class="property-description">
+  
+        <div class="individualproject_title">
+      
+          
+            
+          <h5 itemprop="name"><?= $property->title ? $property->title : '' ?> Location  Map</h5>
+          
+        </div>
+  
+          <div id="propertyMap-container">
+            <div id="propertyMap" data-latitude="40.7427837" data-longitude="-73.11445617675781" style="position: relative; overflow: hidden;"><div style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background-color: rgb(229, 227, 223);"><div class="gm-err-container"><div class="gm-err-content"><div class="gm-err-icon"><img src="<?= base_url(" uploads/$property->slug/map/$property->map") ?>" draggable="false" style="user-select: none;"></div><div class="gm-err-title">Oops! Something went wrong.</div><div class="gm-err-message">This page didn't load Google Maps correctly. See the JavaScript console for technical details.</div></div></div></div></div>
+            <a href="#" id="streetView">Street View</a>
+          </div>
+      </div>
+    </div>
+                             <?php 
+    }                                           
+?>
+
+      <div class="div_info mt-10" id="Location-Advantages">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="individualproject_title">
+      
+              <h5 itemprop="name"><?= $property->title ? $property->title : '' ?> Location Advantage</h5>
+              
+            </div>
+      
+        
+      
+            <div class=" specification_list">
+              
+      
+              <div class="col-md-6">
+                <ul class="list-3 color">
+                  <li>Lorem ipsum dolor sit amet <span>10 min</span></li>
+                  <li>Consectetur adipiscing elit <span>10 min</span></li>
+                  <li>Integer molestie lorem at massa <span>10 min</span></li>
+                  <li>Facilisis in pretium nisl aliquet <span>10 min</span></li>
+                  <li>Lorem ipsum dolor sit amet <span>10 min</span></li>
+                
+                </ul>
+              </div>
+      
+              <div class="col-md-6">
+                <ul class="list-3 color">
+                  <li>Lorem ipsum dolor sit amet <span>10 min</span></li>
+                  <li>Consectetur adipiscing elit <span>10 min</span></li>
+                  <li>Integer molestie lorem at massa <span>10 min</span></li>
+                  <li>Facilisis in pretium nisl aliquet <span>10 min</span></li>
+                  <li>Lorem ipsum dolor sit amet <span>10 min</span></li>
+                </ul>
+              </div>
+            </div>
+      
+          </div>
+        </div>
       </div>
 
-      <!-- End of Gallery -->
-      <div class="clearflix"></div>
+      <div class="div_info mt-10" id="About_project">
+        <div class="individualproject_title">
+      
+          
+          <h5 itemprop="name">About The Builder</h5>
+          <div class="project-logo mt-10"><img src="<?= base_url().'uploads/builders/'.$property->builder_image?>" class="img-responsive">
+          <p><?=$property->builder?></p></div>
+        
+        </div>
+        
+         <?=$property->builder_description?>
+        
+        </div>
+    
 
-        <?php if($property->map){?>
-        <h2 class="text-uppercase bottom20">Location Map</h2>
-        <div class="row bottom40">
-          <div class="col-md-12 bottom20">
-            <div class="property-list-map">
-            <img src="<?= base_url("uploads/$property->slug/map/$property->map") ?>" class="small-map" alt="<?= $property->location_alt?>" style="width: 100% !important;    height: 100% !important;">
-          </div>
-            <!-- <div class="property-list-map">
-              <div id="property-listing-map" class="multiple-location-map" style="width:100%;height:430px;"></div>
-            </div> -->
-          </div>
-          <div class="social-networks">
-            <div class="social-icons-2">
-              <span class="share-it">Share this Property</span>
-              <span><a href="https://www.facebook.com/sharer/sharer.php?u=<?=current_url();?>"><i class="fa fa-facebook" aria-hidden="true"></i> Facebook</a></span>
-              <span><a href="https://twitter.com/share?url=<?=current_url();?>"><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</a></span>
-              <span><a href="https://api.whatsapp.com/send?phone=<?= $social_links->whatsapp ?>&text=Hi, I am Intrested in propsolutions. <?=current_url();?> "><i class="fa fa-whatsapp" aria-hidden="true"></i> Whatsapp </a></span>
-            </div>
-          </div>
-        </div>
-        <div class="clearfix"></div>
-      <?php } ?>
-        <!-- <h2 class="text-uppercase bottom20">Contact Us</h2>
-       
-        <div class="col-sm-12 bottom40">
-            <form action="" method="post" class="callus">
-              <div class="row">
-                <div class="col-sm-6">
-                  <div class="form-group">
-                    <input type="text" class="form-control" name="name" placeholder="Name">
-                  </div>
-                  <div class="form-group">
-                    <input type="tel" class="form-control" name="phone" placeholder="Phone Number" >
-                  </div>
-                  <div class="form-group">
-                    <input type="email" name="email" class="form-control" placeholder="Email">
-                  </div>
-                </div>
-                <div class="col-sm-6">
-                  <div class="form-group">
-                    <textarea class="form-control" name="sugg" placeholder="Message"></textarea>
-                  </div>
-                </div>
-                <div class="col-sm-12 row">
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <input type="submit" class="btn-blue uppercase border_radius" value="submit now">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
-          
-         <div class="row">
-            <div class="col-sm-10">
-            <h2 class="text-uppercase top20">Similar Properties</h2>
-            <p class="bottom30">We have Properties in these Areas View a list of Featured Properties.</p>
-            </div>
-            <div class="col-sm-12"><div id="two-col-slider" class="owl-carousel">
-              <div class="item">
-                <div class="property_item heading_space">
-                  <div class="image">
-                    <a href="#."><img src="images/listing1.jpg" alt="latest property" class="img-responsive"></a>
-                    <div class="price clearfix"> 
-                      <span class="tag pull-right">Rs 68 Lacs</span>
-                    </div>
-                    <span class="tag_t">For Sale</span> 
-                    <span class="tag_l">Featured</span>
-                  </div>
-                  <div class="proerty_content">
-                    <div class="proerty_text">
-                      <h3 class="captlize"><a href="#.">Historic Town House</a></h3>
-                      <p>Lorem Ipsum, Banglore</p>
-                    </div>
-                    <div class="property_meta transparent"> 
-                      <span><i class="icon-select-an-objecto-tool"></i>4800 sq ft</span> 
-                      <span><i class="icon-bed"></i>2 Office Rooms</span> 
-                      <span><i class="icon-safety-shower"></i>1 Bathroom</span>   
-                    </div>
-                    <div class="property_meta transparent bottom30">
-                      <span><i class="icon-old-television"></i>TV Lounge</span>
-                      <span><i class="icon-garage"></i>1 Garage</span>
-                      <span></span>
-                    </div>
-                    <div class="favroute clearfix">
-                      <a href="property_detail.html">
-                      <p class="pull-md-left"><i class="icon-arrow-right3"></i>&nbsp;Know More </p>
-                    </a>
-                      <ul class="pull-right">
-                      
-                        <li><a href="#five" class="share_expender" data-toggle="collapse"><i class="icon-share3"></i></a></li>
-                      </ul>
-                    </div>
-                    <div class="toggle_share collapse" id="five">
-                      <ul>
-                        <li><a href="#." class="facebook"><i class="icon-facebook-1"></i> Facebook</a></li>
-                        <li><a href="#." class="twitter"><i class="icon-twitter-1"></i> Twitter</a></li>
-                        <li><a href="#." class="vimo"><i class="icon-vimeo3"></i> Vimeo</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="property_item heading_space">
-                  <div class="image">
-                    <a href="#."><img src="images/listing1.jpg" alt="latest property" class="img-responsive"></a>
-                    <div class="price clearfix"> 
-                      <span class="tag pull-right">Rs 68 Lacs</span>
-                    </div>
-                    <span class="tag_t">For Sale</span> 
-                    <span class="tag_l">Featured</span>
-                  </div>
-                  <div class="proerty_content">
-                    <div class="proerty_text">
-                      <h3 class="captlize"><a href="#.">Historic Town House</a></h3>
-                      <p>Lorem Ipsum, Banglore</p>
-                    </div>
-                    <div class="property_meta transparent"> 
-                      <span><i class="icon-select-an-objecto-tool"></i>4800 sq ft</span> 
-                      <span><i class="icon-bed"></i>2 Office Rooms</span> 
-                      <span><i class="icon-safety-shower"></i>1 Bathroom</span>   
-                    </div>
-                    <div class="property_meta transparent bottom30">
-                      <span><i class="icon-old-television"></i>TV Lounge</span>
-                      <span><i class="icon-garage"></i>1 Garage</span>
-                      <span></span>
-                    </div>
-                    <div class="favroute clearfix">
-                      <a href="property_detail.html">
-                      <p class="pull-md-left"><i class="icon-arrow-right3"></i>&nbsp;Know More </p>
-                    </a>
-                      <ul class="pull-right">
-                      
-                        <li><a href="#four" class="share_expender" data-toggle="collapse"><i class="icon-share3"></i></a></li>
-                      </ul>
-                    </div>
-                    <div class="toggle_share collapse" id="four">
-                      <ul>
-                        <li><a href="#." class="facebook"><i class="icon-facebook-1"></i> Facebook</a></li>
-                        <li><a href="#." class="twitter"><i class="icon-twitter-1"></i> Twitter</a></li>
-                        <li><a href="#." class="vimo"><i class="icon-vimeo3"></i> Vimeo</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="property_item heading_space">
-                  <div class="image">
-                    <a href="#."><img src="images/listing1.jpg" alt="latest property" class="img-responsive"></a>
-                    <div class="price clearfix"> 
-                      <span class="tag pull-right">Rs 68 Lacs</span>
-                    </div>
-                    <span class="tag_t">For Sale</span> 
-                    <span class="tag_l">Featured</span>
-                  </div>
-                  <div class="proerty_content">
-                    <div class="proerty_text">
-                      <h3 class="captlize"><a href="#.">Historic Town House</a></h3>
-                      <p>Lorem Ipsum, Banglore</p>
-                    </div>
-                    <div class="property_meta transparent"> 
-                      <span><i class="icon-select-an-objecto-tool"></i>4800 sq ft</span> 
-                      <span><i class="icon-bed"></i>2 Office Rooms</span> 
-                      <span><i class="icon-safety-shower"></i>1 Bathroom</span>   
-                    </div>
-                    <div class="property_meta transparent bottom30">
-                      <span><i class="icon-old-television"></i>TV Lounge</span>
-                      <span><i class="icon-garage"></i>1 Garage</span>
-                      <span></span>
-                    </div>
-                    <div class="favroute clearfix">
-                      <a href="property_detail.html">
-                      <p class="pull-md-left"><i class="icon-arrow-right3"></i>&nbsp;Know More </p>
-                    </a>
-                      <ul class="pull-right">
-                      
-                        <li><a href="#six" class="share_expender" data-toggle="collapse"><i class="icon-share3"></i></a></li>
-                      </ul>
-                    </div>
-                    <div class="toggle_share collapse" id="six">
-                      <ul>
-                        <li><a href="#." class="facebook"><i class="icon-facebook-1"></i> Facebook</a></li>
-                        <li><a href="#." class="twitter"><i class="icon-twitter-1"></i> Twitter</a></li>
-                        <li><a href="#." class="vimo"><i class="icon-vimeo3"></i> Vimeo</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="property_item heading_space">
-                  <div class="image">
-                    <a href="#."><img src="images/listing1.jpg" alt="latest property" class="img-responsive"></a>
-                    <div class="price clearfix"> 
-                      <span class="tag pull-right">Rs 68 Lacs</span>
-                    </div>
-                    <span class="tag_t">For Sale</span> 
-                    <span class="tag_l">Featured</span>
-                  </div>
-                  <div class="proerty_content">
-                    <div class="proerty_text">
-                      <h3 class="captlize"><a href="#.">Historic Town House</a></h3>
-                      <p>Lorem Ipsum, Banglore</p>
-                    </div>
-                    <div class="property_meta transparent"> 
-                      <span><i class="icon-select-an-objecto-tool"></i>4800 sq ft</span> 
-                      <span><i class="icon-bed"></i>2 Office Rooms</span> 
-                      <span><i class="icon-safety-shower"></i>1 Bathroom</span>   
-                    </div>
-                    <div class="property_meta transparent bottom30">
-                      <span><i class="icon-old-television"></i>TV Lounge</span>
-                      <span><i class="icon-garage"></i>1 Garage</span>
-                      <span></span>
-                    </div>
-                    <div class="favroute clearfix">
-                      <a href="property_detail.html">
-                      <p class="pull-md-left"><i class="icon-arrow-right3"></i>&nbsp;Know More </p>
-                    </a>
-                      <ul class="pull-right">
-                      
-                        <li><a href="#three" class="share_expender" data-toggle="collapse"><i class="icon-share3"></i></a></li>
-                      </ul>
-                    </div>
-                    <div class="toggle_share collapse" id="three">
-                      <ul>
-                        <li><a href="#." class="facebook"><i class="icon-facebook-1"></i> Facebook</a></li>
-                        <li><a href="#." class="twitter"><i class="icon-twitter-1"></i> Twitter</a></li>
-                        <li><a href="#." class="vimo"><i class="icon-vimeo3"></i> Vimeo</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div></div>
-          </div> -->
-          
-          <!-- <div class="col-sm-12 text-center heading_space">
-            <ul class="pager">
-              <li><a href="#.">1</a></li>
-              <li class="active"><a href="#.">2</a></li>
-              <li><a href="#.">3</a></li>
-            </ul>
-          </div> -->
-      </div> 
-    <!--<aside class="col-md-4 col-xs-12">
-        <div class="property-query-area clearfix">
-          <div class="col-md-12">
-            <h3 class="text-uppercase bottom20 top15">Advanced Search</h3>
-          </div>
-          <form class="callus" action="<?=site_url('listing')?>" method="post">
-            <div class="single-query form-group col-sm-12">
-              <input type="text" class="keyword-input" placeholder="Keyword (e.g. 'office')">
-            </div>
-            <div class="single-query form-group col-sm-12">
-              <div class="intro">
-                <select name="city" id="city">
-                <option selected="" value="">City</option>
-                <?php
-                foreach ($cities as $cit) {
-                  echo "<option value='".$cit->id."'>".$cit->name."</option>";
-                }
-                ?>
-              </select>
-              </div>
-            </div>
-             <div class="single-query form-group col-sm-12">
-              <div class="intro">
-                <select name="location">
-                <option selected="" value="">Location</option>
-                <?php
-                foreach ($locations as $loc) {
-                  echo "<option value='".$loc->id."'>".$loc->name."</option>";
-                }
-                ?>
-              </select>
-              </div>
-            </div>
-            <div class="single-query form-group col-sm-12">
-              <div class="intro">
-                <select name="property_type">
-                <option class="active" value="">Property Type</option>
-               <?php
-                foreach ($property_types as $property_types) {
-                  echo "<option value='".$property_types->id."'>".$property_types->name."</option>";
-                }
-                ?>
-              </select>
-              </div>
-            </div>
-            <div class="single-query form-group col-sm-12">
-              <div class="intro">
-                <select name="property_status_id" >
-                <option class="active" value="">Property Status</option>
-                <?php
-                foreach ($property_status as $property_status) {
-                  echo "<option value='".$property_status->id."'>".$property_status->name."</option>";
-                }
-                ?>
-              </select>
-              </div>
-            </div>
-            <div class="search-2 col-sm-12">
-              <div class="row">
-                <div class="col-sm-6">
-                  <div class="single-query form-group">
-                    <div class="intro">
-                      <select name="bhk">
-                    <option value="0"class="active">Min BHK</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                  </select>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-6">
-                  <div class="single-query form-group">
-                    <div class="intro">
-                     <select name="baths">
-                    <option value="0" class="active">Min Baths</option>
-                   <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                  </select>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-12">
-              <div class="row">
-                <div class="col-sm-6">
-                  <div class="single-query form-group">
-                    <input type="text" class="keyword-input" placeholder="Min Area (sq ft)">
-                  </div>
-                </div>
-                <div class="col-sm-6">
-                  <div class="single-query form-group">
-                    <input type="text" class="keyword-input" placeholder="Max Area (sq ft)">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-12 bottom10">
-              <div class="single-query-slider">
-                <label><strong>Price Range:</strong></label>
-                <div class="price text-right">
-                  <span>rs</span>
-                  <div class="leftLabel"></div>
-                  <span> to rs</span>
-                  <div class="rightLabel"></div>
-                </div>
-                <div data-range_min="0" data-range_max="1500000" data-cur_min="0" data-cur_max="1500000" class="nstSlider">
-                  <div class="bar"></div>
-                  <div class="leftGrip"></div>
-                  <div class="rightGrip"></div>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-12 form-group">
-              <button type="submit" class="btn-blue border_radius">Search</button>
-            </div>
-          </form>
-          <div class="col-sm-12">
-            <div class="group-button-search">
-              <a data-toggle="collapse" href=".html" class="more-filter bottom15">
-                <i class="fa fa-plus text-1" aria-hidden="true"></i><i class="fa fa-minus text-2 hide" aria-hidden="true"></i>
-                <div class="text-1">Show more search options</div>
-                <div class="text-2 hide">less more search options</div>
-              </a>
-            </div>
-          </div>
-          <div class="search-propertie-filters collapse">
-            <div class="container-2">
-              <div class="row">
-                <div class="col-sm-6 col-xs-6">
-                  <div class="search-form-group white">
-                    <input type="checkbox" name="check-box" />
-                    <span>Rap music</span>
-                  </div>
-                </div>
-                <div class="col-sm-6 col-xs-6">
-                  <div class="search-form-group white">
-                    <input type="checkbox" name="check-box" />
-                    <span>Rap music</span>
-                  </div>
-                </div>
-                <div class="col-sm-6 col-xs-6">
-                  <div class="search-form-group white">
-                    <input type="checkbox" name="check-box" />
-                    <span>Rap music</span>
-                  </div>
-                </div>
-                <div class="col-sm-6 col-xs-6">
-                  <div class="search-form-group white">
-                    <input type="checkbox" name="check-box" />
-                    <span>Rap music</span>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-sm-6 col-xs-6">
-                  <div class="search-form-group white">
-                    <input type="checkbox" name="check-box" />
-                    <span>Rap music</span>
-                  </div>
-                </div>
-                <div class="col-sm-6 col-xs-6">
-                  <div class="search-form-group white">
-                    <input type="checkbox" name="check-box" />
-                    <span>Rap music</span>
-                  </div>
-                </div>
-                <div class="col-sm-6 col-xs-6">
-                  <div class="search-form-group white">
-                    <input type="checkbox" name="check-box" />
-                    <span>Rap music</span>
-                  </div>
-                </div>
-                <div class="col-sm-6 col-xs-6">
-                  <div class="search-form-group white">
-                    <input type="checkbox" name="check-box" />
-                    <span>Rap music</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-       <div class="row">
-          <div class="col-md-12">
-            <h3 class="bottom40 margin40">Featured Properties</h3>
-          </div>
-        </div> 
-         <div class="row bottom20">
-          <div class="col-md-4 col-sm-4 col-xs-6 p-image">
-            <img src="images/f-p-1.png" alt="image"/>
-          </div>
-          <div class="col-md-8 col-sm-8 col-xs-6">
-            <div class="feature-p-text">
-              <h4>Historic Town House</h4>
-              <p class="bottom15">Lorem Ipsum, Banglore</p>
-              <a href="#.">$128,600</a>
-            </div>
-          </div>
-        </div>
-        <div class="row bottom20">
-          <div class="col-md-4 col-sm-4 col-xs-6 p-image">
-            <img src="images/f-p-1.png" alt="image"/>
-          </div>
-          <div class="col-md-8 col-sm-8 col-xs-6">
-            <div class="feature-p-text">
-              <h4>Historic Town House</h4>
-              <p class="bottom15">Lorem Ipsum, Banglore</p>
-              <a href="#.">$128,600</a>
-            </div>
-          </div>
-        </div> -->
-        <!-- <div class="row bottom20">
-          <div class="col-md-4 col-sm-4 col-xs-6 p-image">
-            <img src="images/f-p-1.png" alt="image"/>
-          </div>
-          <div class="col-md-8 col-sm-8 col-xs-6">
-            <div class="feature-p-text">
-              <h4>Historic Town House</h4>
-              <p class="bottom15">Lorem Ipsum, Banglore</p>
-              <a href="#.">$128,600</a>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <h3 class="margin40 bottom20">Featured Properties</h3>
-          </div>
-          <div class="col-md-12">
-            <div id="agent-2-slider" class="owl-carousel">
-              <div class="item">
-                <div class="property_item heading_space">
-                  <div class="image">
-                    <a href="#."><img src="images/slider-list2.jpg" alt="listin" class="img-responsive"></a>
-                    <div class="feature"><span class="tag-2">For Rent</span></div>
-                    <div class="price clearfix"><span class="tag pull-right">Rs 68 Lacs- <small>Family Home</small></span></div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="property_item heading_space">
-                  <div class="image">
-                    <a href="#."><img src="images/slider-list2.jpg" alt="listin" class="img-responsive"></a>
-                    <div class="feature"><span class="tag-2">For Rent</span></div>
-                    <div class="price clearfix"><span class="tag pull-right">Rs 68 Lacs- <small>Family Home</small></span></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> 
-      </aside> -->
-
-      <aside id="contactSideForm" class="col-md-4 col-xs-12 container1">
-        <div class="property-query-area clearfix">
-          <div class="col-md-12">
-            <h3 class="text-uppercase text-center bottom20 top15">Contact Us</h3>
-          </div>
-          <form class="callus" action="<?=base_url('sendmail');?>" method="post">
-            <div class="single-query form-group col-sm-12">
-              <input type="text" name="name" class="keyword-input" placeholder="Your Name">
-            </div>
-            <div class="single-query form-group col-sm-12">
-              <input type="tel" name="phone" class="keyword-input" placeholder="Your Phone Number">
-            </div>
-            <div class="single-query form-group col-sm-12">
-              <input type="email" name="email" class="keyword-input" placeholder="Your Email">
-            </div>
-          
-            <div class="single-query form-group col-sm-12">
-              <textarea type="subject" name="message" class="keyword-input" placeholder="Your Message"></textarea>
-            </div>
-            
-           
-           
-            <div class="col-sm-12 form-group text-center">
-              <button type="submit" class="btn-blue border_radius">Submit</button>
-            </div>
-          </form>
-         
-         
-        </div>
-      </aside>
-    </div>
   </div>
-</section>
+
+  
+
+  <div class="col-lg-4">
+    <div id="sideform" class="needhelp_form sideform ">
+      <div class="needhelp_form_close  mt-10">
+
+        </div><h5>Need help in your house search?</h5>
+        
+        <style type="text/css">.g-recaptcha{transform:scale(.77);-webkit-transform:scale(.77);transform-origin:0 0;-webkit-transform-origin:0 0}.needhelp_form h5{margin:0}.needhelp_form .needhelp_form_list .submit_btn{margin-top:0}.needhelp_form .needhelp_form_list ul li input{height:28px}.needhelp_form .needhelp_form_list ul li input[type=checkbox]{height:12px}.needhelp_form .needhelp_form_list ul li{margin:0 0 5px}</style>
+        
+        <div class="needhelp_form_list">
+          
+          <form action="" name="WebForm-1498709213622" method="POST" id="elqform2">
+              <div class="throwerror" style="color:red;font-size:15px;padding-bottom:18px;"></div>
+              <ul>
+                <li class="form-sec"> 
+                  <input type="text" placeholder="Name*" id="" required="" name="Name*"></li>
+                <li class="form-sec">
+              
+              <input type="tel" placeholder="Phone Number*" id="" required="" name="phone*">
+            </li>
+              <li class="form-sec">
+                <input type="email" placeholder="Email ID*" required="" name="emailAddress" id="fcemail" autocomplete="off" class="emailcheck">
+              </li>
+              <li style="margin-top:20px !Important;">
+                <center><div class="btn btn-submit" data-toggle="modal" data-target="#main-pop">Enquire Now</div></center>
+              </li>
+            </ul>
+          </form>
+          <div class="mb-40">
+            <div class="offers-wrap lead-offer no-bg-style"> 
+              <div class="spl-img va-top  bg-img-default bg-img-contain"  style=" background-image:url('images/cashback.png')">
+              </div>  
+              <div class="spl-txt-wrap va-middle"> 
+                <div class="spl-title va-top">Assured Callback in 5 mins</div> 
+                <ul class="va-top reset-ul offer-ul"> 
+                  <li class="offer">Get an assured callback in 5 mins from sales expert (9 AM - 6 PM IST)</li> 
+                </ul> 
+                </div>      
+            </div>
+            <div class="offers-wrap lead-offer no-bg-style">
+              <div class="spl-img va-top  bg-img-default bg-img-contain"  style=" background-image:url('images/offer.png')"> 
+              </div>                 
+              <div class="spl-txt-wrap va-middle"> 
+                <div class="spl-title va-top">Authorised Channel Partner</div>
+                <ul class="va-top reset-ul offer-ul"> 
+                  <li class="offer">Holding Bricks is an authorised channel partner for this project</li>
+                </ul> 
+                </div>            
+            </div>
+          </div>  
+        </div>
+      </div>
+      
+      <!-- Widget -->
+      <div class="widget margin-top-20 margin-bottom-30">
+        <h3 class="">Projects Nearby :</h3>
+        <div class="underline margin-bottom-35"></div>
+
+        <div class="outer" id="scroll-nearby">
+          <!-- Item -->
+          <div class="item">
+            <div class="listing-item compact">
+
+              <a href="#" class="listing-img-container">
+
+                <div class="listing-badges">
+                  <span class="featured">Best Deals</span>
+                  <span>For Sale</span>
+                </div>
+
+                <div class="listing-img-content">
+                  <span class="listing-compact-title">Eagle Apartments <i>Sarjapur road</i></span>
+
+                  <!-- <ul class="listing-hidden-content">
+                    <li>Area <span></span></li>
+                    
+                    <li>Price <span>1 Cr</span></li>
+                  </ul> -->
+                </div>
+
+                <img src="<?=base_url('assets/')?>images/listing-01.jpg" alt="">
+              </a>
+
+            </div>
+          </div>
+          <!-- Item / End -->
+
+          <!-- Item -->
+          <div class="item">
+            <div class="listing-item compact">
+
+              <a href="#" class="listing-img-container">
+
+                <div class="listing-badges">
+                  <span class="featured">Best Deals</span>
+                  <span>For Sale</span>
+                </div>
+
+                <div class="listing-img-content">
+                  <span class="listing-compact-title">Eagle Apartments <i>Sarjapur road</i></span>
+
+                  <!-- <ul class="listing-hidden-content">
+                    <li>Area <span></span></li>
+                    
+                    <li>Price <span>1 Cr</span></li>
+                  </ul> -->
+                </div>
+
+                <img src="<?=base_url('assets/')?>images/listing-01.jpg" alt="">
+              </a>
+
+            </div>
+          </div>
+          <!-- Item / End -->
+
+        <!-- Item -->
+        <div class="item">
+          <div class="listing-item compact">
+
+            <a href="#" class="listing-img-container">
+
+              <div class="listing-badges">
+                <span class="featured">Best Deals</span>
+                <span>For Sale</span>
+              </div>
+
+              <div class="listing-img-content">
+                <span class="listing-compact-title">Eagle Apartments <i>Sarjapur road</i></span>
+
+                <!-- <ul class="listing-hidden-content">
+                  <li>Area <span></span></li>
+                  
+                  <li>Price <span>1 Cr</span></li>
+                </ul> -->
+              </div>
+
+              <img src="<?=base_url('assets/')?>images/listing-01.jpg" alt="">
+            </a>
+
+          </div>
+        </div>
+        <!-- Item / End -->
+
+          <center>
+            <button class="btn btn-view"><a style="color: white;">See More</a></button>
+          </center>
+        </div>
+
+      </div>
+      <!-- Widget / End -->
+
+      <!-- Widget -->
+      <div class="widget margin-top-20 margin-bottom-30">
+        <h3 class="">Best Deals In Your City :</h3>
+        <div class="underline-widget margin-bottom-35"></div>
+
+        <div class="outer" id="scroll-bestdeals">
+          <!-- Item -->
+          <div class="item">
+            <div class="listing-item compact">
+
+              <a href="#" class="listing-img-container">
+
+                <div class="listing-badges">
+                  <span class="featured">Best Deals</span>
+                  <span>For Sale</span>
+                </div>
+
+                <div class="listing-img-content">
+                  <span class="listing-compact-title">Eagle Apartments <i>Sarjapur road</i></span>
+
+                  <!-- <ul class="listing-hidden-content">
+                    <li>Area <span></span></li>
+                    
+                    <li>Price <span>1 Cr</span></li>
+                  </ul> -->
+                </div>
+
+                <img src="<?=base_url('assets/')?>images/listing-01.jpg" alt="">
+              </a>
+
+            </div>
+          </div>
+          <!-- Item / End -->
+
+          <!-- Item -->
+          <div class="item">
+            <div class="listing-item compact">
+
+              <a href="#" class="listing-img-container">
+
+                <div class="listing-badges">
+                  <span class="featured">Best Deals</span>
+                  <span>For Sale</span>
+                </div>
+
+                <div class="listing-img-content">
+                  <span class="listing-compact-title">Eagle Apartments <i>Sarjapur road</i></span>
+
+                  <!-- <ul class="listing-hidden-content">
+                    <li>Area <span></span></li>
+                    
+                    <li>Price <span>1 Cr</span></li>
+                  </ul> -->
+                </div>
+
+                <img src="<?=base_url('assets/')?>images/listing-01.jpg" alt="">
+              </a>
+
+            </div>
+          </div>
+          <!-- Item / End -->
+
+        <!-- Item -->
+        <div class="item">
+          <div class="listing-item compact">
+
+            <a href="#" class="listing-img-container">
+
+              <div class="listing-badges">
+                <span class="featured">Best Deals</span>
+                <span>For Sale</span>
+              </div>
+
+              <div class="listing-img-content">
+                <span class="listing-compact-title">Eagle Apartments <i>Sarjapur road</i></span>
+
+                <!-- <ul class="listing-hidden-content">
+                  <li>Area <span></span></li>
+                  
+                  <li>Price <span>1 Cr</span></li>
+                </ul> -->
+              </div>
+
+              <img src="<?=base_url('assets/')?>images/listing-01.jpg" alt="">
+            </a>
+
+          </div>
+        </div>
+        <!-- Item / End -->
+
+          <center>
+            <button class="btn btn-view"><a style="color: white;">See More</a></button>
+          </center>
+        </div>
+
+      </div>
+      <!-- Widget / End -->
+
+      <!-- Widget -->
+      <div class="widget margin-top-20 margin-bottom-30">
+        <h3 class="">Latest Blogs :</h3>
+        <div class="underline-blog margin-bottom-35"></div>
+
+        <div class="outer" id="scroll-Blogs">
+          <!-- Item -->
+          <div class="item">
+            
+            <div class="listing-item compact">
+
+              <a href="#" class="listing-img-container">
+
+              
+                <div class="listing-img-content">
+                  <span class="listing-compact-title">Blog Heading </span>
+
+                  <!-- <ul class="listing-hidden-content">
+                    <li>Area <span></span></li>
+                    
+                    <li>Price <span>1 Cr</span></li>
+                  </ul> -->
+                </div>
+
+                <img src="<?=base_url('assets/')?>images/listing-01.jpg" alt="">
+              </a>
+
+            </div>
+          </div>
+          <!-- Item / End -->
+
+          <div class="item">
+            
+            <div class="listing-item compact">
+
+              <a href="#" class="listing-img-container">
+
+              
+                <div class="listing-img-content">
+                  <span class="listing-compact-title">Blog Heading </span>
+
+                  <!-- <ul class="listing-hidden-content">
+                    <li>Area <span></span></li>
+                    
+                    <li>Price <span>1 Cr</span></li>
+                  </ul> -->
+                </div>
+
+                <img src="<?=base_url('assets/')?>images/listing-01.jpg" alt="">
+              </a>
+
+            </div>
+          </div>
+          <div class="item">
+            
+            <div class="listing-item compact">
+
+              <a href="#" class="listing-img-container">
+
+              
+                <div class="listing-img-content">
+                  <span class="listing-compact-title">Blog Heading </span>
+
+                  <!-- <ul class="listing-hidden-content">
+                    <li>Area <span></span></li>
+                    
+                    <li>Price <span>1 Cr</span></li>
+                  </ul> -->
+                </div>
+
+                <img src="<?=base_url('assets/')?>images/listing-01.jpg" alt="">
+              </a>
+
+            </div>
+          </div>
+
+          <center>
+            <button class="btn btn-view"><a style="color: white;">See More</a></button>
+          </center>
+        </div>
+
+      </div>
+      <!-- Widget / End -->
+        
+        </div>
+    </div>
+</div>
+<!-- Flip banner -->
+<a href="" class="flip-banner parallax-home" data-background="images/single-property-03.jpg"  data-img-width="2500" data-img-height="1600">
+  <div class="flip-banner-content" style="color:rgb(219 18 57)">
+    <h2 class="flip-visible">We help people and homes find each other</h2>
+    <h2 class="flip-hidden">Browse Properties <i class="sl sl-icon-arrow-right"></i></h2>
+  </div>
+</a>
+<!-- Flip banner / End -->
 
 
-<!-- Property Detail End -->
-<?php
-$this->load->view('inc/footer'); 
+<div class="modal Home-pupup fade in" tabindex="-1" role="dialog" id="main-pop" style="opacity: 1;">
+  <!-- data-backdrop="static" data-keyboard="false" -->
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+      
+    <div class="modal-body text-center needhelp_form-modal" style="margin: auto;">
+    <li class="left_col"><img class="text-center modal-logo" src="<?=base_url('assets/')?>images/Holding-bricks.png"></li>  
+    <li class="right_col"><h5>Project Name Brochure</h5></li>
+    
+      <div class="needhelp_form_list">
+          
+        <form action="" name="WebForm-1498709213622" method="POST" id="elqform2">
+            <div class="throwerror" style="color:red;font-size:15px;padding-bottom:18px;"></div>
+            <ul>
+              <li class="form-sec"> 
+                <input type="text" placeholder="Name*" id="" required="" name="Name*"></li>
+              
+          
+              <li class="form-sec">
+            
+            <input type="tel" placeholder="Phone Number*" id="" required="" name="phone*">
+          </li>
+            <li class="form-sec">
+              <input type="email" placeholder="Email ID*" required="" name="emailAddress" id="fcemail" autocomplete="off" class="emailcheck">
+            </li>
 
-?>
+            <li style="margin-top:20px!important">
+            <center><div class="btn btn-submit" data-toggle="modal" data-target="#main-pop">Download</div></center>
+          </li>
+          </ul>
+        </form>
+      </div>
+        </div>
+    </div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+</div>

@@ -1,239 +1,183 @@
-<!-- Page Banner Start-->
-<section class="page-banner padding">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 text-center">
-        <h1 class="text-uppercase">About Us</h1>
-        <p> Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
-        <ol class="breadcrumb text-center">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Pages</a></li>
-          <li class="active">About-Us</li>
-        </ol>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- Page Banner End --> 
+<div class="clearfix"></div>
+<!-- Header Container / End -->
 
+<div class="parallax titlebar" data-background="<?=base_url('assets/')?>images/listings-parallax.jpg" data-color="#333333" data-color-opacity="0.7" data-img-width="800" data-img-height="505" style="background-image: url(&quot;<?=base_url('assets/')?>images/listings-parallax.jpg&quot;); background-attachment: fixed; background-size: 1349px 851.556px; background-position: 50% -496.819px;">
+  <div class="parallax-overlay" style="background-color: rgba(51, 51, 51, 0.131); "></div>
 
-<!--Featured Property--
-<section id="feature_property" class="padding">
-  <div class="container feature3">
-    <div class="row">
-      <div class="col-md-6 col-sm-6">
-        <h2 class="uppercase">Featured Propertie</h2>
-        <h4 class="bottom30">Lorem Ipsum ,Bangalore</h4>
-        <p class="bottom30">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam power nonummy nibh tempor cum soluta nobis eleifend option congue nihil imperdiet doming Lorem ipsum dolor sit amet. consectetuer elit, sed diam power nonummy nibh We provide consumers with a content-rich tempor cum soluta nobis adipiscing eleifend option congue...</p>
-        <div class="row">
-          <div class="col-md-6 col-sm-6">
-            <ul class="feature_list">
-              <li>Quiet Neighbourhood</li>
-              <li>Quiet Neighbourhood</li>
+  <div id="titlebar" style="    margin-bottom: 0px;">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+
+          <h2>About Us</h2>
+          <span></span>
+          
+          <!-- Breadcrumbs -->
+          <nav id="breadcrumbs">
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li>About</li>
             </ul>
-          </div>
-
-          <div class="col-md-6 col-sm-6">
-            <ul class="feature_list">
-              <li>Quiet Neighbourhood</li>
-              <li>Quiet Neighbourhood</li>
-            </ul>
-          </div>
-        </div>
-        <div class="property_meta">
-          <span><i class="icon-select-an-objecto-tool"></i>4800 sq ft</span> <span><i class="icon-bed"></i>3 Bedrooms</span> <span><i class="icon-safety-shower"></i>2 Bedrooms</span> <span><i class="icon-old-television"></i>TV Lounge</span> <span><i class="icon-garage"></i>1 Garage</span> 
-        </div>
-        <a href="property_detail.html" class="uppercase btn-blue border_radius space30">view all detail</a>
-      </div>
-      <div class="col-md-6 col-sm-6">
-        <div class="feature_main">
-          <img src="<?= base_url('assets/images/');?>feature-main.jpg" alt="featured" class="img-responsive">
-          <div class="bottom clearfix">
-            <span class="pull-left">For Rent</span>
-            <h4 class="pull-right">Rs 2 Lacs- <small>Family Home</small></h4>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!--Featured Property Ends-->
-
-
-
-<div class="mkdf-row-grid-section-wrapper mkdf-content-aligment-center" style="background-color:#f9f7f6">
-  <div class="container">
- 
-    <div class="vc_row wpb_row vc_row-fluid vc_custom_1510575966468">
-      <div class="wpb_column vc_column_container vc_col-sm-12">
-        <div class="vc_column-inner"><div class="wpb_wrapper">
-          <div class="mkdf-section-title-holder  mkdf-st-standard mkdf-st-title-center mkdf-st-normal-space ">
-            <div class="mkdf-st-inner">
-              <h2 class="mkdf-st-title">
-              See How It Works </h2>
-              <p class="mkdf-st-text" style="font-size: 18px">
-              Lorem ipsum dolor sit amet, atqui sanctus delectus in duo. Purto fuisset sed et.
-              </p>
-            </div>
-          </div>
-
-          <div class="mkdf-elements-holder   mkdf-three-columns  mkdf-responsive-mode-768 ">
-            <div class="mkdf-eh-item   mkdf-horizontal-alignment-center " data-item-class="mkdf-eh-custom-1369">
-              <div class="mkdf-eh-item-inner">
-                <div class="mkdf-eh-item-content mkdf-eh-custom-1369" style="padding: 63px 7% 0">
-                  <div class="mkdf-process-holder ">
-                    <div class="mkdf-process-image">
-                      <img width="250" height="177" src="<?= base_url('assets/images/');?>home-process-img-1.png" class="attachment-full size-full" alt="a">
-
-
-                    </div>
-                    <div class="mkdf-process-text-inner">
-                      <div class="mkdf-process-title-holder">
-                          <h5 class="mkdf-process-title">
-                          Choose a Category 
-                          </h5>
-                      </div>
-                        <div class="mkdf-process-text">
-                        Feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent
-                        </div>
-                    </div>
-                  </div> 
-                </div>
-              </div>
-          </div>
-
-          <div class="mkdf-eh-item   mkdf-horizontal-alignment-center " data-item-class="mkdf-eh-custom-7113">
-            <div class="mkdf-eh-item-inner">
-              <div class="mkdf-eh-item-content mkdf-eh-custom-7113" style="padding: 63px 7% 0">
-                <div class="mkdf-process-holder ">
-                  <div class="mkdf-process-image">
-                    <img width="250" height="177" src="<?= base_url('assets/images/');?>home-process-img-2.png" class="attachment-full size-full" alt="a"> 
-
-
-                  </div>
-                  <div class="mkdf-process-text-inner">
-                    <div class="mkdf-process-title-holder">
-                      <h5 class="mkdf-process-title">
-                      Find Real Estate 
-                      </h5>
-                    </div>
-                    <div class="mkdf-process-text">
-                        Feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent </div>
-                    </div>
-                  </div> 
-
-                </div>
-              </div>
-            </div>
-
-            <div class="mkdf-eh-item   mkdf-horizontal-alignment-center " data-item-class="mkdf-eh-custom-1159">
-              <div class="mkdf-eh-item-inner">
-                <div class="mkdf-eh-item-content mkdf-eh-custom-1159" style="padding: 63px 7% 0">
-                  <div class="mkdf-process-holder ">
-                    <div class="mkdf-process-image">
-                      <img width="250" height="177" src="<?= base_url('assets/images/');?>home-process-img-3.png" class="attachment-full size-full" alt="a"> 
-                      <div class="mkdf-process-add-text">
-                      3 </div>
-                    </div>
-                    <div class="mkdf-process-text-inner">
-                      <div class="mkdf-process-title-holder">
-                        <h5 class="mkdf-process-title">
-                        Take the Keys </h5>
-                      </div>
-                      <div class="mkdf-process-text">
-                        Feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent </div>
-                      </div>
-
-                    </div> 
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          </nav>
 
         </div>
       </div>
     </div>
   </div>
 </div>
-
-
-<!--Parallax-->
-<section id="parallax_four" class="padding">
+<section class="fullwidth border-bottom margin-top-0 margin-bottom-0 padding-top-0 padding-bottom-50" data-background-color="#ffffff" style="background: rgb(255, 255, 255);">
+<h1 class="pull-center">About Us</h1>
+  <!-- Content -->
   <div class="container">
     <div class="row">
-      <div class="col-sm-8 bottom30">
-        <h2>We Don’t Just Find <br> <span class="t_yellow">Great Deals</span> We Create Them</h2>
-        <div class="bottom15"></div>
-        <div class="row number-counters text-center">
-      <div class="col-sm-4 col-xs-12 counters-item margin40">
-        <i class="icon-icons215"></i>
-        <strong data-to="4195">0</strong>
-        <p>Properties Sale</p>
-      </div>
-      <div class="col-sm-4 col-xs-12 counters-item margin40">
-        <i class="icon-icons230"></i>
-        <strong data-to="123">0</strong>
-        <p>Total Agents</p>
-      </div>
-      <div class="col-sm-4 col-xs-12 counters-item margin40">
-        <i class="icon-smiling-face"></i>
-        <strong data-to="100">0</strong> %
-        <p>Satisfied customers</p>
-      </div>
-    </div>
 
+      <div class="col-md-4">
+        <!-- Icon Box -->
+        <div class="icon-box-1 alternative">
+
+          <div class="icon-container">
+            <i class="im im-icon-Checked-User"></i>
+          </div>
+
+          <h3>Abcd</h3>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+        </div>
       </div>
+
+      <div class="col-md-4">
+        <!-- Icon Box -->
+        <div class="icon-box-1 alternative">
+
+          <div class="icon-container">
+            <i class="im im-icon-Checked-User"></i>
+          </div>
+
+          <h3>Abcd</h3>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+        </div>
+      </div>
+
+
+      <div class="col-md-4">
+        <!-- Icon Box -->
+        <div class="icon-box-1 alternative">
+
+          <div class="icon-container">
+            <i class="im im-icon-Checked-User"></i>
+          </div>
+
+          <h3>Abcd</h3>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+        </div>
+      </div>
+
+
     </div>
   </div>
+
 </section>
-<!--About Owner ends-->
+<!-- Counters Container -->
+<div class="parallax margin-top-0"
+  data-background="<?=base_url('assets/')?>images/listings-parallax.jpg"
+  data-color="#252529"
+  data-color-opacity="0.85"
+  data-img-width="800"
+  data-img-height="505">
 
+  <!-- Counters -->
+  <div id="counters">
+    <div class="container">
 
-<!--Partners-->
-<section id="logos">
-  <div class="container partner2 padding">
-    <div class="row">
-      <div class="col-sm-10">
-        <h2 class="uppercase">Our Partners</h2>
-        <p class="heading_space">Aliquam nec viverra erat. Aenean elit tellus mattis quis maximus.</p>
+      <div class="row">
+
+        <div class="counter-boxes-inside-parallax">
+
+          <div class="col-md-3 col-sm-6">
+            <div class="counter-box">
+              <div class="counter-box-icon">
+                <i class="im im-icon-Home-2"></i>
+                <span class="counter">942 </span>
+                <p>Properties </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3 col-sm-6">
+            <div class="counter-box">
+              <div class="counter-box-icon">
+                <i class="im im-icon-Money-2"></i>
+                <span class="counter">50 </span>
+                <p>Amenities</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3 col-sm-6">
+            <div class="counter-box">
+              <div class="counter-box-icon">
+                <i class="im im-icon-Business-ManWoman"></i>
+                <span class="counter">100 </span>
+                <p>Profits</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3 col-sm-6">
+            <div class="counter-box last">
+              <div class="counter-box-icon">
+                <i class="im im-icon-Suitcase"></i>
+                <span class="counter">163</span>
+                <p>Amenities</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
       </div>
-    </div>
-    <div class="row">
-      <div id="partner-slider" class="owl-carousel">
-        <div class="item">
-          <img src="<?= base_url('assets/images/');?>logo1.png" alt="Featured Partner">
-        </div>
-        <div class="item">
-          <img src="<?= base_url('assets/images/');?>logo2.png" alt="Featured Partner">
-        </div>
-        <div class="item">
-          <img src="<?= base_url('assets/images/');?>logo3.png" alt="Featured Partner">
-        </div>
-        <div class="item">
-          <img src="<?= base_url('assets/images/');?>logo4.png" alt="Featured Partner">
-        </div>
-        <div class="item">
-          <img src="<?= base_url('assets/images/');?>logo5.png" alt="Featured Partner">
-        </div>
-        <div class="item">
-          <img src="<?= base_url('assets/images/');?>logo1.png" alt="Featured Partner">
-        </div>
-        <div class="item">
-          <img src="<?= base_url('assets/images/');?>logo2.png" alt="Featured Partner">
-        </div>
-        <div class="item">
-          <img src="<?= base_url('assets/images/');?>logo3.png" alt="Featured Partner">
-        </div>
-        <div class="item">
-          <img src="<?= base_url('assets/images/');?>logo4.png" alt="Featured Partner">
-        </div>
-        <div class="item">
-          <img src="<?= base_url('assets/images/');?>logo5.png" alt="Featured Partner">
-        </div>
-      </div>
+
     </div>
   </div>
-</section>
-<!--Partner Ends-->
- 
+  <!-- Counters / End -->
+
+  <!-- Flip banner -->
+  <a href="<?=base_url('listing');?>" class="flip-banner parallax-home" data-color="#274abb" data-color-opacity="0.9" data-img-width="2500" data-img-height="1600">
+    <div class="flip-banner-content">
+      <h2 class="flip-visible">We help people and homes find each other</h2>
+      <h2 class="flip-hidden">Browse Properties <i class="sl sl-icon-arrow-right"></i></h2>
+    </div>
+  </a>
+  <!-- Flip banner / End -->
+
+</div>
+<!-- Counters Container / End -->
+
+
+<!-- Parallax -->
+<div class="parallax" data-background="<?=base_url('assets/')?>images/listings-parallax.jpg"
+  data-color="#36383e"
+  data-color-opacity="0.7"
+  data-img-width="800"
+  data-img-height="505">
+
+  <!-- Infobox -->
+  <div class="text-content white-font">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-lg-6 col-sm-8">
+          <h2>It's your journey. We're here to help.</h2>
+          <p>We’re full-service, local agents who know how to find people and home each together. We use online tools with an unmatched search capability to make you smarter and faster.</p>
+          <a href="" class="button margin-top-25">Get Started</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Infobox / End -->
+
+</div>
+<!-- Parallax / End -->
+
+

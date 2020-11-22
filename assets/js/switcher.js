@@ -8,7 +8,6 @@ window.console = window.console || (function(){
 })();
 
 
-jQuery(document).ready(function($) {
 	
 		// Color Changer
 		$("#style-switcher .green" ).click(function(){

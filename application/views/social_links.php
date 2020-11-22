@@ -62,6 +62,18 @@
                                         <label for="whatsapp">whatsapp</label>
                                         <input type="text" name="whatsapp" class="form-control" value="<?= $social->whatsapp ? $social->whatsapp : '' ?>" required>
                                     </div>
+                                </div>  
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="mobile">Mobile</label>
+                                        <input type="text" name="mobile" class="form-control" value="<?= $social->mobile ? $social->mobile : '' ?>" required>
+                                    </div>
+                                </div>   
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="email">Email</label>
+                                        <input type="email" name="email" class="form-control" value="<?= $social->email ? $social->email : '' ?>" required>
+                                    </div>
                                 </div>   
                             </div>
                         </div><!-- /.box-body -->

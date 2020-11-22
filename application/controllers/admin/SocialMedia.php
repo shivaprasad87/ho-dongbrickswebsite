@@ -51,6 +51,8 @@ class SocialMedia extends Admin_Controller {
                     'linked_in' => $this->input->post('linked_in'),
                     'instagram' => $this->input->post('instagram'),
                     'google' => $this->input->post('google'),
+                    'mobile' => $this->input->post('mobile'),
+                    'email' => $this->input->post('email'),
                     'whatsapp' => $this->input->post('whatsapp')
                     );
                 $this->aboutUs_model->updateWhere(array('status' =>1), $data, 'social_media');

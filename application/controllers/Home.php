@@ -35,7 +35,7 @@ class Home extends Public_Controller
     {
         $this->data['keyword'] = $this->input->post('keyword') ? $this->input->post('keyword') : ''; 
         $this->session->unset_userdata('content');
-        $this->data['meta'] = array('title' => 'Prop Solutions: Best Property Portal in India', 'description' => 'Buy Residential Properties in India at Prop Solutions, the best property agent in India. Choose from the list of top Real Estate Properties in India.  ','keywords' =>'Real Estate Websites in India, Property Sites in India, Property Portal in India, Property for Sale in India, Real Estate India, Properties in India, India Real Estate, Residential Properties in India, Property Agent in India, Apartments, Plots, Villas, Real Estate, India Property');
+        $this->data['meta'] = array('title' => 'Holding Bricks: Best Property Portal in India', 'description' => 'Buy Residential Properties in India at Holding Bricks, the best property agent in India. Choose from the list of top Real Estate Properties in India.  ','keywords' =>'Real Estate Websites in India, Property Sites in India, Property Portal in India, Property for Sale in India, Real Estate India, Properties in India, India Real Estate, Residential Properties in India, Property Agent in India, Apartments, Plots, Villas, Real Estate, India Property');
         $location_where = array('status' => 1);
         if($this->session->userdata('city_id')){
             $location_where["city_id"] = $this->session->userdata('city_id');
@@ -167,7 +167,7 @@ class Home extends Public_Controller
         $this->data['locations'] = $this->home_model->getWhere($location_where, 'locations');
         
         $this->data['meta'] = array(
-            'title' => 'Prop Solutions: Real Estate Properties for Sale in India',
+            'title' => 'Holding Bricks: Real Estate Properties for Sale in India',
             'description' => 'Find the best Real Estate Properties located in Bangalore, Pune, Hyderabad and Mumbai. Get advice from Expert Real Estate Agents with complete project details. ',
             'keywords' => 'Property for sale in India, Apartments for Sale, Flats for Sale, House for Sale, Residential Properties in India, Villas for Sale, Plots for Sale, Bangalore Real Estate, Pune Real Estate, Hyderabad Real Estate, Mumbai Real Estate, Real Estate India, Property Site India'
         );
@@ -185,7 +185,7 @@ class Home extends Public_Controller
         $phone = trim(stripslashes($_POST['phone']));
         $message = trim(stripslashes($_POST['message']));
         $this->email->from($name, $email); 
-        $this->email->to('ranjeet.singh@propsolutionservices.com');
+        $this->email->to('ranjeet.singh@Holdingbrickservices.com');
         $this->email->bcc('shivas8787@gmail.com');
         $this->email->subject('Enquiry for you');
         $data = array('post' => array('name' => $name, 'email' => $email, 'phone' => $phone, 'message' => $message));
@@ -208,10 +208,10 @@ class Home extends Public_Controller
 
         $this->email->from($this->input->post('name'), $this->input->post('email'));
 //        $this->email->to('vineeth@soarmorrow.com');
-        $this->email->to('ranjeet.singh@propsolutionservices.com');
+        $this->email->to('ranjeet.singh@Holdingbrickservices.com');
 $this->email->bcc('shivas8787@gmail.com');
 
-        $this->email->subject('New Notification from Propsolutions property');
+        $this->email->subject('New Notification from Holdingbricks property');
         $this->email->subject('Resale property Submitted');
         $post = array();
         foreach ($this->input->post() as $key => $value) {
@@ -267,7 +267,7 @@ $this->email->bcc('shivas8787@gmail.com');
         $project = trim(stripslashes($_POST['enqproject']));
 
         $this->email->from($name, $email); 
-        $this->email->to('ranjeet.singh@propsolutionservices.com');
+        $this->email->to('ranjeet.singh@Holdingbrickservices.com');
 $this->email->bcc('shivas8787@gmail.com');
 
         $this->email->subject($project.' Enquiry for you');
@@ -345,7 +345,7 @@ $this->email->bcc('shivas8787@gmail.com');
         $this->data['price_range'] = $this->home_model->getPriceRanges();
         $this->data['amenities'] = $this->home_model->getWhere(array('status' => 1), 'amenities');
         $this->data['meta'] = array(
-            'title' => $city_details->name . ' Based Listing - Propsolutions ',
+            'title' => $city_details->name . ' Based Listing - Holdingbricks ',
             'description' => 'Test City Based Listing Page Description'
         );
 
@@ -415,7 +415,7 @@ $this->email->bcc('shivas8787@gmail.com');
         $this->data['amenities'] = $this->home_model->getWhere(array('status' => 1), 'amenities');
         $this->data['locations'] = $this->home_model->getWhere(array('status' => 1), 'locations');
         $this->data['meta'] = array(
-            'title' => 'Searched Properties Listing - Propsolutions ',
+            'title' => 'Searched Properties Listing - Holdingbricks ',
             'description' => 'Test Search Page Description'
         );
 
@@ -458,7 +458,7 @@ $this->email->bcc('shivas8787@gmail.com');
         $this->data['total'] = $total;
         $this->data['perpage'] = $perpage;
         $this->data['meta'] = array(
-            'title' => 'Favouite Properties Listing - Propsolutions ',
+            'title' => 'Favouite Properties Listing - Holdingbricks ',
             'description' => 'Favourite Properties Listing Page Description'
         );
 
@@ -478,15 +478,15 @@ $this->email->bcc('shivas8787@gmail.com');
         {
             $this->home_model->insertRow(array('email' => $email, 'created_at' => date('Y-m-d H:i:s')), 'subscribers');
             $this->config_email();
-            $this->email->from( 'no-reply@propsolutions.com','Propsolutions  WebAdmin');
-            $this->email->to('ranjeet.singh@propsolutionservices.com');
+            $this->email->from( 'no-reply@Holdingbricks.com','Holdingbricks  WebAdmin');
+            $this->email->to('ranjeet.singh@Holdingbrickservices.com');
 $this->email->bcc('shivas8787@gmail.com');
 
-            $this->email->subject('You received a new subscriber at Propsolutions .');
+            $this->email->subject('You received a new subscriber at Holdingbricks .');
             $data = array(
                 'post' => array(
                     'email' => $email,
-                    'message' => $email.'just subscribed to Propsolutions .'
+                    'message' => $email.'just subscribed to Holdingbricks .'
                 )
             );
             
@@ -514,7 +514,7 @@ $this->email->bcc('shivas8787@gmail.com');
     public function about()
     {
         $this->data['meta'] = array(
-            'title'         => 'Prop Solutions | Leading Real Estate Agent in India', 
+            'title'         => 'Holding Bricks | Leading Real Estate Agent in India', 
             'description'   => 'Looking for a property in India? Our experts will guide you to select among best properties in your preferred location by analyzing every project in detail.',
             'keywords'      =>'Real Estate Websites in India, Property Portals in India, Property Experts in India, Properties in India, Real Estate Properties, Online Property Sites, India Real Estate, Real Estate Agents in India, Property Sites in India, Property for Sale in India. '
         );
@@ -540,7 +540,7 @@ $this->email->bcc('shivas8787@gmail.com');
             $this->config_email();
 
             $this->email->from($this->input->post('name'), $this->input->post('email'));
-            $this->email->to('ranjeet.singh@propsolutionservices.com');
+            $this->email->to('ranjeet.singh@Holdingbrickservices.com');
 $this->email->bcc('shivas8787@gmail.com');
 
             $this->email->subject($this->input->post('name') . ' has an interest in ' . $property->title);
@@ -591,7 +591,7 @@ $this->email->bcc('shivas8787@gmail.com');
 
         $this->email->from($name, $email);
 //        $this->email->to('vineeth@soarmorrow.com');
-        $this->email->to('sales@Propsolutions .test-google-a.com');
+        $this->email->to('shivas8787@gmail.com');
 
         $this->email->subject("You have received a new enquiry for $property->title");
         $data = array(
@@ -625,8 +625,8 @@ $this->email->bcc('shivas8787@gmail.com');
     public function privacy()
     {
         $this->data['meta'] = array(
-            'title'         => 'Privacy Policy - Propsolutions  ', 
-            'description'   => 'Privacy policy of Prop Solutions, a leading property agent in India. For any support and concerns, please connect at support@Propsolutions.com  ',
+            'title'         => 'Privacy Policy - Holdingbricks  ', 
+            'description'   => 'Privacy policy of Holding Bricks, a leading property agent in India. For any support and concerns, please connect at support@Holdingbricks.com  ',
             'keywords'      =>'Bangalore Real Estate, Hyderabad Real Estate, Mumbai Real Estate, Pune Real Estate, Real Estate Websites In India, Property Sites In India, Real Estate Agents In India, Property Portals In India, Real Estate, Indian Real Estate '
         );
         $privacy = $this->home_model->getAll('terms');
@@ -643,8 +643,8 @@ $this->email->bcc('shivas8787@gmail.com');
     public function disclaimer()
     {
         $this->data['meta'] = array(
-            'title'         => 'Disclaimer - Propsolutions  ', 
-            'description'   => 'Propsolutions  provides information regarding the Real Estate Projects in India.  ',
+            'title'         => 'Disclaimer - Holdingbricks  ', 
+            'description'   => 'Holdingbricks  provides information regarding the Real Estate Projects in India.  ',
             'keywords'      =>'Bangalore Real Estate, Hyderabad Real Estate, Mumbai Real Estate, Pune Real Estate, Property Portals In Bangalore, Property Portals In Pune, Property Portals In Hyderabad, Property Portals In Mumbai, Real Estate, Indian Real Estate '
         );
         $privacy = $this->home_model->getAll('disclaimer');
@@ -663,8 +663,8 @@ $this->email->bcc('shivas8787@gmail.com');
     public function vastu()
     {
         $this->data['meta'] = array(
-            'title'         => 'vastu - Propsolutions  ', 
-            'description'   => 'Propsolutions  provides information regarding the Real Estate Projects in India.  ',
+            'title'         => 'vastu - Holdingbricks  ', 
+            'description'   => 'Holdingbricks  provides information regarding the Real Estate Projects in India.  ',
             'keywords'      =>'Bangalore Real Estate, Hyderabad Real Estate, Mumbai Real Estate, Pune Real Estate, Property Portals In Bangalore, Property Portals In Pune, Property Portals In Hyderabad, Property Portals In Mumbai, Real Estate, Indian Real Estate '
         );
         $privacy =  $this->home_model->getAll('vasthu');
@@ -681,7 +681,7 @@ $this->email->bcc('shivas8787@gmail.com');
     public function blog()
     {
         $this->data['meta'] = array(
-            'title'         => 'Prop Solutions Blogs | Latest Property Updates and Trends', 
+            'title'         => 'Holding Bricks Blogs | Latest Property Updates and Trends', 
             'description'   => 'Get the latest real estate property updates, news, opinions and trends in India. Expert insights to the events in the Indian Real Estate Market. ',
             'keywords'      =>'Real Estate Blogs, Real Estate Blogs For Buyers, Latest Real Estate News, Real Estate News India 2018, Property Blog India, Property Blog, Property Related Blogs, Best Property Blogs In India, Real Estate Blogs India, Property Experts, Top Property Blogs, Property For Sale, Apartments For Sale'
         );
@@ -720,7 +720,7 @@ $this->email->bcc('shivas8787@gmail.com');
         }
         elseif ($blog_type){
            $this->data['meta'] = array(
-            'title'         => 'Prop Solutions Blogs | Latest Property Updates and Trends', 
+            'title'         => 'Holding Bricks Blogs | Latest Property Updates and Trends', 
             'description'   => 'Get the latest real estate property updates, news, opinions and trends in India. Expert insights to the events in the Indian Real Estate Market. ',
             'keywords'      =>'Real Estate Blogs, Real Estate Blogs For Buyers, Latest Real Estate News, Real Estate News India 2018, Property Blog India, Property Blog, Property Related Blogs, Best Property Blogs In India, Real Estate Blogs India, Property Experts, Top Property Blogs, Property For Sale, Apartments For Sale'
         );
@@ -745,9 +745,9 @@ $this->email->bcc('shivas8787@gmail.com');
     public function contact()
     {
         $this->data['meta'] = array(
-            'title'         => 'Prop Solutions Contact and Address Details', 
-            'description'   => 'Want to buy a home or looking for property advice? Contact us at Propsolutions , best property portal in India. Find our contact details across India. ',
-            'keywords'      =>'Prop Solutions Contact Details, Prop Solutions Address, Real Estate Bangalore, Real Estate Hyderabad, Real Estate Pune, Real Estate Mumbai, Real Estate Agent in Bangalore, Real Estate Agent in Hyderabad, Real Estate Agent in Pune, Real Estate Agent in Mumbai'
+            'title'         => 'Holding Bricks Contact and Address Details', 
+            'description'   => 'Want to buy a home or looking for property advice? Contact us at Holdingbricks , best property portal in India. Find our contact details across India. ',
+            'keywords'      =>'Holding Bricks Contact Details, Holding Bricks Address, Real Estate Bangalore, Real Estate Hyderabad, Real Estate Pune, Real Estate Mumbai, Real Estate Agent in Bangalore, Real Estate Agent in Hyderabad, Real Estate Agent in Pune, Real Estate Agent in Mumbai'
         );
         
         if ($this->input->post()) {
@@ -763,11 +763,11 @@ $this->email->bcc('shivas8787@gmail.com');
             $message = $this->input->post('message');
 
             $this->email->from($name, $email);
-            $this->email->to('sales@Propsolutions .test-google-a.com');
+            $this->email->to('shivas8787@gmail.com');
 //            $this->email->to('vineeth@soarmorrow.com');
 
 
-            $this->email->subject("You have received a new enquiry for Propsolutions ");
+            $this->email->subject("You have received a new enquiry for Holdingbricks ");
             $data = array(
                 'post' => array(
                     'name' => $name,
@@ -797,8 +797,8 @@ $this->email->bcc('shivas8787@gmail.com');
     public function careers()
     {
         $this->data['meta'] = array(
-            'title'         => 'Find Jobs – Propsolutions  ', 
-            'description'   => 'Career opportunities at Prop Solutions. Begin your journey in the world of Real Estate at a place where you can implement your ideas and make a difference.   ',
+            'title'         => 'Find Jobs – Holdingbricks  ', 
+            'description'   => 'Career opportunities at Holding Bricks. Begin your journey in the world of Real Estate at a place where you can implement your ideas and make a difference.   ',
             'keywords'      =>'Bangalore Real Estate, Hyderabad Real Estate, Mumbai Real Estate, Pune Real Estate, Jobs in Bangalore, Jobs in Hyderabad, Jobs in Pune, Jobs in Mumbai, Job Vacancies, Job Search, Real Estate Career, Career Opportunities in Real Estate, Find Jobs Real Estate'
         );
         
@@ -826,11 +826,11 @@ $this->email->bcc('shivas8787@gmail.com');
                 $address = $this->input->post('address');
 
                 $this->email->from($name, $email);
-                $this->email->to('sales@Propsolutions .test-google-a.com');
+                $this->email->to('shivas8787@gmail.com');
 //                $this->email->to('vineeth@soarmorrow.com');
 
 
-                $this->email->subject("You have received a new career request at Propsolutions ");
+                $this->email->subject("You have received a new career request at Holdingbricks ");
 
                 $data = array(
                     'post' => array(
@@ -887,9 +887,9 @@ $this->email->bcc('shivas8787@gmail.com');
     public function testimonials()
     {
         $this->data['meta'] = array(
-            'title'         => 'Our Customer Reviews and Testimonials - Prop Solutions ', 
-            'description'   => 'Our customers are very important to us. Read what they have to say about our services. Prop Solutions specializes in residential real estate in India.  ',
-            'keywords'      =>'Bangalore Real Estate, Hyderabad Real Estate, Mumbai Real Estate, Pune Real Estate, Property in Bangalore, Property in Hyderabad, Property in Pune, Property in Mumbai, Customer Testimonials, Prop Solutions reviews, Client Testimonials'
+            'title'         => 'Our Customer Reviews and Testimonials - Holding Bricks ', 
+            'description'   => 'Our customers are very important to us. Read what they have to say about our services. Holding Bricks specializes in residential real estate in India.  ',
+            'keywords'      =>'Bangalore Real Estate, Hyderabad Real Estate, Mumbai Real Estate, Pune Real Estate, Property in Bangalore, Property in Hyderabad, Property in Pune, Property in Mumbai, Customer Testimonials, Holding Bricks reviews, Client Testimonials'
         );
         $this->data['testimonials'] = $this->home_model->get_testimonials();
         $this->data['view_page'] = 'testimonial';
@@ -913,7 +913,7 @@ $this->email->bcc('shivas8787@gmail.com');
             $this->config_email();
 
             $this->email->from($this->input->post('name'), $this->input->post('email'));
-            $this->email->to('sales@Propsolutions .test-google-a.com');
+            $this->email->to('shivas8787@gmail.com');
 
             $this->email->subject($this->input->post('name') . ' has an interest in ' . $property->title);
             $data = array(
@@ -970,7 +970,7 @@ $this->email->bcc('shivas8787@gmail.com');
             $this->config_email();
 
             $this->email->from($this->input->post('name'), $this->input->post('email'));
-            $this->email->to('ranjeet.singh@propsolutionservices.com');
+            $this->email->to('shivas8787@gmail.com');
 $this->email->bcc('shivas8787@gmail.com');
 
             $this->email->subject($this->input->post('name') . ' has an interest in ' . $property->title);
@@ -1024,9 +1024,9 @@ $this->email->bcc('shivas8787@gmail.com');
         $this->load->model('Builders_model', 'bld');
         $this->data['meta'] = 
             array(
-            'title'         => 'Builders | Prop Solutions: Best Property Portal in India', 
-            'description'   => 'Prop Solutions: Best Property Portal in India',
-            'keywords'      => 'Prop Solutions: Best Property Portal in India'
+            'title'         => 'Builders | Holding Bricks: Best Property Portal in India', 
+            'description'   => 'Holding Bricks: Best Property Portal in India',
+            'keywords'      => 'Holding Bricks: Best Property Portal in India'
         );
 		
         $totalRecords = $this->bld->countAllBuilders(array('b.status' => 1));
@@ -1070,7 +1070,7 @@ $this->email->bcc('shivas8787@gmail.com');
             $this->config_email();
 
             $this->email->from($this->input->post('name'), $this->input->post('email'));
-            $this->email->to('sales@Propsolutions .test-google-a.com');
+            $this->email->to('shivas8787@gmail.com');
 
             $this->email->subject($this->input->post('name') . ' has Requested callback ' );
             $c_code =$this->input->post('countrycode') ? $this->input->post('countrycode') :'+91';
@@ -1078,7 +1078,8 @@ $this->email->bcc('shivas8787@gmail.com');
                 'post' =>
                     array(
                         'Name' => $this->input->post('name'), 
-                        'phone' => $c_code." - ".$this->input->post('phone') 
+                        'phone' => $c_code." - ".$this->input->post('phone'),
+                        'email' => $this->input->post('email')
                     )
             );
             $this->email->message($this->load->view('mail_template.php', $data, true));
@@ -1095,7 +1096,7 @@ $this->email->bcc('shivas8787@gmail.com');
             $this->config_email();
 
             $this->email->from($this->input->post('name'), $this->input->post('email'));
-            $this->email->to('sales@Propsolutions .test-google-a.com');
+            $this->email->to('shivas8787@gmail.com');
 
             $this->email->subject($this->input->post('name') . ' has Requested callback ' );
             $c_code =$this->input->post('countrycode') ? $this->input->post('countrycode') :'+91';
@@ -1123,9 +1124,9 @@ $this->email->bcc('shivas8787@gmail.com');
   public function achievements()
   {
     $this->data['meta'] = array(
-        'title'         => 'Prop Solutions Achivements | Latest Property Updates and Trends', 
+        'title'         => 'Holding Bricks Achivements | Latest Property Updates and Trends', 
         'description'   => 'Get the latest real estate property updates, news, opinions and trends in India. Expert insights to the events in the Indian Real Estate Market. ',
-        'keywords'      =>'Propsolutions  achivements'
+        'keywords'      =>'Holdingbricks  achivements'
     );
       //  $content = $this->input->get('content');
         $this->data['achievements'] = $this->achievements_model->loadAchievements($perpage, $page, FALSE, $content);
@@ -1137,9 +1138,9 @@ $this->email->bcc('shivas8787@gmail.com');
   public function nri()
   {
     $this->data['meta'] = array(
-        'title'         => 'Prop Solutions NRI | Latest Property Updates and Trends', 
+        'title'         => 'Holding Bricks NRI | Latest Property Updates and Trends', 
         'description'   => 'Get the latest real estate property updates, news, opinions and trends in India. Expert insights to the events in the Indian Real Estate Market. ',
-        'keywords'      =>'Propsolutions  NRI'
+        'keywords'      =>'Holdingbricks  NRI'
     );  
         $this->data['view_page'] = 'nri';
         $this->load->view('template', $this->data);
