@@ -101,7 +101,7 @@
 
 		</div>
 
-		<div class="container">
+		<div class="">
 			<div class="col-lg-12 search-area hheading">
 				<div class="container">
 					<h1 class="text-center"><b>Choose Your City</b></h1>

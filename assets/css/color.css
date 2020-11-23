@@ -130,7 +130,7 @@ a.button.border.white:hover {
 }
 
 .listing-badges .featured {
-    background-color: #db1239
+    background-color: #0499c1
 }
 
 .list-layout .listing-img-container:after {
@@ -165,7 +165,8 @@ a.button.border.white:hover {
 }
 
 .post-img:after {
-    background: linear-gradient(to bottom, transparent 40%, #0499c1)
+    /* background: linear-gradient(to bottom, #0498c17e 40%, #0498c17e) */
+    background:  #5355557e ;
 }
 
 .comment-by a.reply:hover,

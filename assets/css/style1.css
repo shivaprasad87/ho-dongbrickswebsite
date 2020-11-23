@@ -11,7 +11,7 @@ body{font-size:16px;line-height:inherit;overflow-x: hidden;}
 
 .wrapper{width:100%;position:relative}
 .home_banner,.container_info{width:100%;max-width:1024px;margin:0 auto}
-header{width:100%;transition:all ease .5s;-webkit-transition:all ease .5s;-moz-transition:all ease .5s;position:relative;z-index:9}
+header{width:100%;transition:all ease .5s;-webkit-transition:all ease .5s;-moz-transition:all ease .5s;position:relative;z-index:999}
 
 
 .topheader_info ul{margin:0;padding:0;list-style:none}
@@ -28,7 +28,18 @@ header{width:100%;transition:all ease .5s;-webkit-transition:all ease .5s;-moz-t
 .project_price_details_info h6{margin:0;padding:0;font-size:15px;color:#0071bd;font-family:'Gotham-Bold'}
 .project_location{width:100%;margin:0 0 20px;padding:0 0 0 20px;font-size:13px;color:#8597ab;line-height:20px;background:url("../../themes//../images/project_location_icon.png") 0 1px no-repeat}.projectoverview_info{width:100%;font-size:13px;line-height:21px;color:#8597ab}.projectoverview_info h6{margin:0 0 10px;padding:0;font-size:13px;color:#8597ab;font-family:'Gotham-Bold'}
 .projectoverview_info p,.projectoverview_info strong,.projectoverview_info table,.projectoverview_info tr,.projectoverview_info tr td{margin:0;padding:0;font-size:13px;line-height:24px;word-break:break-word}.floorplans_info{width:100%;padding:15px;border:1px solid #e7e9ea;margin:0 0 30px}.individualproject_title{width:100%;margin:0 0 20px;padding:0 0 15px;border-bottom:1px solid #e7e9ea}
-.individualproject_title h5{margin:0;padding:0;font-size:18px;text-transform:uppercase;color:#0071bd;font-family:'Gotham-Bold';display:inline-block;vertical-align:middle}
+.individualproject_title h5{margin:0;padding:0;font-size:18px;text-transform:uppercase;
+    color:#0071bd;font-family:'Gotham-Bold';display:inline-block;vertical-align:middle}
+
+    .FAQ-title h5{margin:0;padding:0;font-size:18px;
+        color:#0071bd;font-family:'Gotham-Bold';display:inline-block;vertical-align:middle}
+
+   .FAQ-title {
+            width: 100%;
+            margin: 0 0 20px;
+            padding: 0 0 15px;
+            border-bottom: 1px solid #e7e9ea;
+        }
 .floorplans_view_info{display:inline-block;vertical-align:middle;position:absolute;top:-60px;left:150px}
 
 .floorplans_view_info ul{margin:0;padding:0;list-style:none}.floorplans_view_info ul li{float:left;cursor:pointer;color:#b6c0ca;font-size:13px;background:#e7e9ea;padding:4px 8px;}
@@ -590,20 +601,6 @@ header{width:100%;transition:all ease .5s;-webkit-transition:all ease .5s;-moz-t
     color: #1f1d22;
     padding: 0px;
   }
-  .panel-title > a:before {
-    float: left !important;
-    font-family: FontAwesome;
-    content: "\f056";
-    font-size: 18px;
-    padding-right: 5px;
-}
-.panel-title > a:before {
-    float: left !important;
-    font-family: FontAwesome;
-    content: "\f055";
-    font-size: 18px;
-    padding-right: 5px;
-}
 
 
 #accordion .panel-title i {
@@ -664,14 +661,12 @@ header{width:100%;transition:all ease .5s;-webkit-transition:all ease .5s;-moz-t
     text-align: center;
 
   }
-  #accordion .panel-title a:hover {
-    background: #db1239;
-  }
+
   #accordion .panel-title a {
     display: block;
     padding: 15px 20px;
     margin: 0;
-    background: #0499c1;
+    /* background: #0499c1; */
     font-size: 14px;
     text-decoration: none;
     font-weight: 700;
@@ -680,6 +675,61 @@ header{width:100%;transition:all ease .5s;-webkit-transition:all ease .5s;-moz-t
     border-radius: 0;
     text-align: center;
     position: relative;
+}
+
+#Offers .panel-title a {
+   
+    background: #0499c1;   
+}
+.Specification .trigger a:hover, .Specification .trigger:hover a  {
+   
+    background-color: #db1239;
+    color: #fff!important;
+}
+
+
+.panel-heading [data-toggle="collapse"]:after {
+	font-family: 'FontAwesome';
+	content: "\f107"; 
+	float: right;
+	color: #d33523;
+    font-size: 25px;
+    font-weight: bold;
+	line-height: 22px;
+	-webkit-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+	-ms-transform: rotate(180deg);
+	-o-transform: rotate(180deg);
+	transform: rotate(180deg);
+
+	
+}
+
+.panel-heading{
+    font-family: 'FontAwesome';
+	content: "\f101"; 
+    
+}
+
+.panel-heading [data-toggle="collapse"].collapsed:after {
+    font-size: 20px;
+    font-weight: 100;
+	-webkit-transform: rotate(0deg);
+	-moz-transform: rotate(0deg);
+	-ms-transform: rotate(0deg);
+	-o-transform: rotate(0deg);
+	transform: rotate(0deg);
+	color: #3a3939;
+}
+
+.text-left{
+    text-align: left!important;
+}
+
+#FAQ .panel-title a {
+   
+    background: #eceff5;   
+    color: #1f1d22;
 }
   #accordion .panel-title i{
     float: left;
@@ -849,6 +899,13 @@ header{width:100%;transition:all ease .5s;-webkit-transition:all ease .5s;-moz-t
 }
 
 @media (min-width: 250px) and (max-width: 750px) {
+    #accordion .panel-title a {
+        display: block;
+        padding: 15px 12px;
+        margin: 0;
+        /* background: #0499c1; */
+        font-size: 13px;
+    }
     .upcoming-msg ,.check-out{
         font-weight: 600;
         text-align: center;
@@ -1000,3 +1057,7 @@ header{width:100%;transition:all ease .5s;-webkit-transition:all ease .5s;-moz-t
 
 }
 
+.text-widget ul{
+		
+    list-style: none!important;
+}

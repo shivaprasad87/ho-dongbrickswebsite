@@ -453,7 +453,7 @@ if (($images = $this->properties_model->getWhere(array('property_id' => $propert
         </a>
       </div>
   
-      <div class="col-md-12">
+      <div class="col-md-12 Specification">
       
         <!-- Toggles Container -->
         <div class="style-2">
@@ -479,6 +479,25 @@ if (($images = $this->properties_model->getWhere(array('property_id' => $propert
                 ?></p>
             </div>
           </div>
+          <div class="toggle-wrap">
+						<span class="trigger "><a href="#">Structure<i class="sl sl-icon-plus"></i></a></span>
+						<div class="toggle-container">
+							<p>RCC framed structure with concrete block masonry.</p>
+						</div>
+					</div>
+	
+					<div class="toggle-wrap">
+						<span class="trigger"><a href="#">Flooring<i class="sl sl-icon-plus"></i></a></span>
+						<div class="toggle-container">
+							<p><ul><li>Living, Dining, Kitchen &amp; Bedrooms- Vitrified tiles – Varmora / AGL or equivalent brand</li>
+								<li>Toilet flooring  - Anti skid Ceramic tiles – Varmora / AGL or equivalent brand </li>
+								<li>Toilet dadoing up to 7 feet- ceramic glazed tiles – Varmora / AGL or equivalent brand</li>
+								<li>Kitchen dadoing above the counter to height of 2 feet- ceramic glazed tiles – 
+								  Varmora/AGL or equivalent brand (only supply)</li>
+								<li>Balcony -   Anti skid Ceramic tiles – Varmora / AGL or equivalent brand</li>
+								<li>Common Area- Anti skid Ceramic tiles – flooring and skirting</li></ul></p>
+						</div>
+					</div>
           <?php
 }
  }
@@ -680,17 +699,87 @@ if (($images = $this->properties_model->getWhere(array('property_id' => $propert
           
           <h5 itemprop="name">About The Builder</h5>
           <div class="project-logo mt-10"><img src="<?= base_url().'uploads/builders/'.$property->builder_image?>" class="img-responsive">
-          <p><?=$property->builder?></p></div>
+            <p><?=$property->builder?></p>
+          </div>
         
         </div>
         
          <?=$property->builder_description?>
         
+      </div>
+
+      <div class="div_info mt-10" id="FAQ">
+        <div class="FAQ-title">
+        
+          <h5 itemprop="name">FAQ's</h5>
+          
         </div>
-    
+        <div class="panel-group" id="accordion">
+          
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a class="accordion-toggle text-left" data-toggle="collapse" data-parent="#accordion" href="#collapseNine">Is account registration required?</a>
+              </h4>
+            </div>
+            <div id="collapseNine" class="panel-collapse collapse in">
+              <div class="panel-body">
+                Account registration at <strong>PrepBootstrap</strong> is only required if you will be selling or buying themes. 
+                This ensures a valid communication channel for all parties involved in any transactions. 
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a class="accordion-toggle text-left collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTen">Is account registration required?</a>
+              </h4>
+            </div>
+            <div id="collapseTen" class="panel-collapse collapse">
+              <div class="panel-body">
+                Account registration at <strong>PrepBootstrap</strong> is only required if you will be selling or buying themes. 
+                This ensures a valid communication channel for all parties involved in any transactions. 
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a class="accordion-toggle text-left collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseEleven">Is account registration required?</a>
+              </h4>
+            </div>
+            <div id="collapseEleven" class="panel-collapse collapse">
+              <div class="panel-body">
+                Account registration at <strong>PrepBootstrap</strong> is only required if you will be selling or buying themes. 
+                This ensures a valid communication channel for all parties involved in any transactions. </strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a class="accordion-toggle text-left collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwelve">Is account registration required?</a>
+              </h4>
+            </div>
+            <div id="collapseTwelve" class="panel-collapse collapse">
+              <div class="panel-body">
+                Account registration at <strong>PrepBootstrap</strong> is only required if you will be selling or buying themes. 
+                This ensures a valid communication channel for all parties involved in any transactions. </strong>
+              </div>
+            </div>
+          </div>
+      
+          
+        
+          
+        </div>
+      </div>
+      
 
   </div>
 
+  
   
 
   <div class="col-lg-4">
