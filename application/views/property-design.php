@@ -479,25 +479,7 @@ if (($images = $this->properties_model->getWhere(array('property_id' => $propert
                 ?></p>
             </div>
           </div>
-          <div class="toggle-wrap">
-						<span class="trigger "><a href="#">Structure<i class="sl sl-icon-plus"></i></a></span>
-						<div class="toggle-container">
-							<p>RCC framed structure with concrete block masonry.</p>
-						</div>
-					</div>
-	
-					<div class="toggle-wrap">
-						<span class="trigger"><a href="#">Flooring<i class="sl sl-icon-plus"></i></a></span>
-						<div class="toggle-container">
-							<p><ul><li>Living, Dining, Kitchen &amp; Bedrooms- Vitrified tiles – Varmora / AGL or equivalent brand</li>
-								<li>Toilet flooring  - Anti skid Ceramic tiles – Varmora / AGL or equivalent brand </li>
-								<li>Toilet dadoing up to 7 feet- ceramic glazed tiles – Varmora / AGL or equivalent brand</li>
-								<li>Kitchen dadoing above the counter to height of 2 feet- ceramic glazed tiles – 
-								  Varmora/AGL or equivalent brand (only supply)</li>
-								<li>Balcony -   Anti skid Ceramic tiles – Varmora / AGL or equivalent brand</li>
-								<li>Common Area- Anti skid Ceramic tiles – flooring and skirting</li></ul></p>
-						</div>
-					</div>
+         
           <?php
 }
  }
