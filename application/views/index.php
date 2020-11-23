@@ -9,7 +9,13 @@
 		<div class="fullwidth-home-slider margin-bottom-0">
 
 			<!-- Slide -->
-			<div data-background-image="<?=base_url('assets/');?>images/popular-location-03.jpg" class="item">
+			<?php $desk = 0;
+        foreach ($sliders as $slider) {
+            $img=array();
+            $img=explode('.', $slider->image);
+           
+        ?>
+			<div data-background-image="<?= base_url('uploads/sliders/' .  $slider->image) ?>" class="item">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
@@ -37,71 +43,14 @@
 					</div>
 				</div>
 			</div>
+			<?php $desk++;
+        
+            } ?>
 			
 			<!-- Slide -->
-			<div data-background-image="<?=base_url('assets/');?>images/popular-location-04.jpg" class="item">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="home-slider-container">
-
-								<!-- Slide Title -->
-								<div class="home-slider-desc">
-									
-									<div class="home-slider-price">
-									
-									</div>
-
-									<div class="home-slider-title">
-										<h3><a href=""> </a></h3>
-										<!-- <span><i class="fa fa-map-marker"></i> </span> -->
-									</div>
-
-									<!-- <a href="" class="read-more"> <i class="fa fa-angle-right"></i></a> -->
-
-								</div>
-								<!-- Slide Title / End -->
-								
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<!-- Slide -->
-			<div data-background-image="<?=base_url('assets/');?>images/popular-location-01.jpg" class="item">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="home-slider-container">
-
-								<!-- Slide Title -->
-								<div class="home-slider-desc">
-									
-									<div class="home-slider-price">
-									
-									</div>
-
-									<div class="home-slider-title">
-										<h3><a href=""> </a></h3>
-										<!-- <span><i class="fa fa-map-marker"></i> </span> -->
-									</div>
-
-									<!-- <a href="" class="read-more"> <i class="fa fa-angle-right"></i></a> -->
-
-								</div>
-								<!-- Slide Title / End -->
-								
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-
 		</div>
 
-		<div class="">
+		<!-- <div class="">
 			<div class="col-lg-12 search-area hheading">
 				<div class="container">
 					<h1 class="text-center"><b>Choose Your City</b></h1>
@@ -150,7 +99,7 @@
 
 
 
-		</div>
+		</div> -->
 
 		<div class="container bestdeals">
 			<div class="row section2">

@@ -54,7 +54,7 @@
           
           <!-- Logo -->
           <div id="logo">
-            <a href="index.html"><img src="<?=base_url('assets/');?>images/Holding-bricks.png" alt=""></a>
+            <a href="<?=base_url();?>"><img src="<?=base_url('assets/');?>images/Holding-bricks.png" alt=""></a>
           </div>
 
 
