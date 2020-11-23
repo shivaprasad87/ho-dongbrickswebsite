@@ -1111,7 +1111,7 @@ textarea{
 }
 strong{font-weight:800}
 button{
-    float:right;
+    /* float:right; */
     font-size:18px;
     padding:8px 30px;
     color:#FFF;
