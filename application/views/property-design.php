@@ -47,13 +47,17 @@ if (($images = $this->properties_model->getWhere(array('property_id' => $propert
         <div class="show_interior_exterior_info">
           <ul></ul>
         </div>
-        <div class="reserveserenityforever_video">
-          <a data-fancybox="video_modal" onclick="getvideo('https://www.youtube.com/embed/nozC84fRUoQ')" href="#myVideo" 
-            style="background-image: url('<?=base_url('assets/')?>images//popular-location-01.jpg');">
-          </a>
-    
-          <span id="vdata"></span>
-        </div>
+        
+        <div class="reserveserenityforever_video demo-gallery">
+					<!-- <a  href="#myVideo" style="background-image: url('images//popular-location-01.jpg');">
+					</a>-->
+
+					<ul class="lightgallery" class="list-unstyled row">
+						<li data-src="<?=base_url('assets/')?>images/popular-location-01.jpg" >
+							<a><img class="img-responsive" src="<?=base_url('assets/')?>images/popular-location-01.jpg"></a>
+						</li>
+					</ul>
+				</div>
       
       </div>
       <div class="reserveserenityforever_right">
@@ -1145,4 +1149,12 @@ if (($images = $this->properties_model->getWhere(array('property_id' => $propert
     </div><!-- /.modal-content -->
 </div><!-- /.modal-dialog -->
 </div>
+
+
 <?php $this->load->view('inc/footer'); ?>
+
+<script>
+	$(document).ready(function(){
+		$('.lightgallery').lightGallery(); 
+	});
+</script>

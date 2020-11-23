@@ -7,11 +7,17 @@
 @import url("icons.css");						/* Webfont Icons: FontAwesome, Line, Simple Line */
 @import url("http://fonts.googleapis.com/css?family=Varela+Round");
 
+
+/* ------------------------------------------------------------------- */
+/*  02. Layout Components
+---------------------------------------------------------------------- */
+
 /* ---------------------------------- */
 /* Topbar
 ------------------------------------- */
 
 /* Common Styles */
+
 html,body{
 	width: 100%;
 	height: 100%;
@@ -12263,8 +12269,6 @@ body .daterangepicker .drp-buttons button.cancelBtn {
 		padding-inline-start: 0px;
 		list-style: none;
 	}
-
-
 	.form-control {
 		display: block;
 		width: 100%;
