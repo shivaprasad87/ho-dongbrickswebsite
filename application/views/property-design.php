@@ -1145,3 +1145,4 @@ if (($images = $this->properties_model->getWhere(array('property_id' => $propert
     </div><!-- /.modal-content -->
 </div><!-- /.modal-dialog -->
 </div>
+<?php $this->load->view('inc/footer'); ?>
