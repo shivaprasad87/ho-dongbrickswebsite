@@ -47,13 +47,17 @@ if (($images = $this->properties_model->getWhere(array('property_id' => $propert
         <div class="show_interior_exterior_info">
           <ul></ul>
         </div>
-        <div class="reserveserenityforever_video">
-          <a data-fancybox="video_modal" onclick="getvideo('https://www.youtube.com/embed/nozC84fRUoQ')" href="#myVideo" 
-            style="background-image: url('<?=base_url('assets/')?>images//popular-location-01.jpg');">
-          </a>
-    
-          <span id="vdata"></span>
-        </div>
+        
+        <div class="reserveserenityforever_video demo-gallery">
+					<!-- <a  href="#myVideo" style="background-image: url('images//popular-location-01.jpg');">
+					</a>-->
+
+					<ul class="lightgallery" class="list-unstyled row">
+						<li data-src="<?=base_url('assets/')?>images/popular-location-01.jpg" >
+							<a><img class="img-responsive" src="<?=base_url('assets/')?>images/popular-location-01.jpg"></a>
+						</li>
+					</ul>
+				</div>
       
       </div>
       <div class="reserveserenityforever_right">
@@ -793,7 +797,7 @@ if (($images = $this->properties_model->getWhere(array('property_id' => $propert
           </form>
           <div class="mb-40">
             <div class="offers-wrap lead-offer no-bg-style"> 
-              <div class="spl-img va-top  bg-img-default bg-img-contain"  style=" background-image:url('images/cashback.png')">
+              <div class="spl-img va-top  bg-img-default bg-img-contain"  style=" background-image:url('<?=base_url('assets/')?>images/cashback.png')">
               </div>  
               <div class="spl-txt-wrap va-middle"> 
                 <div class="spl-title va-top">Assured Callback in 5 mins</div> 
@@ -803,7 +807,7 @@ if (($images = $this->properties_model->getWhere(array('property_id' => $propert
                 </div>      
             </div>
             <div class="offers-wrap lead-offer no-bg-style">
-              <div class="spl-img va-top  bg-img-default bg-img-contain"  style=" background-image:url('images/offer.png')"> 
+              <div class="spl-img va-top  bg-img-default bg-img-contain"  style=" background-image:url('<?=base_url('assets/')?>images/offer.png')"> 
               </div>                 
               <div class="spl-txt-wrap va-middle"> 
                 <div class="spl-title va-top">Authorised Channel Partner</div>
@@ -822,6 +826,62 @@ if (($images = $this->properties_model->getWhere(array('property_id' => $propert
         <div class="underline margin-bottom-35"></div>
 
         <div class="outer" id="scroll-nearby">
+            <!-- Item -->
+            <div class="item">
+              <div class="listing-item compact">
+
+                <a href="#" class="listing-img-container">
+
+                  <div class="listing-badges">
+                    <span class="featured">Best Deals</span>
+                    <span>For Sale</span>
+                  </div>
+
+                  <div class="listing-img-content">
+                    <span class="listing-compact-title">Eagle Apartments <i>Sarjapur road</i></span>
+
+                    <!-- <ul class="listing-hidden-content">
+                      <li>Area <span></span></li>
+                      
+                      <li>Price <span>1 Cr</span></li>
+                    </ul> -->
+                  </div>
+
+                  <img src="<?=base_url('assets/')?>images/listing-01.jpg" alt="">
+                </a>
+
+              </div>
+            </div>
+            <!-- Item / End -->
+
+            <!-- Item -->
+            <div class="item">
+              <div class="listing-item compact">
+
+                <a href="#" class="listing-img-container">
+
+                  <div class="listing-badges">
+                    <span class="featured">Best Deals</span>
+                    <span>For Sale</span>
+                  </div>
+
+                  <div class="listing-img-content">
+                    <span class="listing-compact-title">Eagle Apartments <i>Sarjapur road</i></span>
+
+                    <!-- <ul class="listing-hidden-content">
+                      <li>Area <span></span></li>
+                      
+                      <li>Price <span>1 Cr</span></li>
+                    </ul> -->
+                  </div>
+
+                  <img src="<?=base_url('assets/')?>images/listing-01.jpg" alt="">
+                </a>
+
+              </div>
+            </div>
+            <!-- Item / End -->
+
           <!-- Item -->
           <div class="item">
             <div class="listing-item compact">
@@ -850,67 +910,11 @@ if (($images = $this->properties_model->getWhere(array('property_id' => $propert
           </div>
           <!-- Item / End -->
 
-          <!-- Item -->
-          <div class="item">
-            <div class="listing-item compact">
-
-              <a href="#" class="listing-img-container">
-
-                <div class="listing-badges">
-                  <span class="featured">Best Deals</span>
-                  <span>For Sale</span>
-                </div>
-
-                <div class="listing-img-content">
-                  <span class="listing-compact-title">Eagle Apartments <i>Sarjapur road</i></span>
-
-                  <!-- <ul class="listing-hidden-content">
-                    <li>Area <span></span></li>
-                    
-                    <li>Price <span>1 Cr</span></li>
-                  </ul> -->
-                </div>
-
-                <img src="<?=base_url('assets/')?>images/listing-01.jpg" alt="">
-              </a>
-
-            </div>
-          </div>
-          <!-- Item / End -->
-
-        <!-- Item -->
-        <div class="item">
-          <div class="listing-item compact">
-
-            <a href="#" class="listing-img-container">
-
-              <div class="listing-badges">
-                <span class="featured">Best Deals</span>
-                <span>For Sale</span>
-              </div>
-
-              <div class="listing-img-content">
-                <span class="listing-compact-title">Eagle Apartments <i>Sarjapur road</i></span>
-
-                <!-- <ul class="listing-hidden-content">
-                  <li>Area <span></span></li>
-                  
-                  <li>Price <span>1 Cr</span></li>
-                </ul> -->
-              </div>
-
-              <img src="<?=base_url('assets/')?>images/listing-01.jpg" alt="">
-            </a>
-
-          </div>
+         
         </div>
-        <!-- Item / End -->
-
-          <center>
+        <center>
             <button class="btn btn-view"><a style="color: white;">See More</a></button>
           </center>
-        </div>
-
       </div>
       <!-- Widget / End -->
 
@@ -1004,11 +1008,11 @@ if (($images = $this->properties_model->getWhere(array('property_id' => $propert
         </div>
         <!-- Item / End -->
 
-          <center>
+         
+        </div>
+        <center>
             <button class="btn btn-view"><a style="color: white;">See More</a></button>
           </center>
-        </div>
-
       </div>
       <!-- Widget / End -->
 
@@ -1088,11 +1092,11 @@ if (($images = $this->properties_model->getWhere(array('property_id' => $propert
             </div>
           </div>
 
-          <center>
+         
+        </div>
+        <center>
             <button class="btn btn-view"><a style="color: white;">See More</a></button>
           </center>
-        </div>
-
       </div>
       <!-- Widget / End -->
         
@@ -1145,4 +1149,12 @@ if (($images = $this->properties_model->getWhere(array('property_id' => $propert
     </div><!-- /.modal-content -->
 </div><!-- /.modal-dialog -->
 </div>
+
+
 <?php $this->load->view('inc/footer'); ?>
+
+<script>
+	$(document).ready(function(){
+		$('.lightgallery').lightGallery(); 
+	});
+</script>

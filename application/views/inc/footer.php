@@ -238,8 +238,9 @@
 
 <!-- Scripts
 ================================================== -->
-<script type="text/javascript" src="<?=base_url('assets/');?>js/bootstrap.min.js"></script>
+
 <script type="text/javascript" src="<?=base_url('assets/');?>js/jquery-2.1.4.js"></script>
+<script type="text/javascript" src="<?=base_url('assets/');?>js/bootstrap.min.js"></script>
  <!-- <script type="text/javascript" src="<?=base_url('assets/');?>js/jquery-3.4.1.min.js"></script>  -->
 <!--<script type="text/javascript" src="<?=base_url('assets/');?>js/jquery-migrate-3.1.0.min.js"></script> -->
 <script type="text/javascript" src="<?=base_url('assets/');?>js/chosen.min.js"></script>

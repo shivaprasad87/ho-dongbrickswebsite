@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="<?=base_url('assets/');?>css/style1.css">
 
 <link rel="stylesheet" href="<?=base_url('assets/');?>css/color.css">
-<!-- <link rel="stylesheet" href="<?=base_url('assets/');?>css/reality-icon.css"> -->
+<link href="https://cdn.jsdelivr.net/lightgallery/1.3.9/css/lightgallery.min.css" rel="stylesheet">
 
 
 </head>
