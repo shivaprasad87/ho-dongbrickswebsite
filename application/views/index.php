@@ -846,48 +846,25 @@
 					</div>
 
 					<br>
-					<div class="listing-carousel">
-
-						
-
+					<div class="listing-carousel">	
+						<?php  
+			          if(count($testimonials)>0)
+			          {
+			          foreach ($testimonials as $testimonial) { 
+			          ?>
 						<div class="col-lg-12">
 							<div class="testimonial-box">
-								<div class="testimonial">Aliquam dictum elit vitae mauris facilisis, at dictum urna dignissim. Donec vel lectus vel felis lacinia luctus vitae iaculis arcu. Mauris mattis, massa eu porta ultricies.</div>
+								<div class="testimonial"><?=$testimonial->comment?></div>
 								<div class="testimonial-author">
-									<img src="<?=base_url('assets/');?>images/listing-01.jpg" alt="">
-									<h4>Jennie Wilson <span> Apartment</span></h4>
+									<img src="<?= base_url('uploads/testimonials/' . $testimonial->image) ?>" alt="">
+									<h4><?= $testimonial->name ?> <span> <?=$testimonial->job_desc?></span></h4>
 								</div>
 							</div>
 						</div>
-						<div class="col-lg-12">
-							<div class="testimonial-box">
-								<div class="testimonial">Aliquam dictum elit vitae mauris facilisis, at dictum urna dignissim. Donec vel lectus vel felis lacinia luctus vitae iaculis arcu. Mauris mattis, massa eu porta ultricies.</div>
-								<div class="testimonial-author">
-									<img src="<?=base_url('assets/');?>images/listing-01.jpg" alt="">
-									<h4>Jennie Wilson <span> Apartment</span></h4>
-								</div>
-							</div>
-						</div>
+						<?php }
+				        }
 
-						<div class="col-lg-12">
-							<div class="testimonial-box">
-								<div class="testimonial">Aliquam dictum elit vitae mauris facilisis, at dictum urna dignissim. Donec vel lectus vel felis lacinia luctus vitae iaculis arcu. Mauris mattis, massa eu porta ultricies.</div>
-								<div class="testimonial-author">
-									<img src="<?=base_url('assets/');?>images/listing-01.jpg" alt="">
-									<h4>Thomas Smith <span>Villa</span></h4>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-12">
-							<div class="testimonial-box">
-								<div class="testimonial">Aliquam dictum elit vitae mauris facilisis, at dictum urna dignissim. Donec vel lectus vel felis lacinia luctus vitae iaculis arcu. Mauris mattis, massa eu porta ultricies.</div>
-								<div class="testimonial-author">
-									<img src="<?=base_url('assets/');?>images/listing-01.jpg" alt="">
-									<h4>Robert Lindstrom <span> Apartment</span></h4>
-								</div>
-							</div>
-						</div>
+				         ?>
 
 					</div>
 				</div>
