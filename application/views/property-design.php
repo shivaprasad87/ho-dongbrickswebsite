@@ -35,7 +35,27 @@ if (($images = $this->properties_model->getWhere(array('property_id' => $propert
     <div class="reserveserenityforever_list">
       <div class="serenepark_info">
         <div class="serenepark_img">
-        <img src="<?=base_url('assets/')?>images/logo-02.png" alt="">
+          <?php
+                                                if(($logos = $this->properties_model->getWhere(array('property_id' => $property->id),
+                                                                                                'property_logo')) != null)
+                                                {
+                                                    $logos=json_decode( json_encode($logos), true);
+                                                    //builder_image;
+                                                    ?> 
+                                                <img src="<?= base_url().'uploads/'.$property->slug.'/logos/'.$map[0] ?>" alt="">
+                                                                <?php
+
+                                                }
+                                                else
+                                                {
+                                                    $map[0]= '' ;
+                                                ?>
+                                                <img src="<?= base_url().'uploads/builders/'.$map[0] ?>" alt="">
+                                                                    
+                                                                    <?php
+                                                }
+//print_r($gallery_images);
+                                                ?>
          </div>
         <div class="serenepark_cont">
           <h6><?= $property->title ? $property->title : '' ?></h6>
@@ -53,8 +73,8 @@ if (($images = $this->properties_model->getWhere(array('property_id' => $propert
 					</a>-->
 
 					<ul class="lightgallery" class="list-unstyled row">
-						<li data-src="<?=base_url('assets/')?>images/popular-location-01.jpg" >
-							<a><img class="img-responsive" src="<?=base_url('assets/')?>images/popular-location-01.jpg"></a>
+						<li data-src="<?=base_url($gallery_images[0]);?>" >
+							<a><img class="img-responsive" src="<?=base_url($gallery_images[0]);?>"></a>
 						</li>
 					</ul>
 				</div>
@@ -70,20 +90,18 @@ if (($images = $this->properties_model->getWhere(array('property_id' => $propert
               
               
             <ul class="lightgallery" class="list-unstyled row">
-            
-              <li data-src="<?=base_url('assets/')?>images/popular-location-01.jpg" >
-                <a><img class="img-responsive" src="<?=base_url('assets/')?>images/popular-location-01.jpg"></a>
+            <?php
+            $i=1;
+            foreach ($gallery_images as $gallery) {
+            ?>
+              <li data-src="<?=base_url($gallery);?>" >
+                <a><img class="img-responsive" src="<?=base_url($gallery);?>"></a>
               
-              </li>
-              <li data-src="<?=base_url('assets/')?>images/popular-location-02.jpg">
-                <a><img class="img-responsive" src="<?=base_url('assets/')?>images/popular-location-02.jpg"></a>
-            </li>
-            <li data-src="<?=base_url('assets/')?>images/popular-location-03.jpg">
-              <a><img class="img-responsive" src="<?=base_url('assets/')?>images/popular-location-03.jpg"></a>
-            </li>
-            <li data-src="<?=base_url('assets/')?>images/popular-location-04.jpg">
-              <a><img class="img-responsive" src="<?=base_url('assets/')?>images/popular-location-04.jpg"></a>
-            </li>
+              </li> 
+              <?php
+                # code...
+            }
+            ?>
             
             
             </ul>
@@ -144,9 +162,9 @@ if (($images = $this->properties_model->getWhere(array('property_id' => $propert
     <div class="div-shadow">
       <div class="col-pad">
         <div class="property-banner">
-          <img src="<?=base_url('assets/')?>images/popular-location-04.jpg" class="img-responsive">
+          <img src="<?= base_url('uploads/'.$property->slug.'/'.$property->image) ?>" class="img-responsive">
           <div class="prop-status">
-            Under Construction
+            <?=$property->issue_date;?>
           </div>
         </div>
       </div>
@@ -314,20 +332,32 @@ if (($images = $this->properties_model->getWhere(array('property_id' => $propert
             </a>
           </li>
   
-          
+          <?php  
+ if (($images = $this->properties_model->getWhere(array('property_id' => $property->id),
+  'property_floor_plans')))
+{
+?>
   
           <li role="presentation" class="">
             <a href="#floorplan" aria-controls="profile" role="tab"
               data-toggle="tab" aria-expanded="true"> Floorplan
             </a>
           </li>
-          
+          <?php
+          }
+           if (($images = $this->properties_model->getWhere(array('property_id' => $property->id),
+                                                                                 'property_master_plans')))
+    {
+?>
   
           <li role="presentation" class="">
             <a href="#Masterplan" aria-controls="profile" role="tab"
               data-toggle="tab" aria-expanded="true">Masterplan
             </a>
           </li>
+          <?php
+        }
+        ?>
   
         </ul>
   
@@ -339,37 +369,25 @@ if (($images = $this->properties_model->getWhere(array('property_id' => $propert
             <div class="row general bottom40">
             <div class="demo-gallery">
               <ul class="lightgallery" class="list-unstyled row">
-                <li class="col-xs-6 col-sm-4 col-md-6 col-lg-6" data-src="<?=base_url('assets/')?>images/listing-03.jpg"  >
+                <?php
+             if (($images = $this->properties_model->getWhere(array('property_id' => $property->id),
+               'property_elevations')) != null) {
+             // print_r($images);
+                  foreach ($images as $i => $image) {
+                    ?>
+                <li class="col-xs-6 col-sm-4 col-md-6 col-lg-6" data-src="<?= base_url($image->image) ?>"  >
                   <a href="">
-                    <img class="img-responsive" src="<?=base_url('assets/')?>images/listing-03.jpg">
+                    <img class="img-responsive" src="<?= base_url($image->image) ?>">
                   </a>
-                </li>
-                <li class="col-xs-6 col-sm-4 col-md-6 col-lg-6" data-src="<?=base_url('assets/')?>images/listing-02.jpg" >
-                  <a href="">
-                    <img class="img-responsive" src="<?=base_url('assets/')?>images/listing-02.jpg">
-                  </a>
-                </li>
-                <li class="col-xs-6 col-sm-4 col-md-6 col-lg-6" data-src="<?=base_url('assets/')?>images/listing-01.jpg" >
-                  <a href="">
-                    <img class="img-responsive" src="<?=base_url('assets/')?>images/listing-01.jpg">
-                  </a>
-                </li>
-                <li class="col-xs-6 col-sm-4 col-md-6 col-lg-6" data-src="<?=base_url('assets/')?>images/listing-03.jpg"  >
-                  <a href="">
-                    <img class="img-responsive" src="<?=base_url('assets/')?>images/listing-03.jpg">
-                  </a>
-                </li>
-                <li class="col-xs-6 col-sm-4 col-md-6 col-lg-6" data-src="<?=base_url('assets/')?>images/listing-02.jpg" >
-                  <a href="">
-                    <img class="img-responsive" src="<?=base_url('assets/')?>images/listing-02.jpg">
-                  </a>
-                </li>
-                <li class="col-xs-6 col-sm-4 col-md-6 col-lg-6" data-src="<?=base_url('assets/')?>images/listing-01.jpg" >
-                  <a href="">
-                    <img class="img-responsive" src="<?=base_url('assets/')?>images/listing-01.jpg">
-                  </a>
-                </li>
-              
+                </li>  
+                <?php
+                      }
+                      }
+                      else
+                      {
+                      echo  "<center>No Image Found<center>";
+                      }
+                      ?>           
               </ul>
             </div>
            
@@ -382,56 +400,45 @@ if (($images = $this->properties_model->getWhere(array('property_id' => $propert
             <div class="row masterplan bottom40">
             <div class="demo-gallery">
               <ul class="lightgallery" class="list-unstyled row">
-                <li class="col-xs-12 col-sm-4 col-md-6 col-lg-12" data-src="<?=base_url('assets/')?>images/Gallery/masterplan.jpg"  >
+                <?php
+               if (($images = $this->properties_model->getWhere(array('property_id' => $property->id),
+                'property_master_plans'))) {
+
+                 foreach ($images as $i => $image) {
+                  ?>
+                <li class="col-xs-12 col-sm-4 col-md-6 col-lg-12" data-src="<?= base_url($image->image) ?>"  >
                   <a href="">
-                    <img class="img-responsive" src="<?=base_url('assets/')?>images/Gallery/masterplan.jpg">
+                    <img class="img-responsive" src="<?= base_url($image->image) ?>">
                   </a>
                 </li>
-                
-              
+                <?php
+                  }
+                  }
+
+                  ?>
               </ul>
             </div>
-            </div>
-            
+            </div>      
           </div>
   
   
           <div role="tabpanel" class="tab-pane fade  " id="floorplan">
-  
             <div class="row general bottom40">
             <div class="demo-gallery">
               <ul class="lightgallery" class="list-unstyled row">
-                <li class="col-xs-6 col-sm-4 col-md-6 col-lg-6" data-src="<?=base_url('assets/')?>images/Gallery/Floor/f1.jpg"  >
+                   <?php
+      if (($images =  $this->properties_model->getWhere(array('property_id' => $property->id),'property_floor_plans'))) {
+          foreach ($images as $i => $image) {
+              ?>
+                <li class="col-xs-6 col-sm-4 col-md-6 col-lg-6" data-src="<?= base_url($image->image) ?>"  >
                   <a href="">
-                    <img class="img-responsive" src="<?=base_url('assets/')?>images/Gallery/Floor/f1.jpg">
+                    <img class="img-responsive" src="<?= base_url($image->image) ?>">
                   </a>
-                </li>
-                <li class="col-xs-6 col-sm-4 col-md-6 col-lg-6" data-src="<?=base_url('assets/')?>images/Gallery/Floor/f2.jpg" >
-                  <a href="">
-                    <img class="img-responsive" src="<?=base_url('assets/')?>images/Gallery/Floor/f2.jpg">
-                  </a>
-                </li>
-                <li class="col-xs-6 col-sm-4 col-md-6 col-lg-6" data-src="<?=base_url('assets/')?>images/Gallery/Floor/f3.jpg" >
-                  <a href="">
-                    <img class="img-responsive" src="<?=base_url('assets/')?>images/Gallery/Floor/f3.jpg">
-                  </a>
-                </li>
-                <li class="col-xs-6 col-sm-4 col-md-6 col-lg-6" data-src="<?=base_url('assets/')?>images/Gallery/Floor/f4.jpg"  >
-                  <a href="">
-                    <img class="img-responsive" src="<?=base_url('assets/')?>images/Gallery/Floor/f4.jpg">
-                  </a>
-                </li>
-                <li class="col-xs-6 col-sm-4 col-md-6 col-lg-6" data-src="<?=base_url('assets/')?>images/Gallery/Floor/f5.jpg" >
-                  <a href="">
-                    <img class="img-responsive" src="<?=base_url('assets/')?>images/Gallery/Floor/f5.jpg">
-                  </a>
-                </li>
-                <li class="col-xs-6 col-sm-4 col-md-6 col-lg-6" data-src="<?=base_url('assets/')?>images/Gallery/Floor/f6.jpg" >
-                  <a href="">
-                    <img class="img-responsive" src="<?=base_url('assets/')?>images/Gallery/Floor/f6.jpg">
-                  </a>
-                </li>
-              
+                </li> 
+                    <?php
+                      }
+                  }
+                  ?>
               </ul>
             </div>
             </div>
@@ -639,6 +646,7 @@ if (($images = $this->properties_model->getWhere(array('property_id' => $propert
     }                                           
 ?>
 
+      <!--
       <div class="div_info mt-10" id="Location-Advantages">
         <div class="row">
           <div class="col-md-12">
@@ -678,6 +686,7 @@ if (($images = $this->properties_model->getWhere(array('property_id' => $propert
           </div>
         </div>
       </div>
+      -->
 
       <div class="div_info mt-10" id="About_project">
         <div class="individualproject_title">
@@ -694,7 +703,7 @@ if (($images = $this->properties_model->getWhere(array('property_id' => $propert
         
       </div>
 
-      <div class="div_info mt-10" id="FAQ">
+      <!-- <div class="div_info mt-10" id="FAQ">
         <div class="FAQ-title">
         
           <h5 itemprop="name">FAQ's</h5>
@@ -760,9 +769,7 @@ if (($images = $this->properties_model->getWhere(array('property_id' => $propert
         
           
         </div>
-      </div>
-      
-
+      </div> -->
   </div>
 
   
@@ -778,23 +785,23 @@ if (($images = $this->properties_model->getWhere(array('property_id' => $propert
         
         <div class="needhelp_form_list">
           
-          <form action="" name="WebForm-1498709213622" method="POST" id="elqform2">
-              <div class="throwerror" style="color:red;font-size:15px;padding-bottom:18px;"></div>
-              <ul>
-                <li class="form-sec"> 
-                  <input type="text" placeholder="Name*" id="" required="" name="Name*"></li>
+           <form action="<?=base_url('home/sendEmail');?>" name="WebForm-1498709213622" method="POST" id="elqform2">
+                <div class="throwerror" style="color:red;font-size:15px;padding-bottom:18px;"></div>
+                <ul>
+                  <li class="form-sec"> 
+                    <input type="text" placeholder="Name*" id="" required="" name="name"></li>
+                  <li class="form-sec">
+                
+                <input type="tel" placeholder="Phone Number*" id="" required="" name="phone">
+              </li>
                 <li class="form-sec">
-              
-              <input type="tel" placeholder="Phone Number*" id="" required="" name="phone*">
-            </li>
-              <li class="form-sec">
-                <input type="email" placeholder="Email ID*" required="" name="emailAddress" id="fcemail" autocomplete="off" class="emailcheck">
-              </li>
-              <li style="margin-top:20px !Important;">
-                <center><div class="btn btn-submit" data-toggle="modal" data-target="#main-pop">Enquire Now</div></center>
-              </li>
-            </ul>
-          </form>
+                  <input type="email" placeholder="Email ID*" required="" name="email" id="fcemail" autocomplete="off" class="emailcheck">
+                </li>
+                <li style="margin-top:20px !Important;">
+                  <center><div class="btn btn-submit" data-toggle="modal" data-target="#main-pop" onclick="document.getElementById('elqform2').submit();">Enquire Now</div></center>
+                </li>
+              </ul>
+            </form>
           <div class="mb-40">
             <div class="offers-wrap lead-offer no-bg-style"> 
               <div class="spl-img va-top  bg-img-default bg-img-contain"  style=" background-image:url('<?=base_url('assets/')?>images/cashback.png')">
@@ -1120,7 +1127,7 @@ if (($images = $this->properties_model->getWhere(array('property_id' => $propert
       
     <div class="modal-body text-center needhelp_form-modal" style="margin: auto;">
     <li class="left_col"><img class="text-center modal-logo" src="<?=base_url('assets/')?>images/Holding-bricks.png"></li>  
-    <li class="right_col"><h5>Project Name Brochure</h5></li>
+    <li class="right_col"><h5><?=$property->title?> Brochure</h5></li>
     
       <div class="needhelp_form_list">
           
@@ -1128,19 +1135,19 @@ if (($images = $this->properties_model->getWhere(array('property_id' => $propert
             <div class="throwerror" style="color:red;font-size:15px;padding-bottom:18px;"></div>
             <ul>
               <li class="form-sec"> 
-                <input type="text" placeholder="Name*" id="" required="" name="Name*"></li>
+                <input type="text" placeholder="Name*" id="" required="" name="name"></li>
               
           
               <li class="form-sec">
             
-            <input type="tel" placeholder="Phone Number*" id="" required="" name="phone*">
+            <input type="tel" placeholder="Phone Number*" id="" required="" name="phone">
           </li>
             <li class="form-sec">
-              <input type="email" placeholder="Email ID*" required="" name="emailAddress" id="fcemail" autocomplete="off" class="emailcheck">
+              <input type="email" placeholder="Email ID*" required="" name="email" id="fcemail" autocomplete="off" class="emailcheck">
             </li>
 
             <li style="margin-top:20px!important">
-            <center><div class="btn btn-submit" data-toggle="modal" data-target="#main-pop">Download</div></center>
+            <center><input type="submit" class="btn btn-submit" name=""> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</nav><!-- <div class="btn btn-submit" data-toggle="modal" data-target="#main-pop">Close</div> --></center>
           </li>
           </ul>
         </form>

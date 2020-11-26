@@ -10,11 +10,11 @@
 					<div class="col-md-6 col-xs-6 ">
 						<h4>Quick Links</h4>
 						<ul class="footer-links">
-							<li><a href="#">Home</a></li>
-							<li><a href="#">About Us</a></li>
+							<li><a href="<?=base_url();?>">Home</a></li>
+							<li><a href="<?=base_url('about');?>">About Us</a></li>
 							<li><a href="#">Careers</a></li>
 							<li><a href="#">Blogs</a></li>
-							<li><a href="#">Contact</a></li>
+							<li><a href="<?=base_url('contact');?>">Contact</a></li>
 						
 						</ul>
 					</div>
@@ -39,8 +39,8 @@
 				<h4>Address</h4>
 				<div class="text-widget">
 					<i class="fa fa-map-marker" aria-hidden="true"></i>: <span>Lorem Ipsum Lorem Ipsum</span> <br>
-					<i class="fa fa-phone" aria-hidden="true"></i>: <span>(+91) 123-4576-789 </span><br>
-					<i class="fa fa-mail-reply-all" aria-hidden="true"></i>: <span> <a href="#">office@example.com</a> </span><br>
+					<i class="fa fa-phone" aria-hidden="true"></i>: <span><a href="tel:<?= $social_links->mobile ?>"> <?= $social_links->mobile ?></a>  </span><br>
+					<i class="fa fa-mail-reply-all" aria-hidden="true"></i>: <span><a href="mailto:<?= $social_links->email ?>"><?= $social_links->email ?></a></span><br>
 				</div>
 
 				
@@ -50,23 +50,23 @@
 				<div class="col-md-3  col-sm-12 col-xs-12 ">
 					<h4>Connect With Us</h4>
 					<div class="text-widget">
-						<form action="" name="" method="POST" id="elqform2">
+						<form action="<?php base_url('home/sendEmail') ?>" name="" method="POST" id="elqform2">
 							
 							<ul>
 								<li class="form-control">	
-									<input type="text" placeholder="Name*" id="" required="" name="Name*"></li>
+									<input type="text" placeholder="Name*" id="" required="" name="name*"></li>
 
 								<li class="form-control">
 							
-							<input type="tel" placeholder="Phone Number*" id="" required="" name="phone*">
+							<input type="tel" placeholder="Phone Number*" id="" required="" name="phone">
 						</li>
 
 							<li class="form-control">
-								<input type="email" placeholder="Email ID*" required="" name="emailAddress" id="fcemail" autocomplete="off" class="emailcheck">
+								<input type="email" placeholder="Email ID*" required="" name="email" id="fcemail" autocomplete="off" class="emailcheck">
 							</li>
 
 							<li style="margin-top:13px !Important;">
-								<center><div class="btn btn-submit" data-toggle="modal" data-target="#main-pop">Request Callback</div></center>
+								<center><div class="btn btn-submit" onclick="document.getElementById('elqform2').submit();">Request Callback</div></center>
 							</li>
 						</ul>
 					</form>
@@ -82,7 +82,7 @@
 
 </div>
 
-<div class="row mb-40">
+<!-- <div class="row mb-40">
 	<div class="col-md-3 col-xs-12 ">
 		<h5>Top Builders In Bangalore</h5>
 		<ul class="footer-links">
@@ -184,7 +184,7 @@
 		</ul></p>
 	</center>
 	</div>
-</div>
+</div> -->
 						
 		
 
@@ -220,7 +220,7 @@
 			
 				<div class="needhelp_form_list">
 					<center>
-						<h1>+91 1234567</h1>
+						<h1><a href="tel:<?= $social_links->mobile ?>"> <?= $social_links->mobile ?></a> </h1>
 					</center>
 				
 				</div>
