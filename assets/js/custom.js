@@ -597,7 +597,16 @@
 		/*  Owl Carousel
 		/*----------------------------------------------------*/
 	
-		$('.carousel').owlCarousel({
+		// $('.carousel').owlCarousel({
+		// 	autoPlay: true,
+		// 	navigation: true,
+		// 	slideSpeed: 100,
+		// 	items : 1,
+		// 	itemsDesktop : [1239,1],
+		// 	itemsTablet : [991,1],
+		// 	itemsMobile : [767,1]
+		// });
+		$('.carousel-launch').owlCarousel({
 			autoPlay: true,
 			navigation: true,
 			slideSpeed: 100,
@@ -1434,7 +1443,11 @@
 	
 	// listing mobile scroller tablist
 	
+	
+	
+	
 	   if($(window).width()<=750){
+	
 	
 		$("#scroll-bestdeals").addClass("nearby"); 
 		$("#scroll-Blogs").addClass("nearby"); 
@@ -1446,6 +1459,7 @@
 		$("#scroll-bestdeals").removeClass("nearby"); 
 		$("#scroll-nearby").removeClass("nearby"); 
 	 }
+	
 	
 	
 	}) (this.jQuery);

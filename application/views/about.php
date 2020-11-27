@@ -1,30 +1,38 @@
 <div class="clearfix"></div>
 <!-- Header Container / End -->
 
-<div class="parallax titlebar" data-background="<?=base_url('assets/')?>images/listings-parallax.jpg" data-color="#333333" data-color-opacity="0.7" data-img-width="800" data-img-height="505" style="background-image: url(&quot;<?=base_url('assets/')?>images/listings-parallax.jpg&quot;); background-attachment: fixed; background-size: 1349px 851.556px; background-position: 50% -496.819px;">
-  <div class="parallax-overlay" style="background-color: rgba(51, 51, 51, 0.131); "></div>
 
-  <div id="titlebar" style="    margin-bottom: 0px;">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
+<!-- Titlebar
+================================================== -->
+<div class="parallax titlebar"
+data-background="<?=base_url('assets/')?>images/listings-parallax.jpg"
+data-color="#333333"
+data-color-opacity="0.7"
+data-img-width="800"
+data-img-height="505">
 
-          <h2>About Us</h2>
-          <span></span>
-          
-          <!-- Breadcrumbs -->
-          <nav id="breadcrumbs">
-            <ul>
-              <li><a href="#">Home</a></li>
-              <li>About</li>
-            </ul>
-          </nav>
+<div id="titlebar">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
 
-        </div>
-      </div>
-    </div>
-  </div>
+				<h2>About Us</h2>
+				<span></span>
+				
+				<!-- Breadcrumbs -->
+				<nav id="breadcrumbs">
+					<ul>
+						<li><a href="#">Home</a></li>
+						<li>About</li>
+					</ul>
+				</nav>
+
+			</div>
+		</div>
+	</div>
 </div>
+</div>
+
 <section class="fullwidth border-bottom margin-top-0 margin-bottom-0 padding-top-0 padding-bottom-50" data-background-color="#ffffff" style="background: rgb(255, 255, 255);">
 <h1 class="pull-center">About Us</h1>
   <!-- Content -->
@@ -77,7 +85,7 @@
 
 </section>
 <!-- Counters Container -->
-<div class="parallax margin-top-0" data-background="images/listings-parallax.jpg"
+<div class="parallax margin-top-0" data-background="<?=base_url('assets/')?>images/listings-parallax.jpg"
 		data-color="#252529" data-color-opacity="0.85" data-img-width="800" data-img-height="505">
 
 		<!-- Counters -->
@@ -150,7 +158,7 @@
 
 
 	<!-- Parallax -->
-	<div class="parallax" data-background="images/listings-parallax.jpg"
+	<div class="parallax" data-background="<?=base_url('assets/')?>images/listings-parallax.jpg"
 		data-color="#36383e" data-color-opacity="0.7" data-img-width="800" data-img-height="505">
 
 		<!-- Infobox -->

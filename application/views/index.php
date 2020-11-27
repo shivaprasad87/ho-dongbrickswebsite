@@ -3,12 +3,49 @@
 		<div class="clearfix"></div>
 		<!-- Header Container / End -->
 
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+				<!-- Wrapper for slides -->
+			<div class="carousel-inner">
+			
+				<!-- Slide -->
+				<?php $desk = 0;
+				foreach ($sliders as $slider) {
+					$img=array();
+					$img=explode('.', $slider->image);
+				
+				?>
+
+				<div class="item active">
+					<img src="<?= base_url('uploads/sliders/' .  $slider->image) ?>" alt="" style="width:100%;">
+					<div class="carousel-caption">
+					
+					</div>
+				</div>
+			
+				<?php $desk++;
+				
+					} ?>
+		
+			</div>
+		
+		
+			<!-- <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+				<span class="glyphicon glyphicon-chevron-left " aria-hidden="true"></span>
+			<span class="sr-only">Previous</span>
+			</a>
+			<a class="right carousel-control" href="#myCarousel" data-slide="next">
+			<span class="glyphicon glyphicon-chevron-right " aria-hidden="true"></span>
+			<span class="sr-only">Next</span>
+			</a> -->
+	  </div>
+
 
 		<!-- Slider
 		================================================== -->
-		<div class="fullwidth-home-slider margin-bottom-0">
+		<!-- <div class="fullwidth-home-slider margin-bottom-0">
 
-			<!-- Slide -->
+			
 			<?php $desk = 0;
         foreach ($sliders as $slider) {
             $img=array();
@@ -21,7 +58,7 @@
 						<div class="col-md-12">
 							<div class="home-slider-container">
 
-								<!-- Slide Title -->
+								
 								<div class="home-slider-desc">
 									
 									<div class="home-slider-price">
@@ -30,13 +67,11 @@
 
 									<div class="home-slider-title">
 										<h3><a href=""> </a></h3>
-										<!-- <span><i class="fa fa-map-marker"></i> </span> -->
+									
 									</div>
 
-									<!-- <a href="" class="read-more"> <i class="fa fa-angle-right"></i></a> -->
-
 								</div>
-								<!-- Slide Title / End -->
+								
 								
 							</div>
 						</div>
@@ -47,59 +82,10 @@
         
             } ?>
 			
-			<!-- Slide -->
-		</div>
-
-		<!-- <div class="">
-			<div class="col-lg-12 search-area hheading">
-				<div class="container">
-					<h1 class="text-center"><b>Choose Your City</b></h1>
-					<div class="row pro-new1">
-						<div class="col-lg-5 city-card">
-							<div class="img-hover-zoom--slowmo">
-								<a href=""><img src="<?=base_url('assets/');?>images/bangalore.png" alt="Holding Bricks"></a>
-							<a href=""> <h3>BANGALORE</h3></a>
-							</div>
-							<div class="row btn-css" >
-								<div class="col-md-6 col-xs-6 divisiontext" >
-									<div class="upcoming-msg" style="">
-										Enquire Now
-									</div>
-								</div>
-								<div class="col-md-6 col-xs-6 divisiontext1" >
-									<div class="check-out" style=" ">
-										Explore More
-									</div>
-								</div>
-							</div>
-
-						</div>
-						<div class="col-lg-5 city-card">
-							<div class="img-hover-zoom--slowmo">
-								<a href=""><img src="<?=base_url('assets/');?>images/pune.png" alt="Holding Bricks"></a>
-							<a href=""> <h3>PUNE</h3></a>
-							</div>
-							<div class="row btn-css" >
-								<div class="col-md-6 col-xs-6 divisiontext" >
-									<div class="upcoming-msg" style="">
-										Enquire Now
-									</div>
-								</div>
-								<div class="col-md-6 col-xs-6 divisiontext1" >
-									<div class="check-out" style="">
-										Explore More
-									</div>
-								</div>
-							</div>
-
-						</div>
-					</div>
-				</div>
-			</div>
-
-
-
+		
 		</div> -->
+
+		
 
 		<div class="container bestdeals">
 			<div class="row section2">
@@ -358,7 +344,7 @@
 
 							<div role="tabpanel" class="tab-pane fade active in" id="Pune">
 							
-								<div class="carousel">
+								<div class="carousel-launch">
 									<?php
 									$i=0;
  
@@ -418,7 +404,7 @@
 							<div role="tabpanel" class="tab-pane fade  " id="Bangalore">
 
 							
-								<div class="carousel">
+								<div class="carousel-launch">
 									<?php
 									$i=0;
 
@@ -524,7 +510,7 @@
 			</section>
 
 			<!-- Flip banner -->
-			<a href="" class="flip-banner parallax-home" data-background=""  data-img-width="2500" data-img-height="1600" >
+			<a href="" class="flip-banner parallax-home" data-background="<?=base_url('assets/')?>images/single-property-03.jpg" data-img-width="2500" data-img-height="1600" >
 				<div class="flip-banner-content" style="color:rgb(219 18 57)">
 					<h2 class="flip-visible">We help people and homes find each other</h2>
 					<h2 class="flip-hidden">Browse Properties <i class="sl sl-icon-arrow-right"></i></h2>

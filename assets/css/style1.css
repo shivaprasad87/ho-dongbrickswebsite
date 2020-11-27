@@ -1,9 +1,4 @@
-.reserveserenityforever_info {
-    width: 100%;
-    height: 410px;
-    background: #eceff5;
-    padding: 30px 0 20px;
-}
+
 
 
 img{max-width:100%}
@@ -12,7 +7,10 @@ body{font-size:16px;line-height:inherit;overflow-x: hidden;}
 
 .wrapper{width:100%;position:relative}
 .home_banner,.container_info{width:100%;max-width:1024px;margin:0 auto}
-header{width:100%;transition:all ease .5s;-webkit-transition:all ease .5s;-moz-transition:all ease .5s;position:relative;z-index:999}
+
+header{width:100%;transition:all ease .5s;
+    -webkit-transition:all ease .5s;-moz-transition:all ease .5s;
+    position:relative;z-index:999}
 
 
 .topheader_info ul{margin:0;padding:0;list-style:none}
@@ -249,17 +247,8 @@ header{width:100%;transition:all ease .5s;-webkit-transition:all ease .5s;-moz-t
 .property-details{
     padding-top: 40px !important;
 }
-.div-shadow{
-    -webkit-box-shadow: 0 0 18px rgba(1,1,1,.15);
-    -moz-box-shadow: 0 0 18px rgba(1,1,1,.15);
-    box-shadow: 0 0 18px rgba(1,1,1,.15);
-  
-    /* margin-top: 35px; */
-    padding: 15px;
-}
-.modal-logo{
-    width:50%
-}
+
+
 .property-banner{
     position: relative;
 }
@@ -904,6 +893,46 @@ header{width:100%;transition:all ease .5s;-webkit-transition:all ease .5s;-moz-t
 }
 
 @media (min-width: 250px) and (max-width: 750px) {
+    
+    hr {
+        margin-top: 1px;
+        margin-bottom: 1px;
+        border: 0;
+        border-top: 1px solid #eee;
+    }
+    .div-line-bottom{
+        border-bottom: 1px solid #eee;
+    }
+    .div-line-left{
+        border-right: 1px solid #eee;
+       
+    }
+    .project_price_details_info {
+        text-align: center;
+    }
+    .div-pad{
+        padding: 5px 2px;
+    }
+    .reserveserenityforever_info {
+        width: 100%;
+        background: #eceff5;
+        padding: 30px 0 20px;
+    }
+
+    .project_price_details_info .col-lg-3{
+        margin: 5px 0px;
+    }
+
+    .demo-gallery ul{
+        margin-block-start: 0em;
+        margin-block-end: 0em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        padding-inline-start: 0px;
+    }
+    .modal-logo{
+        width:50%
+    }
     #accordion .panel-title a {
         display: block;
         padding: 15px 12px;
@@ -959,6 +988,23 @@ header{width:100%;transition:all ease .5s;-webkit-transition:all ease .5s;-moz-t
 
 }
 @media (min-width: 751px) {
+    .div-shadow{
+        -webkit-box-shadow: 0 0 18px rgba(1,1,1,.15);
+        -moz-box-shadow: 0 0 18px rgba(1,1,1,.15);
+        box-shadow: 0 0 18px rgba(1,1,1,.15);
+      
+        /* margin-top: 35px; */
+        padding: 15px;
+    }
+    .reserveserenityforever_info {
+        width: 100%;
+        height: 410px;
+        background: #eceff5;
+        padding: 30px 0 20px;
+    }
+    .modal-logo{
+        width:20%
+    }
     .lightgallery ,.demo-gallery ul{
         list-style-type: disc;
         margin-block-start: 0em!important;
@@ -1141,8 +1187,8 @@ button{
     width: 100%;
     text-align: center;
     margin-bottom: 40px;
-}
-.heading > h2 {
+ }
+/*.heading > h2 {
     float: left;
     width: 100%;
     font-family: Quicksand;
@@ -1160,7 +1206,7 @@ font-weight: 500;
     color: #888888;
     margin-top: 8px;
     line-height: 29px;
-}
+} */
 .cat-sec {
     float: left;
     width: 100%;
@@ -1692,7 +1738,7 @@ font-weight: 500;
     padding-left: 67px;
 }
 .job-wide-devider .job-overview > ul > li i {
-    left: 23px;
+    left: 10px;
 }
 
 .type_widget {
@@ -1765,6 +1811,24 @@ font-weight: 500;
     font-size: 16px;
     color: #888888;
     padding: 15px 25px;
+}
+.quick-form-job select {
+    height: 51px;
+    line-height: 51px;
+    padding: 0 20px;
+    outline: none;
+    font-size: 15px;
+    color: #808080;
+    margin: 0 0 16px 0;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
+    background-color: #fcfcfc;
+    font-weight: 500;
+    border: 1px solid #6a6a6a;
+    opacity: 1;
+    border-radius: 8px;
 }
 .quick-form-job form input, .quick-form-job form textarea {
     float: left;

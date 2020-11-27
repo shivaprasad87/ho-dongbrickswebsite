@@ -87,9 +87,18 @@ a.button.border.white:hover {
     border-top: 4px solid #0499c1
 }
 
+/* #header-container .header-widget a,#navigation.style-1 .current{
+    color: #db123a;
+} */
 #navigation.style-1 .current {
     background-color: transparent;
-    border: 1px solid #0499c1
+    border: 1px solid #db123a;
+    color: #db123a;
+}
+#navigation.style-1 .current:hover {
+    background-color: transparent;
+    border: 1px solid #0499c1;
+    color: #ffffff;
 }
 
 #navigation.style-1 ul li:hover {
@@ -125,16 +134,13 @@ a.button.border.white:hover {
     background-color: #0499c1
 }
 
-.listing-img-container:after {
-    background: linear-gradient(to bottom, transparent 60%, #0499c1)
-}
 
 .listing-badges .featured {
     background-color: #0499c1
 }
 
 .list-layout .listing-img-container:after {
-    background: linear-gradient(to bottom, transparent 55%, #0499c1)
+    background: linear-gradient(to bottom, transparent 60%, #43444466);
 }
 
 #titlebar.property-titlebar span.property-badge,

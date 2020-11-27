@@ -1,28 +1,33 @@
 <div class="clearfix"></div>
 <!-- Header Container / End -->
-<div class="parallax titlebar" data-background="<?=base_url('assets/')?>images/listings-parallax.jpg" data-color="#333333" data-color-opacity="0.7" data-img-width="800" data-img-height="505" style="background-image: url(&quot;<?=base_url('assets/')?>images/listings-parallax.jpg&quot;); background-attachment: fixed; background-size: 1349px 851.556px; background-position: 50% -496.819px;">
-  <div class="parallax-overlay" style="background-color: rgb(51, 51, 51); opacity: 0.7;"></div>
 
-  <div id="titlebar" style="    margin-bottom: 0px;">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
+<div class="parallax titlebar"
+data-background="<?=base_url('assets/')?>images/listings-parallax.jpg"
+data-color="#333333"
+data-color-opacity="0.7"
+data-img-width="800"
+data-img-height="505">
 
-          <h2>Listing</h2>
-          <span></span>
-          
-          <!-- Breadcrumbs -->
-          <nav id="breadcrumbs">
-            <ul>
-              <li><a href="<?=base_url();?>">Home</a></li>
-              <li><a href="<?=base_url('listing');?>">Listing (<?= isset($total) ? $total : 0 ?>)</a></li>
-            </ul>
-          </nav>
+<div id="titlebar">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
 
-        </div>
-      </div>
-    </div>
-  </div>
+				<h2>Listings</h2>
+				<span></span>
+				
+				<!-- Breadcrumbs -->
+				<nav id="breadcrumbs">
+					<ul>
+						<li><a href="<?=base_url();?>">Home</a></li>
+						<li><a href="<?=base_url('listing');?>">Listing (<?= isset($total) ? $total : 0 ?>)</a></li>
+					</ul>
+				</nav>
+
+			</div>
+		</div>
+	</div>
+</div>
 </div>
 
 
@@ -227,7 +232,7 @@
 </div>
 <br>
 <!-- Flip banner -->
-<a href="" class="flip-banner parallax-home" data-background="<?=base_url('assets/')?>images/flip-banner-bg.jpg"  data-color-opacity="0.9" data-img-width="2500" data-img-height="1600">
+<a href="" class="flip-banner parallax-home" data-background="<?=base_url('assets/')?>images/single-property-03.jpg" data-color-opacity="0.9" data-img-width="2500" data-img-height="1600">
   <div class="flip-banner-content" style="color:rgb(219 18 57)">
     <h2 class="flip-visible">We help people and homes find each other</h2>
     <h2 class="flip-hidden">Browse Properties <i class="sl sl-icon-arrow-right"></i></h2>
