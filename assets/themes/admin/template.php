@@ -38,8 +38,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <link rel="stylesheet" type="text/css" href="<?=base_url('assets/');?>css/settings.css">
 <link rel="stylesheet" type="text/css" href="<?=base_url('assets/');?>css/range-Slider.min.css">
 <link rel="stylesheet" type="text/css" href="<?=base_url('assets/');?>css/search.css">
-<link rel="stylesheet" type="text/css" href="<?=base_url('assets/');?>css/style.css">
 
+<!-- <link rel="stylesheet" type="text/css" href="<?=base_url('assets/');?>css/style.css"> / End -->
 <link rel="stylesheet" href="<?=base_url('assets/');?>themes/admin/css/admin.css">
 <link rel="stylesheet" href="<?=base_url('assets/');?>themes/admin/css/summernote-bs3.css">
 <link rel="stylesheet" type="text/css" href="<?=base_url('assets/');?>themes/admin/css/adminlte.css">
