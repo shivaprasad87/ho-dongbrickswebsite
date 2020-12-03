@@ -13200,7 +13200,8 @@ background: #db1239;
 	float: left;
     margin-bottom: 15px;
     /* margin-right: 20px; */
-    /* width: 200px; */
+	/* width: 200px; */
+	width: 100%;
     list-style: none;
 }
 .demo-gallery > ul > li a { 
