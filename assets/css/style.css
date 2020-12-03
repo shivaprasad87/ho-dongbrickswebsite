@@ -396,6 +396,7 @@ display: block;
 }
 
 @media (max-width: 992px) {
+	
 	#Pricing table{
 		
 		font-size: 14px;
@@ -426,6 +427,12 @@ display: block;
 }
 
 @media (max-width: 768px) {
+	#Gallery .col-sm-4{
+		width: 50%!important;
+	}
+	.bg-overlay {
+		padding: 0px 20px;
+	}
 	.header-style-2 .right-side { margin-top: 5px; }
 	.header-style-2 .header-widget a.button.border { margin-bottom: 0px; }
 	#header-container.header-style-2 .header-widget { zoom: 0.7; }
@@ -2089,11 +2096,11 @@ em.mm-counter+a.mm-fullsubopen+span {
 	z-index: 999;
 }
 
-/*@media only screen and (min-width: 1367px) {
-	.search-container {
-		padding: 90px 0;
+@media  (min-width: 800px) {
+	#Gallery .col-lg-6{
+		width: 50%!important;
 	}
-}*/
+}
 
 .search-container h2 {
 	font-size: 40px;
@@ -3859,17 +3866,19 @@ button.fs-map-btn.button {
 /* Content on image */
 .listing-img-content {
 	position: absolute;
-	/* z-index: 99; */
+	z-index: 99;
 	bottom: 0;
 	left: 0;
 	width: 100%;
+	
 	box-sizing: border-box;
-	padding: 25px 30px;
+	padding: 25px 15px;
 }
 
 .listing-img-content span {
 	color: #fff;
 	font-size: 23px;
+	float: left;
 }
 
 .listing-img-content .listing-price i {
@@ -3894,7 +3903,10 @@ button.fs-map-btn.button {
 	overflow: hidden;
 	height: 100px;
 }
-
+.badges-page {
+	
+	height: 125px;
+}
 .listing-badges span {
 	color: #fff;
 	display: inline-block;
@@ -3918,6 +3930,24 @@ button.fs-map-btn.button {
     position: relative;
     text-align: center;
     width: 200px;
+    font-size: 12.5px;
+    margin: 0;
+}
+
+
+.listing-badges .rera {
+	background-color: #149714;
+	color: white;
+    float: revert;
+    transform: rotate(-45deg);
+	left: -44px;
+    top: 11px;
+    line-height: 30px;
+    text-align: center;
+    height: 30px;
+    position: relative;
+    text-align: center;
+    width: 190px;
     font-size: 12.5px;
     margin: 0;
 }
@@ -4103,12 +4133,12 @@ ul.listing-details li {
 }
 
 
-.list-layout .listing-img-container:before {
+.list-layout .listing-img-container:before, .grid-layout .listing-img-container:before{
 	background: linear-gradient(to bottom, transparent 55%, #2f2f2f);
 }
 
-.list-layout .listing-img-container:after {
-	background: linear-gradient(to bottom, transparent 55%, #66676b);
+.list-layout .listing-img-container:after,.grid-layout .listing-img-container:after {
+	background: linear-gradient(to bottom, transparent 55%, #18181870);
 }
 
 
@@ -4271,21 +4301,12 @@ ul.listing-details li {
 	transition: opacity .6s;
 }
 
-/* .compact .listing-img-container:hover:before {
-	opacity: 0;
-	transition: opacity 0.6s;
-}
-
-.compact .listing-img-container:hover:after {
-	opacity: 1;
-	transition: opacity 0.5s;
-} */
-
 
 /* Compact Price */
 .compact .listing-img-content span {
 	color: #fff;
 	font-size: 20px;
+	width: 100%;
 	background: #2c2c2b4d;
 }
 
@@ -12904,7 +12925,7 @@ body .daterangepicker .drp-buttons button.cancelBtn {
 
 	.main-search-input { width: 100%; display: block }
 
-	.listing-footer span { display: none; }
+	.listing-footer span { display: block; }
 
 	.main-search-input button.button {
 		margin-left: 0;
@@ -12936,7 +12957,14 @@ body .daterangepicker .drp-buttons button.cancelBtn {
 	    margin-top: 18px;
 	    margin-left: 0;
 	}
+		.listing-title h4{
+			width: 60%;
+		}
 
+		.list-layout .listing-footer {
+			padding: 15px 20px;
+			font-size: 12px;
+		}
 	.layout-switcher { display: none; }
 
 	.grid-layout,
@@ -12954,8 +12982,25 @@ body .daterangepicker .drp-buttons button.cancelBtn {
 
 	.list-layout .listing-item,
 
-	.list-layout .details.button.border { display: none; }
-	.list-layout .listing-title { padding-right: 30px; }
+	.list-layout .details.button.border { display: block; }
+	.details.button.border {
+		padding: 8px 16px!important;
+		width: fit-content!important;
+		float: right!important;
+		margin: 0;
+		transform: translate(24%,-62%) scale(1);
+		transition: all 0.25s;
+		overflow: hidden;
+		display: block;
+	}
+	.list-layout .listing-title {
+		padding: 18px 10px;
+	}
+	.listing-title h4 a {
+		font-size: 16px;
+		color: #333;
+		line-height: 20px;
+	}
 
 	.property-slider-container .agent-widget {
 		position: relative;
@@ -13963,3 +14008,79 @@ text-decoration: none;
     border-top: 1px solid #ddd;
     text-align: center;
 }
+
+/* animatiom */
+.divTAReviews .more-text{
+	display: none;
+}
+@keyframes movingTopToBottom {
+	0% {
+	  bottom: -15px;
+	}
+	95% {
+		bottom: 150px;
+	}
+	100% {
+		bottom: 65px;
+	}
+  }
+
+  .divTAReviews {
+	animation: movingTopToBottom 10s linear infinite;
+	position: relative;
+	display: inline-block;
+	
+  }
+
+
+  /* Star Rating */
+
+  
+.rating { 
+	border: none;
+	float: right;
+  }
+  
+  .rating > input { display: none; } 
+  .rating > label:before { 
+	margin: 5px;
+	font-size: 16px;
+	font-family: FontAwesome;
+	display: inline-block;
+	content: "\f005";
+  }
+  
+  .rating > .half:before { 
+	content: "\f089";
+	position: absolute;
+  }
+  
+  .rating > label { 
+	color: #ddd; 
+   float: right; 
+  }
+  
+  /***** CSS Magic to Highlight Stars on Hover *****/
+  
+  .rating > input:checked ~ label, /* show gold star when clicked */
+  .rating:not(:checked) > label:hover, /* hover current star */
+  .rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+  
+  .rating > input:checked + label:hover, /* hover current star when changing rating */
+  .rating > input:checked ~ label:hover,
+  .rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+  .rating > input:checked ~ label:hover ~ label { color: #FFED85;  } 
+
+
+
+  .my-sticky-form {
+	position: sticky;
+	position: -webkit-sticky;
+	top: 70px;
+	/* display: flex; */
+	justify-content: center;
+	align-items: center;
+	
+	color: #fff;
+  }
+

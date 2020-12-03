@@ -1460,7 +1460,34 @@
 		$("#scroll-nearby").removeClass("nearby"); 
 	 }
 	
+	 var spannumber=$(".testimonial-content");
+	 for(i=0; i<=spannumber.length-1;i++){
+		var data=$(spannumber[i]).html().trim();
+		console.log(data);
+	if (data.length > 235) {
 	
+	  $(spannumber[i]).addClass('divTAReviews')
+	  
+	  console.log("text is long");
+	}
+	
+	
+	 }
+	
+	
+		// Check Radio-box
+		$(".rating input:radio").attr("checked", false);
+	
+		$('.rating input').click(function () {
+			$(".rating span").removeClass('checked');
+			$(this).parent().addClass('checked');
+		});
+	
+		$('input:radio').change(
+		  function(){
+			var userRating = this.value;
+			alert(userRating);
+		}); 
 	
 	}) (this.jQuery);
 	

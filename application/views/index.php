@@ -492,7 +492,9 @@
 			          ?>
 						<div class="col-lg-12">
 							<div class="testimonial-box">
-								<div class="testimonial"><?=$testimonial->comment?></div>
+								<div class="testimonial">
+									<div class="testimonial-content myspan"><?=$testimonial->comment?></div>
+								</div>
 								<div class="testimonial-author">
 									<img src="<?= base_url('uploads/testimonials/' . $testimonial->image) ?>" alt="">
 									<h4><?= $testimonial->name ?> <span> <?=$testimonial->job_desc?></span></h4>
