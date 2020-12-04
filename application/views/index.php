@@ -122,9 +122,9 @@
 						
 							<div class="">
 								<?php
-        foreach ($bestdeal_properties as $property) { 
-          ?>
-								<div class="col-lg-4 col-xs-12">
+								foreach ($bestdeal_properties as $property) { 
+								?>
+								<div class="col-lg-4 col-sm-6  col-xs-12">
 									<div class="property-list ">
 									<div class="prop-city-status">
 										<?=$property->city_name ?>
@@ -177,17 +177,19 @@
 						<div role="tabpanel" class="tab-pane fade  " id="Commertial">
 
 							<div class="">
-							<div class="col-lg-4 col-xs-12">
+							<div class="col-lg-4 col-sm-6 col-xs-12">
 								<div class="property-list ">
-									<div class="list-city">
-										Bangalore                    </div>
+									<div class="prop-city-status">
+										Bangalore
+									</div>
+									<div class="property-status">
+										*Avail Special Offers*
+									</div>
 										<a target="_blank" href="" style="text-decoration: none;">
 										<div class="property-img" style="background-image: url(<?=base_url('assets/');?>images/listing-03.jpg)">
 										
 										</div>
-										<div class="property-status">
-											*Avail Special Offers*
-										</div>
+										
 										</a><div class="propertylist-details"><a target="_blank" href="" style="text-decoration: none;">
 										
 											<h4>Brigade Eldorado-Jasper</h4>
@@ -207,15 +209,17 @@
 								</div>
 							    </div>
 							</div>
-							<div class="col-lg-4 col-xs-12">
+							<div class="col-lg-4 col-sm-6 col-xs-12">
 									<div class="property-list">
-										<div class="list-city">
-											Pune                    </div>
+									<div class="prop-city-status">
+										Pune
+									</div>
+									<div class="property-status">
+										*Avail Special Offers*
+									</div>
 										<a target="_blank" href="" style="text-decoration: none;">
 											<div class="property-img" style="background-image: url(<?=base_url('assets/');?>images/listing-01.jpg)"></div>
-											<div class="property-status">
-												*Avail Special Offers*
-											</div>
+											
 											</a
 											><div class="propertylist-details"><a target="_blank" href="" style="text-decoration: none;">
 											
@@ -235,15 +239,17 @@
 									</div>
 								    </div>
 							</div>
-							<div class="col-lg-4 col-xs-12">
+							<div class="col-lg-4 col-sm-6 col-xs-12">
 								<div class="property-list">
-									<div class="list-city">
-										Bangalore                    </div>
+								<div class="prop-city-status">
+										Bangalore
+									</div>
+									<div class="property-status">
+										*Avail Special Offers*
+									</div>
 									<a target="_blank" href="" style="text-decoration: none;">
 										<div class="property-img" style="background-image: url(<?=base_url('assets/');?>images/listing-02.jpg)"></div>
-										<div class="property-status">
-											*Avail Special Offers*
-										</div>
+										
 										</a>
 										<div class="propertylist-details"><a target="_blank" href="" style="text-decoration: none;">
 										
@@ -271,17 +277,19 @@
 						<div role="tabpanel" class="tab-pane fade  " id="Plotted">
 
 							<div class="">
-								<div class="col-lg-4 col-xs-12">
-						<div class="property-list ">
-							<div class="list-city">
-								Bangalore                    </div>
+							<div class="col-lg-4 col-sm-6 col-xs-12">
+						        <div class="property-list ">
+						          <div class="prop-city-status">
+										Bangalore
+									</div>
+									<div class="property-status">
+										*Avail Special Offers*
+									</div>
 								<a target="_blank" href="" style="text-decoration: none;">
 								<div class="property-img" style="background-image: url(<?=base_url('assets/');?>images/listing-03.jpg)">
 								
 								</div>
-								<div class="property-status">
-									*Avail Special Offers*
-								</div>
+								
 								</a><div class="propertylist-details"><a target="_blank" href="" style="text-decoration: none;">
 								
 									<h4>Brigade Eldorado-Jasper</h4>

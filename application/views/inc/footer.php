@@ -36,7 +36,7 @@
 				</div>		
 
 
-				<div class="col-md-4 col-sm-12 col-xs-12">
+				<div class="col-md-4 col-sm-6 col-xs-12">
 					<h4>Address</h4>
 					<div class="text-widget">
 						<i class="fa fa-map-marker" aria-hidden="true"></i>: <span>Lorem Ipsum Lorem Ipsum</span> <br>
@@ -48,7 +48,7 @@
 
 				</div>
 
-					<div class="col-md-3  col-sm-12 col-xs-12 ">
+					<div class="col-md-3  col-sm-6 col-xs-12 ">
 						<h4 class="text-center">Connect With Us</h4>
 						<div class="text-widget">
 							<form action="<?php base_url('home/sendEmail') ?>" name="" method="POST" id="elqform2">
