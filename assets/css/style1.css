@@ -258,21 +258,37 @@ header{width:100%;transition:all ease .5s;
     top:20px;
     left:-7px;
 }
-.prop-status{
-    position: absolute;
-    width: 141px;
+
+.prop-status {
+    width: 150px;
     height: 43px;
     background: url(../images/recomended_bg.png) 0 0 no-repeat;
     background-size: cover;
     position: absolute;
-    padding: 10px;
+    padding: 12px 0px;
     top: 10px;
+    text-align: center;
     left: -8px;
-    font-size: 10px;
+    font-size: 11px;
     color: #fff;
     text-transform: uppercase;
     font-family: 'Gotham-Bold';
-    padding: 10px 0 0 10px;
+   
+}
+.prop-city-status {
+    width: 112px;
+    height: 32px;
+    background: url(../images/recomended_bg.png) 0 0 no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 10px;
+    left: -7px;
+    text-align: center;
+    font-size: 13px;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: 'Gotham-Bold';
+    padding: 7px 0 0 12px;
 }
 .property-title1 p ,.property-title1 span{
     font-size:16px;
@@ -1006,7 +1022,7 @@ header{width:100%;transition:all ease .5s;
         width:20%
     }
     .lightgallery ,.demo-gallery ul{
-        list-style-type: disc;
+        list-style-type: no;
         margin-block-start: 0em!important;
         margin-block-end: 0em!important;
         margin-inline-start: 0px!important;

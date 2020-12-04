@@ -126,15 +126,18 @@
           ?>
 								<div class="col-lg-4 col-xs-12">
 									<div class="property-list ">
-										<div class="list-city">
-											<?=$property->city_name ?>                  </div>
+									<div class="prop-city-status">
+										<?=$property->city_name ?>
+									</div>
+									<div class="property-status">
+										*Avail Special Offers*
+									</div>
+										
 											<a target="_blank" href="<?= site_url(url_title($property->city_name)."/".( url_title($property->area) )."/$property->slug") ?>" style="text-decoration: none;">
 											<div class="property-img" style="background-image: url(<?= base_url('uploads/' . $property->slug . '/' . $property->image) ?>)">
 											
 											</div>
-											<div class="property-status">
-												*Avail Special Offers*
-											</div>
+											
 											</a><div class="propertylist-details"><a target="_blank" href="" style="text-decoration: none;">
 											
 												<h4><?= $property->title ?></h4>

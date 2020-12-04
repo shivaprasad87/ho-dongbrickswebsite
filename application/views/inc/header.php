@@ -18,7 +18,7 @@
       
         <div class="container hidden-xs">
             <div class="corner-right">
-              <h1><span></span> <br> Onwards*</h1>
+              <h1><span></span> <br> </h1>
             </div>
                   <div class="right-corner-badges">
                     <span class="featured">
