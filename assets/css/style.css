@@ -4010,17 +4010,18 @@ button.fs-map-btn.button {
 	background-color: #149714;
 	color: white;
     float: revert;
-    transform: rotate(-45deg);
-	left: -44px;
-    top: 11px;
+	transform: rotate(-38deg);
+    left: -50px;
+    top: 20px;
     line-height: 30px;
     text-align: center;
     height: 30px;
     position: relative;
     text-align: center;
     width: 190px;
-    font-size: 12.5px;
-    margin: 0;
+    font-size: 10px;
+	margin: 0;
+	text-transform: uppercase;
 }
 
 

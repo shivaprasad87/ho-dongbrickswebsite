@@ -162,7 +162,7 @@ data-img-height="505">
 				<div class="listing-img-container">
 
 					<div class="listing-badges badges-page">
-						<span class="featured">Featured</span>
+						<!-- <span class="featured">Featured</span> -->
 						<span class="rera">Rera Approved</span>
 						<span>For Sale</span>
 					</div>
@@ -231,7 +231,7 @@ data-img-height="505">
 					<div class="listing-img-container">
 	
 						<div class="listing-badges badges-page">
-							<span class="featured">Featured</span>
+							<!-- <span class="featured">Featured</span> -->
 							<span class="rera">Rera Approved</span>
 							<span>For Sale</span>
 						</div>
@@ -300,7 +300,7 @@ data-img-height="505">
 						<div class="listing-img-container">
 		
 							<div class="listing-badges badges-page">
-								<span class="featured">Featured</span>
+								<!-- <span class="featured">Featured</span> -->
 								<span class="rera">Rera Approved</span>
 								<span>For Sale</span>
 							</div>
