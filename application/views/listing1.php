@@ -1,150 +1,3 @@
-<!DOCTYPE html>
-
-<head>
-
-<!-- Basic Page Needs
-================================================== -->
-<title>Listing Page</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-<!-- CSS
-================================================== -->
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/style1.css">
-
-<link rel="stylesheet" href="css/color.css">
-<link rel="stylesheet" href="css/reality-icon.css">
-<!-- <link rel="stylesheet" href="css/cubeportfolio.min.css"> -->
-<style>
-	 .mt-30{
-		 margin-top: 10px;
-	 }
-</style>
-</head>
-
-<body>
-
-<!-- Wrapper -->
-<div id="wrapper">
-
-<!-- Header Container
-================================================== -->
-<header id="header-container">
-
-	<!-- Topbar -->
-	<div id="top-bar">
-		<div class="container">
-
-			<!-- Left Side Content -->
-			<div class="left-side">
-
-				<!-- Top bar -->
-				<ul class="top-bar-menu">
-					<li><i class="fa fa-phone"></i> 1234567890 </li>
-					<li><i class="fa fa-envelope"></i> <a href="#">office@example.com</a></li>
-				
-				</ul>
-
-			</div>
-			<!-- Left Side Content / End -->
-
-
-			<!-- Left Side Content -->
-			<div class="right-side">
-
-				<!-- Social Icons -->
-				<ul class="social-icons">
-					<li><a class="facebook" href="#"><i class="icon-facebook"></i></a></li>
-					<li><a class="twitter" href="#"><i class="icon-twitter"></i></a></li>
-					<li><a class="gplus" href="#"><i class="icon-gplus"></i></a></li>
-					<li><a class="pinterest" href="#"><i class="icon-pinterest"></i></a></li>
-				</ul>
-
-			</div>
-			<!-- Left Side Content / End -->
-
-		</div>
-	</div>
-	<div class="clearfix"></div>
-	<!-- Topbar / End -->
-
-
-	<!-- Header -->
-	<div id="header">
-		<div class="container">
-			
-			<!-- Left Side Content -->
-			<div class="left-side">
-				
-				<!-- Logo -->
-				<div id="logo">
-					<a href="index.html"><img src="images/Holding-bricks.png" alt=""></a>
-				</div>
-
-
-				<!-- Mobile Navigation -->
-				<div class="mmenu-trigger">
-					<button class="hamburger hamburger--collapse" type="button">
-						<span class="hamburger-box">
-							<span class="hamburger-inner"></span>
-						</span>
-					</button>
-				</div>
-
-
-			
-				
-			</div>
-			<!-- Left Side Content / End -->
-
-			<!-- Right Side Content / End -->
-			<div class="right-side">
-			
-				<div class="header-widget">
-					<nav id="navigation" class="style-1">
-						<ul id="responsive">
-	
-							<li><a href="homepage.html">Home</a>
-								
-							</li>
-	
-							<li><a class="" href="about-us.html">About Us</a>
-								
-							</li>
-
-							<li><a class="current" href="listing.html">Listing</a></li>
-
-							<li><a href="blog.html">Blogs</a></li>
-
-							<li><a href="#">Location</a>
-								<ul>
-									<li><a href="index.html">Bangalore</a></li>
-									<li><a href="index.html">Pune</a></li>
-							
-								</ul>
-							</li>
-
-						
-	
-						
-							<li><a  class="" href="contact.html">Contact Us</a>
-								
-							</li>
-	
-						</ul>
-					</nav>
-				</div>
-				
-			</div>
-			<!-- Right Side Content / End -->
-
-		</div>
-	</div>
-	<!-- Header / End -->
-
-</header>
 <div class="clearfix"></div>
 
 
@@ -187,7 +40,7 @@ data-img-height="505">
 			<!-- <div class="div-shadow">
 				<div class="col-pad">
 					<div class="property-banner">
-						<img src="images/popular-location-04.jpg" class="img-responsive">
+						<img src="<?=base_url()?>images/popular-location-04.jpg" class="img-responsive">
 						<div class="prop-status">
 							Under Construction
 						</div>
@@ -230,7 +83,7 @@ data-img-height="505">
 			<div class="div-shadow mt-30">
 				<div class="col-pad">
 					<div class="property-banner">
-						<img src="images/popular-location-04.jpg" class="img-responsive">
+						<img src="<?=base_url()?>images/popular-location-04.jpg" class="img-responsive">
 						<div class="prop-status">
 							Under Construction
 						</div>
@@ -336,7 +189,7 @@ data-img-height="505">
 
 					
 
-					<img src="images/listing-03.jpg" alt="">
+					<img src="<?=base_url()?>images/listing-03.jpg" alt="">
 
 				</div>
 
@@ -405,7 +258,7 @@ data-img-height="505">
 	
 						
 	
-						<img src="images/listing-03.jpg" alt="">
+						<img src="<?=base_url()?>images/listing-03.jpg" alt="">
 	
 					</div>
 	
@@ -474,7 +327,7 @@ data-img-height="505">
 		
 							
 		
-							<img src="images/listing-03.jpg" alt="">
+							<img src="<?=base_url()?>images/listing-03.jpg" alt="">
 		
 						</div>
 		
@@ -619,7 +472,7 @@ data-img-height="505">
     <div class="modal-content">
       
 		<div class="modal-body text-center needhelp_form-modal" style="margin: auto;">
-		<li class="left_col"><img class="text-center modal-logo" src="images/Holding-bricks.png"></li>	
+		<li class="left_col"><img class="text-center modal-logo" src="<?=base_url()?>images/Holding-bricks.png"></li>	
 		<li class="right_col"><h5>Project Name Brochure</h5></li>
 		
 			<div class="needhelp_form_list">
@@ -651,240 +504,3 @@ data-img-height="505">
 </div>
 
 
-<!-- Footer
-	sticky-footer
-================================================== -->
-<div id="footer" class=" footer-form">
-	<div class="bg-overlay">
-	<!-- Main -->
-	<div class="container">
-		<div class="row mb-40">
-			
-					<div class="col-md-6 col-xs-12 ">
-						<div class="row">
-							<div class="col-md-6 col-xs-6 ">
-								<h4>Quick Links</h4>
-								<ul class="footer-links">
-									<li><a href="homepage.html">Home</a></li>
-									<li><a href="about-us.html">About Us</a></li>
-									<li><a href="careers.html">Careers</a></li>
-									<li><a href="blog.html">Blogs</a></li>
-									<li><a href="contact.html">Contact</a></li>
-								
-								</ul>
-							</div>
-							<div class="col-md-6 col-xs-6 ">
-								<h4>Popular</h4>
-								<ul class="footer-links">
-									<li><a href="#">New Launches</a></li>
-									<li><a href="#">Affordable </a></li>
-									<li><a href="#">Ready To Move In</a></li>
-									<li><a href="#">Luxury</a></li>
-									<li><a href="#">Commercial </a></li>
-									
-								</ul>
-							</div>
-						</div>
-						
-						<div class="clearfix"></div>
-					</div>		
-		
-		
-					<div class="col-md-3 col-sm-12 col-xs-12">
-						<h4>Address</h4>
-						<div class="text-widget">
-							<i class="fa fa-map-marker" aria-hidden="true"></i>: <span>Lorem Ipsum Lorem Ipsum</span> <br>
-							<i class="fa fa-phone" aria-hidden="true"></i>: <span>(+91) 123-4576-789 </span><br>
-							<i class="fa fa-mail-reply-all" aria-hidden="true"></i>: <span> <a href="#">office@example.com</a> </span><br>
-						</div>
-		
-						
-		
-					</div>
-
-						<div class="col-md-3  col-sm-12 col-xs-12 ">
-							<h4>Connect With Us</h4>
-							<div class="text-widget">
-								<form action="" name="" method="POST" id="elqform2">
-									
-									<ul>
-										<li class="form-control">	
-											<input type="text" placeholder="Name*" id="" required="" name="Name*"></li>
-
-										<li class="form-control">
-									
-									<input type="tel" placeholder="Phone Number*" id="" required="" name="phone*">
-								</li>
-
-									<li class="form-control">
-										<input type="email" placeholder="Email ID*" required="" name="emailAddress" id="fcemail" autocomplete="off" class="emailcheck">
-									</li>
-
-									<li style="margin-top:13px !Important;">
-										<center><div class="btn btn-submit" data-toggle="modal" data-target="#main-pop">Request Callback</div></center>
-									</li>
-								</ul>
-							</form>
-
-							</div>
-
-							
-
-						</div>
-
-					 <div class="clearflix"></div>
-	
-
-		</div>
-
-		<div class="row mb-40">
-			<div class="col-md-3 col-xs-12 ">
-				<h5>Top Builders In Bangalore</h5>
-				<ul class="footer-links">
-					<li><a href="#">Prestige Group</a></li>
-					<li><a href="#">Brigade Group</a></li>
-					<li><a href="#">Godrej Properties</a></li>
-					<li><a href="#">Sobha Limited</a></li>
-					<li><a href="#">Purvankara</a></li>
-					<li><a href="#">Mahindra Life Spaces</a></li>
-				
-				</ul>
-			</div>
-
-			<div class="col-md-3 col-xs-12 ">
-				<h5>Top Builders In Pune</h5>
-				<ul class="footer-links">
-					<li><a href="#">Kolte Patil Developers</a></li>
-					<li><a href="#">Vilas Javdekar</a></li>
-					<li><a href="#">Kohinoor Group Construction</a></li>
-					<li><a href="#">Shapoorji Pallonji</a></li>
-					<li><a href="#">Kalpataru Group</a></li>
-					<li><a href="#">Lodha Group</a></li>
-				
-				</ul>
-			</div>
-
-			<div class="col-md-3 col-xs-12 ">
-				<h5>Featured Properties (Bangalore)</h5>
-				<ul class="footer-links">
-					<li><a href="#">2 BHK Apartments </a></li>
-					<li><a href="#">3 BHK Apartments </a></li>
-					<li><a href="#">4 BHK Apartments </a></li>
-					<li><a href="#"> Villas Properties </a></li>
-					<li><a href="#">Commercial & Office Spaces </a></li>
-					<li><a href="#">Plotted Development</a></li>
-				
-				</ul>
-			</div>
-
-			<div class="col-md-3 col-xs-12">
-				<h5>Featured Properties (Pune)</h5>
-				<ul class="footer-links">
-					<li><a href="#">2 BHK Apartments </a></li>
-					<li><a href="#">3 BHK Apartments </a></li>
-					<li><a href="#">4 BHK Apartments </a></li>
-					<li><a href="#"> Villas Properties </a></li>
-					<li><a href="#">Commercial & Office Spaces </a></li>
-					<li><a href="#">Plotted Development</a></li>
-				
-				</ul>
-			</div>
-		</div>
-		
-		<div class="row mb-40">
-			<div class="col-md-3 col-xs-12 ">
-				<h5>Locality ( Bangalore )</h5>
-				<ul class="footer-links">
-					<li><a href="#">Properties in Whitefield</a></li>
-					<li><a href="#">Properties in Kanakapura Road</a></li>
-					<li><a href="#">Properties in Sarjapura Road</a></li>
-					<li><a href="#">Properties in Hennur Road</a></li>
-					<li><a href="#">Properties in K.R Puram</a></li>
-					<li><a href="#">Properties in Yashwantpur</a></li>
-					<li><a href="#">Properties in Yelahanka</a></li>
-				
-				</ul>
-			</div>
-
-			<div class="col-md-3 col-xs-12 ">
-				<h5>Locality ( Pune )</h5>
-				<ul class="footer-links">
-					<li><a href="#">Properties in Hinjewadi </a></li>
-					<li><a href="#">Properties in Wakad</a></li>
-					<li><a href="#">Properties in Baner</a></li>
-					<li><a href="#">Properties in Kharadi</a></li>
-					<li><a href="#">Properties in Wagholi</a></li>
-					<li><a href="#">Properties in Balewadi</a></li>
-					<li><a href="#">Properties in Pimpri-Chinchwad</a></li>
-				
-				</ul>
-			</div>
-
-			
-			<div class="col-md-6 col-xs-12">
-				<center>
-					<img class="footer-logo" src="images/Holding-bricks.png" alt="">
-				
-				<p><ul class="social-icons rounded margin-top-20 text-center">
-					
-					<li><a class="facebook" href="#"><i class="icon-facebook"></i></a></li>
-					<li><a class="instagram" href="#"><i class="icon-instagram"></i></a></li>
-					
-					<li><a class="twitter" href="#"><i class="icon-twitter"></i></a></li>
-					<li><a class="linkedin" href="#"><i class="icon-linkedin"></i></a></li>
-				
-					<li><a class="whatsapp" href="#"><i class="icon-whatsapp"></i></a></li>
-					<li><a class="pinterest" href="#"><i class="icon-pinterest"></i></a></li>
-				
-				</ul></p>
-			</center>
-			</div>
-		</div>
-	
-
-	</div>
-
-</div>
-	<div class="cntainer-fluid">
-		<div class="row " style="position: relative;" >
-			<div class="copyrights" style="position: absolute;"><center>© 2020. All Rights Reserved.</center></div>
-			<div class="col-md-8 col-xs-6 copyrightstext" >
-				<div class="upcoming-msg" style="">
-					
-				</div>
-			</div>
-			<div class="col-md-4 col-xs-6 copyrightstext1" >
-				<div class="check-out" style="">
-				
-				</div>
-			</div>
-		</div>
-	</div>
-
-</div>
-<!-- Back To Top Button -->
-<div id="backtotop"><a href="#"></a></div>
-
-
-</div>
-
-<!-- Scripts
-================================================== -->
-<script type="text/javascript" src="js/jquery-2.1.4.js"></script>
-
-<script type="text/javascript" src="js/magnific-popup.min.js"></script>
-<script type="text/javascript" src="js/owl.carousel.min.js"></script>
-<!-- <script type="text/javascript" src="js/rangeSlider.js"></script> -->
-<script type="text/javascript" src="js/sticky-kit.min.js"></script>
-<script type="text/javascript" src="js/slick.min.js"></script>
-<script type="text/javascript" src="js/masonry.min.js"></script>
-<script type="text/javascript" src="js/mmenu.min.js"></script>
-<script type="text/javascript" src="js/tooltips.min.js"></script>
-<!-- <script src="js/jquery.cubeportfolio.min.js"></script> -->
-<script src="js/jquery.fancybox.js"></script>
-<script type="text/javascript" src="js/custom.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-
-
-</body>
-</html>
