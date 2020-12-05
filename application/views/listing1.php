@@ -4,7 +4,7 @@
 <!-- Titlebar
 ================================================== -->
 <div class="parallax titlebar"
-data-background="images/listings-parallax.jpg"
+data-background="<?=base_url('assets/')?>images/listings-parallax.jpg"
 data-color="#333333"
 data-color-opacity="0.7"
 data-img-width="800"
@@ -40,7 +40,7 @@ data-img-height="505">
 			<!-- <div class="div-shadow">
 				<div class="col-pad">
 					<div class="property-banner">
-						<img src="<?=base_url()?>images/popular-location-04.jpg" class="img-responsive">
+						<img src="<?=base_url('assets/')?>images/popular-location-04.jpg" class="img-responsive">
 						<div class="prop-status">
 							Under Construction
 						</div>
@@ -83,7 +83,7 @@ data-img-height="505">
 			<div class="div-shadow mt-30">
 				<div class="col-pad">
 					<div class="property-banner">
-						<img src="<?=base_url()?>images/popular-location-04.jpg" class="img-responsive">
+						<img src="<?=base_url('assets/')?>images/popular-location-04.jpg" class="img-responsive">
 						<div class="prop-status">
 							Under Construction
 						</div>
@@ -163,7 +163,7 @@ data-img-height="505">
 
 					<div class="listing-badges badges-page">
 						<span class="featured">Featured</span>
-						<span class="rera">Rera</span>
+						<span class="rera">Rera Approved</span>
 						<span>For Sale</span>
 					</div>
 
@@ -189,7 +189,7 @@ data-img-height="505">
 
 					
 
-					<img src="<?=base_url()?>images/listing-03.jpg" alt="">
+					<img src="<?=base_url('assets/')?>images/listing-03.jpg" alt="">
 
 				</div>
 
@@ -232,7 +232,7 @@ data-img-height="505">
 	
 						<div class="listing-badges badges-page">
 							<span class="featured">Featured</span>
-							<span class="rera">Rera</span>
+							<span class="rera">Rera Approved</span>
 							<span>For Sale</span>
 						</div>
 	
@@ -258,7 +258,7 @@ data-img-height="505">
 	
 						
 	
-						<img src="<?=base_url()?>images/listing-03.jpg" alt="">
+						<img src="<?=base_url('assets/')?>images/listing-03.jpg" alt="">
 	
 					</div>
 	
@@ -301,7 +301,7 @@ data-img-height="505">
 		
 							<div class="listing-badges badges-page">
 								<span class="featured">Featured</span>
-								<span class="rera">Rera</span>
+								<span class="rera">Rera Approved</span>
 								<span>For Sale</span>
 							</div>
 		
@@ -327,7 +327,7 @@ data-img-height="505">
 		
 							
 		
-							<img src="<?=base_url()?>images/listing-03.jpg" alt="">
+							<img src="<?=base_url('assets/')?>images/listing-03.jpg" alt="">
 		
 						</div>
 		
@@ -365,9 +365,11 @@ data-img-height="505">
 		
 
 		</div>
+
+		<div class="clearflix"></div>
 		<!-- Listings Container / End -->
 
-		
+		<br>
 		<!-- Pagination -->
 		<div class="pagination-container margin-top-20">
 			<nav class="pagination">
@@ -457,7 +459,7 @@ data-img-height="505">
 
 <div class="margin-top-50"></div>
 <!-- Flip banner -->
-<a href="" class="flip-banner parallax-home" data-background="images/single-property-03.jpg"  data-color-opacity="0.9" data-img-width="2500" data-img-height="1600">
+<a href="" class="flip-banner parallax-home" data-background="<?=base_url('assets/')?>images/single-property-03.jpg"  data-color-opacity="0.9" data-img-width="2500" data-img-height="1600">
 	<div class="flip-banner-content" style="color:rgb(219 18 57)">
 		<h2 class="flip-visible">We help people and homes find each other</h2>
 		<h2 class="flip-hidden">Browse Properties <i class="sl sl-icon-arrow-right"></i></h2>
@@ -472,7 +474,7 @@ data-img-height="505">
     <div class="modal-content">
       
 		<div class="modal-body text-center needhelp_form-modal" style="margin: auto;">
-		<li class="left_col"><img class="text-center modal-logo" src="<?=base_url()?>images/Holding-bricks.png"></li>	
+		<li class="left_col"><img class="text-center modal-logo" src="<?=base_url('assets/')?>images/Holding-bricks.png"></li>	
 		<li class="right_col"><h5>Project Name Brochure</h5></li>
 		
 			<div class="needhelp_form_list">
