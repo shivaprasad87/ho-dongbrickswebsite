@@ -172,7 +172,7 @@ class Home extends Public_Controller
             'keywords' => 'Property for sale in India, Apartments for Sale, Flats for Sale, House for Sale, Residential Properties in India, Villas for Sale, Plots for Sale, Bangalore Real Estate, Pune Real Estate, Hyderabad Real Estate, Mumbai Real Estate, Real Estate India, Property Site India'
         );
 
-        $this->data['view_page'] = 'listing1';
+        $this->data['view_page'] = 'listing';
         $this->load->view('template', $this->data);
     }
 
