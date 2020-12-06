@@ -4010,17 +4010,18 @@ button.fs-map-btn.button {
 	background-color: #149714;
 	color: white;
     float: revert;
-    transform: rotate(-45deg);
-	left: -44px;
-    top: 11px;
+	transform: rotate(-38deg);
+    left: -50px;
+    top: 20px;
     line-height: 30px;
     text-align: center;
     height: 30px;
     position: relative;
     text-align: center;
     width: 190px;
-    font-size: 12.5px;
-    margin: 0;
+    font-size: 10px;
+	margin: 0;
+	text-transform: uppercase;
 }
 
 
@@ -4067,7 +4068,10 @@ span.like-icon {
 	padding: 15px 30px;
 	padding-top: 12px;
 }
-
+.grid-layout .listing-title {
+	padding: 15px 5px;
+	padding-top: 12px;
+}
 .listing-title h4 a {
 	font-size: 20px;
 	color: #333;
@@ -4119,6 +4123,10 @@ ul.listing-details li {
 .listing-footer {
 	color: #909090;
 	padding: 15px 30px;
+}
+.grid-layout .listing-footer {
+    color: #909090;
+    padding: 20px 12px;
 }
 
 .listing-footer i { padding-right: 3px; }
@@ -4188,7 +4196,7 @@ ul.listing-details li {
 .list-layout .listing-title {
 	padding: 18px 35px;
 	padding-bottom: 20px;
-	padding-right: 160px;
+	/* padding-right: 160px; */
 	position: relative;
 }
 
@@ -4214,7 +4222,10 @@ ul.listing-details li {
 
 
 /* Grid Layout*/
-.grid-layout .listing-item .details.button { display: none; }
+.grid-layout .listing-item .details.button {
+    display: block;
+    position: relative;
+}
 .grid-layout .listing-item.list-layout .details.button { display: block; }
 
 .grid-layout {
@@ -4281,12 +4292,26 @@ ul.listing-details li {
 	top: 50%;
 	right: 35px;
 	margin: 0;
-	transform: translate(0,-51%) scale(1);
+	transform: translate(0,55%) scale(1);
 	transition: all 0.25s;
 	overflow: hidden;
 	display: none;
 }
-
+.list-layout .details.button.border{
+	transform: translate(21%,23%) scale(1);
+}
+.grid-layout .details.button.border {
+    padding: 8px 16px;
+    margin-top: 47px;
+    transition: all 0.25s;
+    overflow: hidden;
+    margin: 0 auto;
+	width: 35%;
+	transform: translate(35%,20%) scale(1);
+}
+.grid-layout .details.button.border:hover {
+	width: 39%;
+}
 .list-layout .details.button.border { display: block; }
 .details.button.border:hover { padding-right: 32px; }
 
@@ -13029,7 +13054,7 @@ body .daterangepicker .drp-buttons button.cancelBtn {
 	    margin-left: 0;
 	}
 		.listing-title h4{
-			width: 60%;
+			width: 90%;
 		}
 
 		.list-layout .listing-footer {
@@ -13059,7 +13084,7 @@ body .daterangepicker .drp-buttons button.cancelBtn {
 		width: fit-content!important;
 		float: right!important;
 		margin: 0;
-		transform: translate(24%,-62%) scale(1);
+		transform: translate(20%,20%) scale(1)!important;
 		transition: all 0.25s;
 		overflow: hidden;
 		display: block;
