@@ -16,7 +16,7 @@
 				
 				?>
 
-				<div class="item active">
+				<div class="item <?=($desk==0)?'active':'';?>">
 					<img src="<?= base_url('uploads/sliders/' .  $slider->image) ?>" alt="" style="width:100%;">
 					<div class="carousel-caption">
 					
