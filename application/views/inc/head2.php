@@ -28,7 +28,9 @@
 <link href="https://cdn.jsdelivr.net/lightgallery/1.3.9/css/lightgallery.min.css" rel="stylesheet">
 <link rel="stylesheet" href="<?=base_url('assets/')?>css/color.css">
 <?php 
-         $builder  = $this->bm->getBuilderById('name,description', ['id'=>$property->builder_id]);
+
+         //$builder  = $this->bm->getBuilderById('name,description', ['id'=>$property->builder_id]);
+         $builder = $builder?$builder:array('name'=>'default','description'=>'default');
          $price_range ='';
          $price = array();
          if (($flatTypes = $this->properties_model->getPropertyFlatType(null,$property->id)) != null){
@@ -83,6 +85,8 @@
          "text": "'.$property->title.' provides amenities like <b>gym, swimming pool, club house, children play area etc.</b>"}
          },'; 
          $faq =json_decode("[".rtrim($txt,",")."]");   
+         if($property->faq)
+         {
          foreach ($property->faq as $faq) {
          if(trim($faq->question)!=''){
          $txt .='{
@@ -94,7 +98,7 @@
          },';
          }
          }
-         
+         }
          if(trim($txt)!='')
          {
          ?>
