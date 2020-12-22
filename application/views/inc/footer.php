@@ -51,7 +51,7 @@
 					<div class="col-md-3  col-sm-6 col-xs-12 ">
 						<h4 class="text-center">Connect With Us</h4>
 						<div class="text-widget">
-							<form action="<?php base_url('home/sendEmail') ?>" name="" method="POST" id="elqform2">
+							<form action="<?= base_url('home/sendEmail') ?>" name="" method="POST" id="elqform2">
 								
 								<ul>
 									<li class="form-control">	

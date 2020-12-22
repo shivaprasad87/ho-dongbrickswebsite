@@ -23,10 +23,10 @@
                   <div class="right-corner-badges">
                     <span class="featured">
                     <ul class="social-icons">
-                      <li><a class="facebook" href="#"><i class="icon-facebook"></i></a></li>
-                      <li><a class="twitter" href="#"><i class="icon-twitter"></i></a></li>
-                      <li><a class="gplus" href="#"><i class="icon-gplus"></i></a></li>
-                      <li><a class="pinterest" href="#"><i class="icon-pinterest"></i></a></li>
+                      <li><a class="facebook" href="<?= $social_links->facebook ?>#" target="_blank"><i class="icon-facebook"></i></a></li>
+                      <li><a class="twitter" href="<?= $social_links->twitter ?>" target="_blank"><i class="icon-twitter"></i></a></li>
+                      <li><a class="instagram" href="<?= $social_links->instagram ?>" target="_blank"><i class="icon-instagram"></i></a></li>
+                      <li><a class="linkedin" href="<?= $social_links->linked_in ?>" target="_blank"><i class="icon-linkedin"></i></a></li>
                     </ul>
                               </span>
                     
