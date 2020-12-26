@@ -4,7 +4,10 @@
 
 <!-- Basic Page Needs
 ================================================== -->
-<title>Home Page</title>
+<title><?= strip_tags($title) ?></title>
+<meta name="keywords" content="<?= $keywords ?>">
+<meta name="description" content="<?= $description ?>">
+<meta name="image" content="<?= isset($image) ? $image : "" ?>">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <!-- CSS

@@ -13,34 +13,42 @@
 							<div class="row">
 								<!-- Bangalore div -->
 								<div class="col-lg-12">
+									<?php
+                                    if ($careers){
+                                    ?>
 									<div class="heading left">
 										<h2>Position Open in Bangalore Office</h2>
 									</div>
 									<!-- Heading -->
-									
+									<?php
+									foreach ($careers as $i => $career) {
+                                    ?>
 									<div class="toggle-widget experties">
-										<h2>How We Share Information?</h2>
+
+										<h2>Hiring! <?=$career->title?></h2>
+
 										<div class="content" style="display: none;">
 											<div class="job-wide-devider">
 												<div class="row">
 													<div class="col-lg-8 column">
 														<div class="job-details">
-															<h3>Job Description</h3>
-															<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words.</p>
+															<h3>Available Positions - <?=$career->bangalore_vacancy?$career->bangalore_vacancy:0?></h3>
+															<h3>Job Description - <?=$career->role?></h3> 
 														 
 															<h3>Required Knowledge, Skills, and Abilities</h3>
-															<ul>
-																<li>Ability to write code – HTML &amp; CSS (SCSS flavor of SASS preferred when writing CSS)</li>
-																<li>Proficient in Photoshop, Illustrator, bonus points for familiarity with Sketch (Sketch is our preferred concepting)</li>
-																<li>Cross-browser and platform testing as standard practice</li>
-															</ul>
+															<?=$career->qualities?>
 															<h3>Education + Experience</h3>
 															<ul>
-																<li>Advanced degree or equivalent experience in graphic and web design</li>
-																<li>3 or more years of professional design experience</li>
-																<li>Direct response email experience</li>
-																<li>Ecommerce website design experience</li>
-																<li>Familiarity with mobile and web apps preferred</li>
+																<?php
+                                            if ($career->type){
+                                                ?>
+                                                <li><strong>Job Type: </strong> <?=$career->type?>
+                                                </li>
+                                                <?php
+                                            }
+                                            ?>
+                                            <li><strong>Experience: </strong> <?=$career->experience?></li>
+                                            <li><strong>Qualification: </strong> <?=$career->qualification?></li>
 															</ul>
 															<div class="apply-alternative" style="margin-bottom: 15px;">
 																<a href="#" title="">Apply Here</a>
@@ -49,99 +57,57 @@
 
 														</div>
 
-													</div>
-													<div class="col-lg-4 column">
-														<div class="job-overview">
-															<h3>Job Overview</h3>
-															<ul>
-																<li><i class="im im-icon-Money-2"></i>
-																	<h3> Salary Offered </h3><span>Rs15,000 - Rs20,000</span></li>
-																<li><i class="fa fa-shield"></i>
-																	<h3>Experience</h3><span>2 Years</span></li>
-																<li><i class="fa fa-pencil "></i>
-																	<h3>Qualification</h3><span>Bachelor Degree</span></li>
-															</ul>
-														</div>
-														<!-- Job Overview -->
-
-													</div>
+													</div> 
 												</div>
 											</div>
-										</div>
-										<h2>In Which We Explain How And With Whom We Share Your Information?</h2>
-										<div class="content">
-										<div class="job-wide-devider">
-												<div class="row">
-													<div class="col-lg-8 column">
-														<div class="job-details">
-															<h3>Job Description</h3>
-															<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words.</p>
-														 
-															<h3>Required Knowledge, Skills, and Abilities</h3>
-															<ul>
-																<li>Ability to write code – HTML &amp; CSS (SCSS flavor of SASS preferred when writing CSS)</li>
-																<li>Proficient in Photoshop, Illustrator, bonus points for familiarity with Sketch (Sketch is our preferred concepting)</li>
-																<li>Cross-browser and platform testing as standard practice</li>
-															</ul>
-															
-															<div class="apply-alternative" style="margin-bottom: 15px;">
-																<a href="#" title="">Apply Here</a>
-
-															</div>
-
-														</div>
-
-													</div>
-													<div class="col-lg-4 column">
-														<div class="job-overview">
-															<h3>Job Overview</h3>
-															<ul>
-																<li><i class="im im-icon-Money-2"></i>
-																	<h3> Salary Offered </h3><span>Rs10,000 - Rs15,000</span></li>
-																<li><i class="fa fa-shield"></i>
-																	<h3>Experience</h3><span>6 Months</span></li>
-																<li><i class="fa fa-pencil "></i>
-																	<h3>Qualification</h3><span>Any</span></li>
-															</ul>
-														</div>
-														<!-- Job Overview -->
-
-													</div>
-												</div>
-											</div>
-										</div>
+										</div> 
 
 									</div>
+									<?php
+								}
+							}
+							?>
 								</div>
 								<!-- Pune div -->
+
 								<div class="col-lg-12 mt-10">
+									<?php
+                                    if ($careers){
+                                    ?>
 									<div class="heading left">
 										<h2>Position Open in Pune Office</h2>
 									</div>
 									<!-- Heading -->
+									<?php
+									foreach ($careers as $i => $career) {
+                                    ?>
 									<div class="toggle-widget experties">
-										<h2>How We Share Information?</h2>
+										<h2>Hiring! <?=$career->title?></h2>
 										<div class="content" style="display: none;">
 											<div class="job-wide-devider">
 												<div class="row">
 													<div class="col-lg-8 column">
 													<div class="job-details">
 															<h3>Job Description</h3>
-															<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words.</p>
+															<p><?=$career->role?></p>
 														 
 															<h3>Required Knowledge, Skills, and Abilities</h3>
-															<ul>
-																<li>Ability to write code – HTML &amp; CSS (SCSS flavor of SASS preferred when writing CSS)</li>
-																<li>Proficient in Photoshop, Illustrator, bonus points for familiarity with Sketch (Sketch is our preferred concepting)</li>
-																<li>Cross-browser and platform testing as standard practice</li>
-															</ul>
+														
+																<?=$career->qualities?>
+															 
 															<h3>Education + Experience</h3>
 															<ul>
-																<li>Advanced degree or equivalent experience in graphic and web design</li>
-																<li>3 or more years of professional design experience</li>
-																<li>Direct response email experience</li>
-																<li>Ecommerce website design experience</li>
-																<li>Familiarity with mobile and web apps preferred</li>
+																<?php
+                                            if ($career->type){
+                                                ?>
+                                                <li><strong>Job Type: </strong> <?=$career->type?>
+                                                </li>
+                                                <?php
+                                            }
+                                            ?>
+                                            <li><strong>Experience: </strong> <?=$career->experience?></li>
+                                            <li><strong>Qualification: </strong> <?=$career->qualification?></li>
+															
 															</ul>
 															<div class="apply-alternative" style="margin-bottom: 15px;">
 																<a href="#" title="">Apply Here</a>
@@ -151,7 +117,7 @@
 														</div>
 
 													</div>
-													<div class="col-lg-4 column">
+													<!-- <div class="col-lg-4 column">
 														<div class="job-overview">
 															<h3>Job Overview</h3>
 															<ul>
@@ -162,59 +128,17 @@
 																<li><i class="fa fa-pencil "></i>
 																	<h3>Qualification</h3><span>Bachelor Degree</span></li>
 															</ul>
-														</div>
-														<!-- Job Overview -->
-
-													</div>
+														</div> 
+													</div> -->
 												</div>
 											</div>
-										</div>
-										<h2>In Which We Explain How And With Whom We Share Your Information?</h2>
-										<div class="content">
-									 
-										<div class="job-wide-devider">
-												<div class="row">
-													<div class="col-lg-8 column">
-														<div class="job-details">
-															<h3>Job Description</h3>
-															<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words.</p>
-														 
-															<h3>Required Knowledge, Skills, and Abilities</h3>
-															<ul>
-																<li>Ability to write code – HTML &amp; CSS (SCSS flavor of SASS preferred when writing CSS)</li>
-																<li>Proficient in Photoshop, Illustrator, bonus points for familiarity with Sketch (Sketch is our preferred concepting)</li>
-																<li>Cross-browser and platform testing as standard practice</li>
-															</ul>
-															
-															<div class="apply-alternative" style="margin-bottom: 15px;">
-																<a href="#" title="">Apply Here</a>
-
-															</div>
-
-														</div>
-
-													</div>
-													<div class="col-lg-4 column">
-														<div class="job-overview">
-															<h3>Job Overview</h3>
-															<ul>
-																<li><i class="im im-icon-Money-2"></i>
-																	<h3> Salary Offered </h3><span>Rs10,000 - Rs15,000</span></li>
-																<li><i class="fa fa-shield"></i>
-																	<h3>Experience</h3><span>6 Months</span></li>
-																<li><i class="fa fa-pencil "></i>
-																	<h3>Qualification</h3><span>Any</span></li>
-															</ul>
-														</div>
-														<!-- Job Overview -->
-
-													</div>
-												</div>
-											</div>
-										
-										</div>
+										</div> 
 
 									</div>
+									<?php
+								}
+							}
+							?>
 								</div>
 							</div>
 						</div>
@@ -224,21 +148,27 @@
 									<h2>Get In Touch</h2>
 								</div>
 								<!-- Heading -->
-								<form name="myForm" >
+								<form action="" method="post" role="form" enctype="multipart/form-data">
 									<div class="">
-										<input type="text" placeholder="Enter your Name*" required>
-										<input type="text" placeholder="Email Address*" required>
-										<input type="text" placeholder="Phone Number" required>
+										<input type="text" placeholder="Enter your Name*" name="name" required><span class="text-danger"><?=form_error('name')?></span>
+										<input type="text" placeholder="Email Address*" name="email" required>
+										<span class="text-danger"><?=form_error('email')?></span>
+										<input type="hidden" id="application_for" name="application_for" value="General">
+										<input type="text" title="Please provide integer phone number with maximum length 10"
+                               minlength="10" required class="form-control" maxlength="10" pattern="\d+" name="phone"
+                               id="phone" placeholder="Your Mobile Number*">
+                        <span class="text-danger"><?=form_error('phone')?></span>
 
 										<div class="formfull">
 											<p>Upload Resume:</p>
-											<input type="file" name="file" id="file" required>
+											 <input type="file" accept=".doc,.docx,.pdf" class="form-control" name="resume" id="resume" required="">
+                        <p class="help-block">Attach .doc, .pdf files only (Min of 3MB)</p>
 										</div>
 
-										<textarea placeholder="Message should have more than 50 characters"></textarea>
+										<textarea placeholder="Message should have more than 50 characters" name="self_introduction"></textarea>
 
 										<div class="upload-doc">
-											<button type=button onclick="submitClick()" class="text-center octf-btn octf-btn-icon octf-btn-primary">Submit</button>
+											<button type="submit" class="text-center octf-btn octf-btn-icon octf-btn-primary">Submit</button>
 										</div>
 									</div>
 

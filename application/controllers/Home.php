@@ -692,7 +692,10 @@ $this->email->bcc('shivas8787@gmail.com');
             $this->data['view_page'] = 'blogs';
             $this->load->view('template', $this->data);
         } else {
-            redirect(site_url());
+            $this->data['error'] = "No Blogs Found";
+            $this->data['view_page'] = 'blogs';
+            $this->load->view('template', $this->data);
+            //redirect(site_url());
         }
     }
 
@@ -826,10 +829,7 @@ $this->email->bcc('shivas8787@gmail.com');
                 $address = $this->input->post('address');
 
                 $this->email->from($name, $email);
-                $this->email->to('shivas8787@gmail.com');
-//                $this->email->to('vineeth@soarmorrow.com');
-
-
+                $this->email->to('shivas8787@gmail.com'); 
                 $this->email->subject("You have received a new career request at Holdingbricks ");
 
                 $data = array(

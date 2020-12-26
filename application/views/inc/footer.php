@@ -14,7 +14,7 @@
 								<li><a href="<?=base_url();?>">Home</a></li>
 								<li><a href="<?=base_url('about');?>">About Us</a></li>
 								<li><a href="<?=base_url('careers');?>">Careers</a></li>
-								<li><a href="#">Blogs</a></li>
+								<li><a href="<?=base_url('blog');?>">Blogs</a></li>
 								<li><a href="<?=base_url('contact');?>">Contact</a></li>
 							
 							</ul>
