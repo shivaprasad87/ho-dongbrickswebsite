@@ -805,17 +805,10 @@ $this->email->bcc('shivas8787@gmail.com');
             'keywords'      =>'Bangalore Real Estate, Hyderabad Real Estate, Mumbai Real Estate, Pune Real Estate, Jobs in Bangalore, Jobs in Hyderabad, Jobs in Pune, Jobs in Mumbai, Job Vacancies, Job Search, Real Estate Career, Career Opportunities in Real Estate, Find Jobs Real Estate'
         );
         
-        if ($this->input->post()) {
-
-            // if (!verify_captcha()) {
-            //     $this->session->set_flashdata('error', 'Invalid Captcha');
-            //     redirect('careers#en-application');
-            // }
-
+        if ($this->input->post()) { 
             $this->form_validation->set_rules('email', "Email Address", 'required|valid_email');
             $this->form_validation->set_rules('name', "Name", 'required');
-            $this->form_validation->set_rules('phone', "Mobile Number", 'required');
-            $this->form_validation->set_rules('address', "Address", 'required');
+            $this->form_validation->set_rules('phone', "Mobile Number", 'required'); 
 
             if ($this->form_validation->run() === true) {
 
