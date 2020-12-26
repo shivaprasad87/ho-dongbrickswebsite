@@ -149,6 +149,22 @@
 								</div>
 								<!-- Heading -->
 								<form action="" method="post" role="form" enctype="multipart/form-data">
+									 <?php
+                if ($this->session->flashdata('message')) {
+                    ?>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="form-group">
+                            <div class="alert alert-success text-center">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;
+                                </button>
+                                <strong><?= $this->session->flashdata('message') ?></strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <?php
+                }
+                ?>
 									<div class="">
 										<input type="text" placeholder="Enter your Name*" name="name" required><span class="text-danger"><?=form_error('name')?></span>
 										<input type="text" placeholder="Email Address*" name="email" required>
