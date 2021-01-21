@@ -177,7 +177,12 @@ data-img-height="505">
 					
 
 					<div class="listing-img-content">
-						<span class="listing-price">35 Lakhs <i>Onwards</i></span>
+						<span class="listing-price"><?php echo "Rs. ".  (($row = $this->properties_model->getPropertyParam(array('property_id' => $property->id),
+                  'property_flat_types', null,
+                  'MIN(total) as amount')) != null) ? number_format_short($row->amount) : 0 
+             ." - ".  (($row = $this->properties_model->getPropertyParam(array('property_id' => $property->id),
+                  'property_flat_types', null,
+                  'MAX(total) as amount')) != null) ? number_format_short($row->amount) : 0 ;?>* <i>Onwards</i></span>
 						
 						<div  data-tip-content="Rating"><fieldset class="rating">
 							<input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
@@ -205,13 +210,13 @@ data-img-height="505">
 				<div class="listing-content">
 
 					<div class="listing-title">
-						<h4><a href=""><?= $property->title ?></a></h4>
+						<h4><a href="<?=strtolower(site_url(url_title($property->city_name)."/".( url_title($property->area) )."/$property->slug/"))?>" target="_blank"><?= $property->title ?></a></h4>
 						<a href="">
 							<i class="fa fa-map-marker"></i>
 							<?php echo $property->area.", ".$property->city_name; ?>
 						</a>
 
-						<a  href="<?=site_url(url_title($property->city_name)."/".( url_title($property->area) )."/$property->slug/")?>" target="_blank" class="details button border">View Details</a>
+						<a  href="<?=strtolower(site_url(url_title($property->city_name)."/".( url_title($property->area) )."/$property->slug/"))?>" target="_blank" class="details button border">View Details</a>
 					</div>
 					<?php
                   if (($flatTypes = $this->properties_model->getPropertyFlatType(null, $property->id)) != null) {
@@ -255,7 +260,12 @@ data-img-height="505">
 				<!-- Listing Item / End -->
 
 			</div>
-		<?php } } ?>
+		<?php } }
+		else
+		{
+			echo "No Properties Found!";
+		}
+		 ?>
 			<!-- Listing Item / End -->
  
 		

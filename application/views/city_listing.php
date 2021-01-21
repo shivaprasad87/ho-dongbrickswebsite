@@ -205,13 +205,13 @@ data-img-height="505">
 				<div class="listing-content">
 
 					<div class="listing-title">
-						<h4><a href=""><?= $property->title ?></a></h4>
+						<h4><a href="<?=strtolower(site_url(url_title($property->city_name)."/".( url_title($property->area) )."/$property->slug/"))?>" target="_blank"><?= $property->title ?></a></h4>
 						<a href="">
 							<i class="fa fa-map-marker"></i>
 							<?php echo $property->area.", ".$property->city_name; ?>
 						</a>
 
-						<a  href="<?=site_url(url_title($property->city_name)."/".( url_title($property->area) )."/$property->slug/")?>" target="_blank" class="details button border">View Details</a>
+						<a  href="<?=strtolower(site_url(url_title($property->city_name)."/".( url_title($property->area) )."/$property->slug/"))?>" target="_blank" class="details button border">View Details</a>
 					</div>
 					<?php
                   if (($flatTypes = $this->properties_model->getPropertyFlatType(null, $property->id)) != null) {
@@ -255,7 +255,12 @@ data-img-height="505">
 				<!-- Listing Item / End -->
 
 			</div>
-		<?php } } ?>
+		<?php } } 
+		else
+		{
+			echo "No Properties Found!";
+		}
+		?>
 			<!-- Listing Item / End -->
  
 		
