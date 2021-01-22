@@ -1486,7 +1486,7 @@
 		$('input:radio').change(
 		  function(){
 			var userRating = this.value;
-			alert(userRating);
+			//alert(userRating);
 		}); 
 	
 	}) (this.jQuery);

@@ -181,12 +181,15 @@ class Properties extends Admin_Controller
                     $prop = $data;
                     $amenities = $this->input->post('amenities');
                     $b=array();
+                    if(isset($amenities))
+                    {
                     foreach ($amenities as $am) {
                       $b['amenities'.($am)]=$am;
                       
                     }
+                    }
                     
-                 
+                    $this->session->set_flashdata($data);
                     $this->session->set_userdata($b);
                     $this->session->set_userdata($prop);
             $this->form_validation->set_rules('title', 'Title', 'trim|required');
@@ -207,7 +210,7 @@ class Properties extends Admin_Controller
                     if (!is_dir($path)) {
                         mkdir($path, 0777, true);
                     }
-                    $file_type = 'gif|jpg|jpeg|png';
+                    $file_type = '*';
                     $config = $this->set_upload_options($path, $file_type);
                     $this->upload->initialize($config);
                     if (!$this->upload->do_upload('uploadfile')) {
@@ -286,7 +289,7 @@ if (isset($_FILES) && isset($_FILES["map"]['tmp_name']) && $_FILES["map"]['tmp_n
     if (!is_dir($path)) {
         mkdir($path, 0777, true);
     }
-    $file_type = 'gif|jpg|jpeg|png';
+    $file_type = '*';
     $config = $this->set_upload_options($path, $file_type);
     $this->upload->initialize($config);
     if ($this->upload->do_upload('map')) {
@@ -315,7 +318,7 @@ $property_id = $this->properties_model->insertRow($data, 'properties');
                     if (!is_dir($path)) {
                         mkdir($path, 0777, true);
                     }
-                    $file_type = 'gif|jpg|jpeg|png';
+                    $file_type = '*';
                      $config = $this->set_upload_options($path, $file_type);
                     $this->upload->initialize($config);
                     if ($this->upload->do_upload('banners')) { 
@@ -333,7 +336,7 @@ $property_id = $this->properties_model->insertRow($data, 'properties');
                     if (!is_dir($path)) {
                         mkdir($path, 0777, true);
                     }
-                    $file_type = 'gif|jpg|jpeg|png';
+                    $file_type = '*';
                      $config = $this->set_upload_options($path, $file_type);
                     $this->upload->initialize($config);
                     if ($this->upload->do_upload('mobilebanners')) { 
@@ -539,7 +542,8 @@ if ($constructionImages) {
     {
         $blog = $this->properties_model->getProperty($id);
         if (!$blog) {
-            redirect('admin/properties');
+            //redirect('admin/properties');
+            echo "Property Doesn't exist";die();
         }
 
         $blog->flat_types = $this->properties_model->getPropertyFlatType(null, $id);
@@ -561,12 +565,13 @@ if ($constructionImages) {
                     if (!is_dir($path)) {
                         mkdir($path, 0777, true);
                     }
-                    $file_type = 'gif|jpg|jpeg|png';
+                    $file_type = '*';
                     $config = $this->set_upload_options($path, $file_type);
                     $this->upload->initialize($config);
                     if (!$this->upload->do_upload('uploadfile')) {
                         $this->session->set_flashdata('error', $this->upload->display_errors());
-                        redirect('admin/properties');
+                        //redirect('admin/properties');
+                        echo "Unsupported file please contact Developer";
                     } else {
                         unlink('uploads/' . $slug . '/' . $blog->image);
                         $image = $this->upload->data('file_name');
@@ -638,6 +643,7 @@ if ($constructionImages) {
                     'ref_domain' => $this->input->post('ref_domain') ? $this->input->post('ref_domain') : $blog->ref_domain,
                     /** Additional properties ends here */
                 );
+$this->session->set_flashdata($data);
 $this->properties_model->updateWhere(array('id' => $id), $data, 'properties');
 $img = $this->properties_model->getWhere(array("property_id"=>$id),"property_desktop_banners");
 
@@ -646,7 +652,7 @@ if (isset($_FILES) && isset($_FILES["banners"]['tmp_name']) && $_FILES["banners"
                     if (!is_dir($path)) {
                         mkdir($path, 0777, true);
                     }
-                    $file_type = 'gif|jpg|jpeg|png';
+                    $file_type = '*';
                      $config = $this->set_upload_options($path, $file_type);
                     $this->upload->initialize($config);
                     if ($this->upload->do_upload('banners')) { 
@@ -670,7 +676,7 @@ if (isset($_FILES) && isset($_FILES["banners"]['tmp_name']) && $_FILES["banners"
                     if (!is_dir($path)) {
                         mkdir($path, 0777, true);
                     }
-                    $file_type = 'gif|jpg|jpeg|png';
+                    $file_type = '*';
                      $config = $this->set_upload_options($path, $file_type);
                     $this->upload->initialize($config);
                     if ($this->upload->do_upload('mobilebanners')) { 
@@ -694,7 +700,7 @@ if (isset($_FILES) && isset($_FILES["map"]['tmp_name']) && $_FILES["map"]['tmp_n
     if (!is_dir($path)) {
         mkdir($path, 0777, true);
     }
-    $file_type = 'gif|jpg|jpeg|png';
+    $file_type = '*';
     $config = $this->set_upload_options($path, $file_type);
     $this->upload->initialize($config);
     if ($this->upload->do_upload('map')) {
@@ -995,17 +1001,18 @@ $img = $this->properties_model->getWhere(array("property_id"=>$id),"property_log
                 $config['upload_path'] = './uploads/' . $folder . '/';
                 $config['max_size'] = '102428800';
                 $type = $_FILES['file']['type'];
-                switch ($type) {
-                    case 'image/gif':
-                    case 'image/jpg':
-                    case 'image/png':
-                    case 'image/jpeg':
-                    {
-                        $filetype = 0;
-                        $config['allowed_types'] = 'gif|jpg|png|jpeg';
-                        break;
-                    }
-                }
+                // switch ($type) {
+                //     case 'image/gif':
+                //     case 'image/jpg':
+                //     case 'image/png':
+                //     case 'image/jpeg':
+                //     {
+                //         $filetype = 0;
+                //         $config['allowed_types'] = 'gif|jpg|png|jpeg';
+                //         break;
+                //     }
+                // }
+                $config['allowed_types'] = '*';
                 $config['overwrite'] = false;
                 $config['remove_spaces'] = true;
                 if (!file_exists('./uploads/' . $folder)) {
@@ -1187,7 +1194,7 @@ $img = $this->properties_model->getWhere(array("property_id"=>$id),"property_log
                     if (!is_dir($path)) {
                         mkdir($path, 0777, true);
                     }
-                    $file_type = 'gif|jpg|jpeg|png';
+                    $file_type = '*';
                     $config = $this->set_upload_options($path, $file_type);
                     $this->upload->initialize($config);
                     if (!$this->upload->do_upload('uploadfile')) {
@@ -1266,7 +1273,7 @@ if (isset($_FILES) && isset($_FILES["map"]['tmp_name']) && $_FILES["map"]['tmp_n
     if (!is_dir($path)) {
         mkdir($path, 0777, true);
     }
-    $file_type = 'gif|jpg|jpeg|png';
+    $file_type = '*';
     $config = $this->set_upload_options($path, $file_type);
     $this->upload->initialize($config);
     if ($this->upload->do_upload('map')) {

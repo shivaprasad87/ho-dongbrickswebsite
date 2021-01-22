@@ -129,7 +129,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.2.0/min/dropzone.min.css
                         <div class="form-group">
                             <label for="issue_date" class="control-label">Issue Date <code>*</code></label>
                             <div class=" <?= form_error('issue_date') ? 'has-error' : '' ?>">
-                                <select name="issue_date" id="issue_date" class="form-control">
+                                <select name="issue_date" id="issue_date" class="form-control" required="">
                                     <option value="Select">Select</option>
 <option value="New Launch" <?php if(($this->session->userdata("issue_date"))=="New Launch") echo 'selected' ?>>New Launch</option>
 <option value="Upcoming Projects" <?php if(($this->session->userdata("issue_date"))=="Upcoming Projects") echo 'selected' ?>>Upcoming Projects</option>
@@ -168,7 +168,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.2.0/min/dropzone.min.css
                         <div class="form-group">
                             <label for="city" class="control-label">City <code>*</code></label>
                             <div class="">
-                                <select class="form-control" name="city" id="add_city">
+                                <select class="form-control" name="city" id="add_city" required="">
                                     <option value="Select">Select</option>
                                     <?php
                                     foreach ($cities as $city) {
@@ -185,7 +185,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.2.0/min/dropzone.min.css
                         <div class="form-group">
                             <label for="location" class="control-label">Location <code>*</code></label>
                             <div class="">
-                                <select class="form-control" name="location" id="locations">
+                                <select class="form-control" name="location" id="locations" required="">
 
                                 </select>
                             </div>
@@ -196,7 +196,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.2.0/min/dropzone.min.css
                         <div class="form-group">
                             <label for="builder" class="control-label">Builder <code>*</code></label>
                             <div class="">
-                                <select class="form-control" name="builder">
+                                <select class="form-control" name="builder" required="">
                                     <option value="Select">Select</option>
                                     <?php
                                     foreach ($builders as $builder) {
@@ -214,7 +214,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.2.0/min/dropzone.min.css
                         <div class="form-group">
                             <label class="control-label" for="exampleInputFile">Display Image <code>*</code> (Preferred Size 1350 x 570)</label>
                             <div class=" <?= form_error('uploadImage') ? 'has-error' : '' ?>">
-                                <input type="file" class="form-control" name="uploadfile">
+                                <input type="file" class="form-control" name="uploadfile" required="">
                             </div>
                         </div>
                     </div>
@@ -225,7 +225,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.2.0/min/dropzone.min.css
 
                             <div class=" <?= form_error('title') ? 'has-error' : '' ?>">
                                 <input type="text" name="title" class="form-control" id="inputEmail3"
-                                placeholder="Type the title here" value="<?= set_value('title') ?>">
+                                placeholder="Type the title here" value="<?= set_value('title') ?>" required>
                                 <span class="<?= form_error('title') ? 'text-danger' : '' ?>"><?= form_error('title') ?></span>
                             </div>
                         </div>
@@ -234,7 +234,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.2.0/min/dropzone.min.css
                         <div class="form-group">
                             <label for="type" class="control-label">Property Type <code>*</code></label>
                             <div class="">
-                                <select class="form-control" name="type">
+                                <select class="form-control" name="type" required="">
                                     <option value="Select">Select</option>
                                     <?php
                                     foreach ($property_types as $type) {
@@ -265,7 +265,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.2.0/min/dropzone.min.css
                              <code>*</code>
                             <div class=" <?= form_error('area') ? 'has-error' : '' ?>">
                                 <input type="text" name="area" class="form-control" id="inputEmail3"
-                                placeholder="Type the area here" required="" value="<?= set_value('area') ?>">
+                                placeholder="Type the area here" required="" value="<?= set_value('area') ?>" required>
                                 <span class="<?= form_error('area') ? 'text-danger' : '' ?>"><?= form_error('area') ?></span>
                             </div>
                         </div>
@@ -287,7 +287,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.2.0/min/dropzone.min.css
                             <code>*</code>
                             <div class=" <?= form_error('author') ? 'has-error' : '' ?>">
                                 <input type="text" name="budget" class="form-control" id="inputEmail3"
-                                placeholder="Type the Avg. price per Sqft area here" value="<?= set_value('budget') ?>">
+                                placeholder="Type the Avg. price per Sqft area here" value="<?= set_value('budget') ?>" required="">
                                 <span class="<?= form_error('budget') ? 'text-danger' : '' ?>"><?= form_error('budget') ?></span>
                             </div>
                         </div>
@@ -384,6 +384,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.2.0/min/dropzone.min.css
                         <div class="table-responsive">
                             <table class="table table-hover table-bordered table-stripped">
                                 <caption><strong>Choose Amenities</strong></caption>
+                                <div class="amenities">
                                 <tr>
                                     <?php
                                     foreach ($amenities as $i => $amenity) {
@@ -394,7 +395,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.2.0/min/dropzone.min.css
                                             <input type="checkbox" name="amenities[]"
                                             value="<?= $amenity->id ?>" <?php if(($this->session->userdata('amenities'.$amenity->id))==$amenity->id) echo 'checked';  
 else echo "unchecked";
-                                      $b++;      ?> > <img
+                                      $b++;      ?>> <img
                                             src="<?= $amenity->image ? base_url('uploads/amenities/' . $amenity->image) : 'https://placehold.it/32x32' ?>"
                                             style="width: 32px"
                                             class="img-rounded"> <?= $amenity->name ?>
@@ -408,6 +409,7 @@ else echo "unchecked";
 
                                     }
                                     ?>
+                                </div>
                                 </table>
                             </div>
                         </div>
@@ -434,7 +436,7 @@ else echo "unchecked";
                             <div class=" <?= form_error('price_per_unit') ? 'has-error' : '' ?>">
                                 <input type="text" name="price_per_unit" class="form-control" id="price_per_unit"
                                 placeholder="Type the price per unit"
-                                value="<?= set_value('price_per_unit') ?>">
+                                value="<?= set_value('price_per_unit') ?>" required>
                                 <span class="<?= form_error('price_per_unit') ? 'text-danger' : '' ?>"><?= form_error('price_per_unit') ?></span>
                             </div>
                         </div>
@@ -1072,3 +1074,18 @@ else echo "unchecked";
 </div>
 </div>
 </section>
+<script>
+
+     $(document).ready(function ()
+    { 
+   $('tr').find('input:checkbox').each(function () {
+    if ($(this).is(':checked')) {
+       alert('true');
+    }
+    else
+    {
+        alert('false');
+    }
+  });
+    });
+</script>
