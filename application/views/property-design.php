@@ -162,7 +162,7 @@ if (($images = $this->properties_model->getWhere(array('property_id' => $propert
     <div class="div-shadow">
       <div class="col-pad">
         <div class="property-banner">
-          <img src="<?= base_url('uploads/'.$property->slug.'/'.$property->image) ?>" class="img-responsive">
+          <img src="<?= base_url('uploads/'.str_replace(" ","-",strtolower($property->city_name))."/".str_replace(" ","-",strtolower($property->builder))."/" .$property->slug.'/'.$property->image) ?>" class="img-responsive">
           <div class="prop-status">
             <?=$property->issue_date;?>
           </div>

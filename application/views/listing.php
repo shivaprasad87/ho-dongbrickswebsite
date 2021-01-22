@@ -201,7 +201,7 @@ data-img-height="505">
 
 					
 
-					<img src="<?= base_url('uploads/'.$property->slug.'/'.$property->image) ?>" alt="">
+					<img src="<?= base_url('uploads/'.str_replace(" ","-",strtolower($property->city_name))."/".str_replace(" ","-",strtolower($property->builder))."/" .$property->slug.'/'.$property->image) ?>" alt="">
 
 				</div>
 

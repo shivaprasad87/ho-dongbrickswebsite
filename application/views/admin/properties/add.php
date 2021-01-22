@@ -1086,6 +1086,6 @@ else echo "unchecked";
     {
         alert('false');
     }
-  });
+    });
     });
 </script>

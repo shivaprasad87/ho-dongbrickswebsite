@@ -54,7 +54,7 @@
                                         <td><?= ucfirst($value->city_name) ?></td>
                                         <td><?= $value->budget ?></td>
                                         <td><?= $value->area ?></td>
-                                        <td><img style="height: 90px; width: 90px;" src="<?= base_url('uploads/'.$value->slug.'/' . $value->image) ?>"></td>
+                                        <td><img style="height: 90px; width: 90px;" src="<?= base_url('uploads/'.str_replace(" ","-",strtolower($value->city_name))."/".str_replace(" ","-",strtolower($value->builder))."/".$value->slug.'/' . $value->image) ?>"></td>
                                         <td><input <?= $value->highlight ? 'checked' : '' ?> type="checkbox" value="<?= $value->id ?>" class="highlight"></td>
                                         <td><input <?= $value->best_deal ? 'checked' : '' ?> type="checkbox" value="<?= $value->id ?>" onclick="bestdeal(this.value);" id="bestdeal"></td>
                                         <td><a href="<?= site_url('admin/properties/favourites/'.$value->id) ?>">Favourites</a></td>

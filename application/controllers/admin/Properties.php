@@ -112,8 +112,18 @@ class Properties extends Admin_Controller
     {
         $image='';
         $slug='';
+        $builderName ='';
+        $cityName = '';
+        $locationName ='';
+
         if ($this->input->post()) {
-               $data = array(
+            $builderName = $this->properties_model->getWhere(array('id'=>$this->input->post('builder')),'builders');
+            $cityName = $this->properties_model->getWhere(array('id'=>$this->input->post('city')),'cities');
+            $locationName = $this->properties_model->getWhere(array('id'=>$this->input->post('location')),'locations');
+            $builderName = str_replace(" ","-",strtolower($builderName[0]->name));
+            $cityName = str_replace(" ","-",strtolower($cityName[0]->name));
+            $locationName = str_replace(" ","-",strtolower($locationName[0]->name));
+            $data = array(
                         'builder_id' => $this->input->post('builder'),
                         'location_id' => $this->input->post('location'),
                         'title' => $this->input->post('title'),
@@ -206,10 +216,10 @@ class Properties extends Admin_Controller
                 
                 if (isset($_FILES) && isset($_FILES["uploadfile"]['tmp_name']) && $_FILES["uploadfile"]['tmp_name']) {
                     $file = $_FILES["uploadfile"]['tmp_name'];
-                    $path = './uploads/' . $slug . '/';
+                    $path = './uploads/'.$cityName."/".$builderName."/" . $slug . '/';
                     if (!is_dir($path)) {
                         mkdir($path, 0777, true);
-                    }
+                        } 
                     $file_type = '*';
                     $config = $this->set_upload_options($path, $file_type);
                     $this->upload->initialize($config);
@@ -285,7 +295,7 @@ class Properties extends Admin_Controller
                         /** Additional properties ends here */
                     );
 if (isset($_FILES) && isset($_FILES["map"]['tmp_name']) && $_FILES["map"]['tmp_name']) {
-    $path = './uploads/' . $slug . '/map/';
+    $path = './uploads/'.$cityName."/".$builderName."/" . $slug . '/map/';
     if (!is_dir($path)) {
         mkdir($path, 0777, true);
     }
@@ -298,7 +308,7 @@ if (isset($_FILES) && isset($_FILES["map"]['tmp_name']) && $_FILES["map"]['tmp_n
 }
 
 if (isset($_FILES) && isset($_FILES["brochure"]['tmp_name']) && $_FILES["brochure"]['tmp_name']) {
-    $path = './uploads/' . $slug . '/brochure/';
+    $path = './uploads/'.$cityName."/".$builderName."/" . $slug . '/brochure/';
     if (!is_dir($path)) {
         mkdir($path, 0777, true);
     }
@@ -314,10 +324,10 @@ if (isset($_FILES) && isset($_FILES["brochure"]['tmp_name']) && $_FILES["brochur
 
 $property_id = $this->properties_model->insertRow($data, 'properties'); 
                 if (isset($_FILES) && isset($_FILES["banners"]['tmp_name']) && $_FILES["banners"]['tmp_name']) {
-                    $path = './uploads/' . $slug ;
+                    $path = './uploads/'.$cityName."/".$builderName."/" . $slug ;
                     if (!is_dir($path)) {
                         mkdir($path, 0777, true);
-                    }
+                        } 
                     $file_type = '*';
                      $config = $this->set_upload_options($path, $file_type);
                     $this->upload->initialize($config);
@@ -327,15 +337,15 @@ $property_id = $this->properties_model->insertRow($data, 'properties');
                     //$this->properties_model->updateWhere(array('property_id' => $id), $data1, 'properties');
                     $data1 = array(
                     "property_id"=>$property_id,
-                    "banner_path" =>"uploads/".$slug."/".$banner
+                    "banner_path" =>"uploads/".$cityName."/".$builderName."/" .$slug."/".$banner
                     );
                     $this->properties_model->insertRow($data1, 'property_desktop_banners');
                 }
                 if (isset($_FILES) && isset($_FILES["mobilebanners"]['tmp_name']) && $_FILES["mobilebanners"]['tmp_name']) {
-                    $path = './uploads/' . $slug ;
+                    $path = './uploads/'.$cityName."/".$builderName."/" . $slug ;
                     if (!is_dir($path)) {
                         mkdir($path, 0777, true);
-                    }
+                        } 
                     $file_type = '*';
                      $config = $this->set_upload_options($path, $file_type);
                     $this->upload->initialize($config);
@@ -344,13 +354,13 @@ $property_id = $this->properties_model->insertRow($data, 'properties');
                     }
                      $data1 = array(
                     "property_id"=>$property_id,
-                    "mobile_banner_path" =>"uploads/".$slug."/".$mobilebanners
+                    "mobile_banner_path" =>"uploads/".$cityName."/".$builderName."/" .$slug."/".$mobilebanners
                     );
                     $this->properties_model->insertRow($data1, 'property_mobile_banners');
 
                 }
                 if (isset($_FILES) && isset($_FILES["logo_1"]['tmp_name']) && $_FILES["logo_1"]['tmp_name']) {
-                    $path = './uploads/' . $slug . '/logos/';
+                    $path = './uploads/'.$cityName."/".$builderName."/" . $slug . '/logos/';
                    // print_r($this->upload->data());die;
                     $this->properties_model->insertRow(array(
                             'property_id' => $property_id,
@@ -358,7 +368,7 @@ $property_id = $this->properties_model->insertRow($data, 'properties');
                         ), 'property_logo');
                     if (!is_dir($path)) {
                         mkdir($path, 0777, true);
-                    }
+                        } 
                     $file_type = '*';
                     $config = $this->set_upload_options($path, $file_type);
                     $this->upload->initialize($config);
@@ -396,9 +406,14 @@ if ($gallery) {
         $exploded = explode('/', $image);
         $this->properties_model->insertRow(array(
             'property_id' => $property_id,
-            'image' => 'uploads/' . $slug . '/' . end($exploded)
+            'image' => 'uploads/'.$cityName."/".$builderName."/"  . $slug . '/images/' . end($exploded)
         ), 'property_images');
-        rename($image, 'uploads/' . $slug . '/' . end($exploded));
+        $path = 'uploads/'. $cityName .'/'.$builderName .'/'. $slug .'/images/';
+        if (!is_dir($path)) {
+                        mkdir($path, 0777, true);
+                        }
+                    
+        rename($image, 'uploads/'. $cityName .'/'.$builderName .'/'. $slug .'/images/'.end($exploded));
     }
 }
 
@@ -410,9 +425,13 @@ if ($floorImages) {
         $exploded = explode('/', $image);
         $this->properties_model->insertRow(array(
             'property_id' => $property_id,
-            'image' => 'uploads/' . $slug . '/' . end($exploded)
+            'image' => 'uploads/'.$cityName."/".$builderName."/"  . $slug . '/floorimages/' . end($exploded)
         ), 'property_floor_plans');
-        rename($image, 'uploads/' . $slug . '/' . end($exploded));
+         $path = 'uploads/'. $cityName .'/'.$builderName .'/'. $slug .'/floorimages/';
+        if (!is_dir($path)) {
+                        mkdir($path, 0777, true);
+                        }
+        rename($image, 'uploads/'.$cityName."/".$builderName."/"  . $slug . '/floorimages/' . end($exploded));
     }
 }
 
@@ -423,9 +442,13 @@ if ($masterImages) {
         $exploded = explode('/', $image);
         $this->properties_model->insertRow(array(
             'property_id' => $property_id,
-            'image' => 'uploads/' . $slug . '/' . end($exploded)
+            'image' => 'uploads/'.$cityName."/".$builderName."/" . $slug . '/masterimages/' . end($exploded)
         ), 'property_master_plans');
-        rename($image, 'uploads/' . $slug . '/' . end($exploded));
+         $path = 'uploads/'. $cityName .'/'.$builderName .'/'. $slug .'/masterimages/';
+        if (!is_dir($path)) {
+                        mkdir($path, 0777, true);
+                        }
+        rename($image, 'uploads/'.$cityName."/".$builderName."/"  . $slug . '/masterimages/' . end($exploded));
     }
 }
 
@@ -436,9 +459,13 @@ if ($constructionImages) {
         $exploded = explode('/', $image);
         $this->properties_model->insertRow(array(
             'property_id' => $property_id,
-            'image' => 'uploads/' . $slug . '/' . end($exploded)
+            'image' => 'uploads/'.$cityName."/".$builderName."/"  . $slug . '/constructionimages/' . end($exploded)
         ), 'property_construction_updates');
-        rename($image, 'uploads/' . $slug . '/' . end($exploded));
+         $path = 'uploads/'. $cityName .'/'.$builderName .'/'. $slug .'/constructionimages/';
+        if (!is_dir($path)) {
+                        mkdir($path, 0777, true);
+                        }
+        rename($image, 'uploads/'.$cityName."/".$builderName."/"  . $slug . '/constructionimages/' . end($exploded));
     }
 }
 
@@ -463,9 +490,13 @@ if ($constructionImages) {
                             $exploded = explode('/', $image);
                             $this->properties_model->insertRow(array(
                                 'property_id' => $property_id,
-                                'image' => 'uploads/' . $slug . '/' . end($exploded)
+                                'image' => 'uploads/'.$cityName."/".$builderName."/"  . $slug . '/elevationsimages/' . end($exploded)
                             ), 'property_elevations');
-                            rename($image, 'uploads/' . $slug . '/' . end($exploded));
+                             $path = 'uploads/'. $cityName .'/'.$builderName .'/'. $slug .'/elevationsimages/';
+        if (!is_dir($path)) {
+                        mkdir($path, 0777, true);
+                        }
+                            rename($image, 'uploads/'.$cityName."/".$builderName."/"  . $slug . '/elevationsimages/' . end($exploded));
                         }
                     }
 
@@ -541,6 +572,9 @@ if ($constructionImages) {
     public function edit($id)
     {
         $blog = $this->properties_model->getProperty($id);
+        $builderName ='';
+        $cityName = '';
+        $locationName ='';
         if (!$blog) {
             //redirect('admin/properties');
             echo "Property Doesn't exist";die();
@@ -549,6 +583,12 @@ if ($constructionImages) {
         $blog->flat_types = $this->properties_model->getPropertyFlatType(null, $id);
 
         if ($this->input->post()) {
+            $builderName = $this->properties_model->getWhere(array('id'=>($this->input->post('builder') ? $this->input->post('builder') : $blog->builder_id)),'builders');
+            $cityName = $this->properties_model->getWhere(array('id'=>$this->input->post('city') ? $this->input->post('city') : $blog->city_id),'cities');
+            $locationName = $this->properties_model->getWhere(array('id'=>$this->input->post('location') ? $this->input->post('location') : $blog->location_id),'locations');
+            $builderName = str_replace(" ","-",strtolower($builderName[0]->name));
+            $cityName = str_replace(" ","-",strtolower($cityName[0]->name));
+            $locationName = str_replace(" ","-",strtolower($locationName[0]->name));
             $this->form_validation->set_rules('title', 'Title', 'trim|required');
             $this->form_validation->set_rules('area', 'Area', 'trim|required');
             $this->form_validation->set_rules('amenities[]', 'Amenities', 'trim|required');
@@ -561,10 +601,10 @@ if ($constructionImages) {
 
                 if (isset($_FILES) && isset($_FILES["uploadfile"]['tmp_name']) && $_FILES["uploadfile"]['tmp_name']) {
                     $file = $_FILES["uploadfile"]['tmp_name'];
-                    $path = './uploads/' . $slug . '/';
+                    $path = './uploads/'.$cityName."/".$builderName."/" . $slug . '/';
                     if (!is_dir($path)) {
                         mkdir($path, 0777, true);
-                    }
+                        } 
                     $file_type = '*';
                     $config = $this->set_upload_options($path, $file_type);
                     $this->upload->initialize($config);
@@ -573,7 +613,7 @@ if ($constructionImages) {
                         //redirect('admin/properties');
                         echo "Unsupported file please contact Developer";
                     } else {
-                        unlink('uploads/' . $slug . '/' . $blog->image);
+                        unlink('uploads/'.$cityName."/".$builderName."/"  . $slug . '/' . $blog->image);
                         $image = $this->upload->data('file_name');
                     }
                 } else {
@@ -648,10 +688,10 @@ $this->properties_model->updateWhere(array('id' => $id), $data, 'properties');
 $img = $this->properties_model->getWhere(array("property_id"=>$id),"property_desktop_banners");
 
 if (isset($_FILES) && isset($_FILES["banners"]['tmp_name']) && $_FILES["banners"]['tmp_name']) {
-                    $path = './uploads/' . $slug ;
+                    $path = './uploads/'.$cityName."/".$builderName."/" . $slug ;
                     if (!is_dir($path)) {
                         mkdir($path, 0777, true);
-                    }
+                        } 
                     $file_type = '*';
                      $config = $this->set_upload_options($path, $file_type);
                     $this->upload->initialize($config);
@@ -661,10 +701,10 @@ if (isset($_FILES) && isset($_FILES["banners"]['tmp_name']) && $_FILES["banners"
                     //$this->properties_model->updateWhere(array('property_id' => $id), $data1, 'properties');
                     $data1 = array(
                     "property_id"=>$id,
-                    "banner_path" =>"uploads/".$slug."/".$banner
+                    "banner_path" =>"uploads/".$cityName."/".$builderName."/" .$slug."/".$banner
                     );
                     $data2 =  array( 
-                    "banner_path" =>"uploads/".$slug."/".$banner
+                    "banner_path" =>"uploads/".$cityName."/".$builderName."/" .$slug."/".$banner
                     );
                     if(empty($img))
                     $this->properties_model->insertRow($data1, 'property_desktop_banners');
@@ -672,10 +712,10 @@ if (isset($_FILES) && isset($_FILES["banners"]['tmp_name']) && $_FILES["banners"
                     $this->properties_model->updateRow($id, $data2, 'property_id','property_desktop_banners');
                 }
                 if (isset($_FILES) && isset($_FILES["mobilebanners"]['tmp_name']) && $_FILES["mobilebanners"]['tmp_name']) {
-                    $path = './uploads/' . $slug ;
+                    $path = './uploads/'.$cityName."/".$builderName."/" . $slug ;
                     if (!is_dir($path)) {
                         mkdir($path, 0777, true);
-                    }
+                        } 
                     $file_type = '*';
                      $config = $this->set_upload_options($path, $file_type);
                     $this->upload->initialize($config);
@@ -684,10 +724,10 @@ if (isset($_FILES) && isset($_FILES["banners"]['tmp_name']) && $_FILES["banners"
                     }
                      $data1 = array(
                     "property_id"=>$id,
-                    "mobile_banner_path" =>"uploads/".$slug."/".$mobilebanners
+                    "mobile_banner_path" =>"uploads/".$cityName."/".$builderName."/" .$slug."/".$mobilebanners
                     );
                      $data2 =  array( 
-                   "mobile_banner_path" =>"uploads/".$slug."/".$mobilebanners
+                   "mobile_banner_path" =>"uploads/".$cityName."/".$builderName."/" .$slug."/".$mobilebanners
                     );
                      if(empty($img))
                     $this->properties_model->insertRow($data1, 'property_mobile_banners');
@@ -696,7 +736,7 @@ if (isset($_FILES) && isset($_FILES["banners"]['tmp_name']) && $_FILES["banners"
 
                 }
 if (isset($_FILES) && isset($_FILES["map"]['tmp_name']) && $_FILES["map"]['tmp_name']) {
-    $path = './uploads/' . $slug . '/map/';
+    $path = './uploads/'.$cityName."/".$builderName."/" . $slug . '/map/';
     if (!is_dir($path)) {
         mkdir($path, 0777, true);
     }
@@ -715,7 +755,7 @@ if (isset($_FILES) && isset($_FILES["map"]['tmp_name']) && $_FILES["map"]['tmp_n
 
  
 if (isset($_FILES) && isset($_FILES["brochure"]['tmp_name']) && $_FILES["brochure"]['tmp_name']) {
-    $path = './uploads/' . $slug . '/brochure/';
+    $path = './uploads/'.$cityName."/".$builderName."/" . $slug . '/brochure/';
     if (!is_dir($path)) {
         mkdir($path, 0777, true);
     }
@@ -747,8 +787,12 @@ if ($gallery) {
         $exploded = explode('/', $image);
         $this->properties_model->insertRow(array(
             'property_id' => $id,
-            'image' => 'uploads/' . $slug . '/' . end($exploded)
+            'image' => 'uploads/'.$cityName."/".$builderName."/"  . $slug . '/images/' . end($exploded)
         ), 'property_images');
+         $path = 'uploads/'. $cityName .'/'.$builderName .'/'. $slug .'/images/';
+        if (!is_dir($path)) {
+                        mkdir($path, 0777, true);
+                        }
         rename($image, 'uploads/' . $slug . '/' . end($exploded));
     }
 }
@@ -762,9 +806,13 @@ if ($floorImages) {
         $exploded = explode('/', $image);
         $this->properties_model->insertRow(array(
             'property_id' => $id,
-            'image' => 'uploads/' . $slug . '/' . end($exploded)
+            'image' => 'uploads/'.$cityName."/".$builderName."/"  . $slug . '/floorimages/' . end($exploded)
         ), 'property_floor_plans');
-        rename($image, 'uploads/' . $slug . '/' . end($exploded));
+         $path = 'uploads/'. $cityName .'/'.$builderName .'/'. $slug .'/floorimages/';
+        if (!is_dir($path)) {
+                        mkdir($path, 0777, true);
+                        }
+        rename($image, 'uploads/'.$cityName."/".$builderName."/"  . $slug . '/floorimages/' . end($exploded));
     }
 }
 
@@ -775,9 +823,13 @@ if ($masterImages) {
         $exploded = explode('/', $image);
         $this->properties_model->insertRow(array(
             'property_id' => $id,
-            'image' => 'uploads/' . $slug . '/' . end($exploded)
+            'image' => 'uploads/'.$cityName."/".$builderName."/"  . $slug . '/masterimages/' . end($exploded)
         ), 'property_master_plans');
-        rename($image, 'uploads/' . $slug . '/' . end($exploded));
+         $path = 'uploads/'. $cityName .'/'.$builderName .'/'. $slug .'/masterimages/';
+        if (!is_dir($path)) {
+                        mkdir($path, 0777, true);
+                        }
+        rename($image, 'uploads/'.$cityName."/".$builderName."/"  . $slug . '/masterimages/' . end($exploded));
     }
 }
 
@@ -790,9 +842,13 @@ if ($constructionImages) {
         $exploded = explode('/', $image);
         $this->properties_model->insertRow(array(
             'property_id' => $id,
-            'image' => 'uploads/' . $slug . '/' . end($exploded)
+            'image' => 'uploads/'.$cityName."/".$builderName."/"  . $slug . '/constructionimages/' . end($exploded)
         ), 'property_construction_updates');
-        rename($image, 'uploads/' . $slug . '/' . end($exploded));
+         $path = 'uploads/'. $cityName .'/'.$builderName .'/'. $slug .'/constructionimages/';
+        if (!is_dir($path)) {
+                        mkdir($path, 0777, true);
+                        }
+        rename($image, 'uploads/'.$cityName."/".$builderName."/"  . $slug . '/constructionimages/' . end($exploded));
     }
 }
                 /** Project Walkthrough Images
@@ -813,12 +869,12 @@ if ($constructionImages) {
 $img = $this->properties_model->getWhere(array("property_id"=>$id),"property_logo");
 
                 if (isset($_FILES) && isset($_FILES["logo_1"]['tmp_name']) && $_FILES["logo_1"]['tmp_name']) {
-                    $path = './uploads/' . $slug . '/logos/';
+                    $path = './uploads/'.$cityName."/".$builderName."/" . $slug . '/logos/';
                    // print_r($this->upload->data());die;
                    
                     if (!is_dir($path)) {
                         mkdir($path, 0777, true);
-                    }
+                        } 
                     $file_type = '*';
                     $config = $this->set_upload_options($path, $file_type);
                     $this->upload->initialize($config);
@@ -840,9 +896,13 @@ $img = $this->properties_model->getWhere(array("property_id"=>$id),"property_log
                         $exploded = explode('/', $image);
                         $this->properties_model->insertRow(array(
                             'property_id' => $id,
-                            'image' => 'uploads/' . $slug . '/' . end($exploded)
+                            'image' => 'uploads/'.$cityName."/".$builderName."/"  . $slug . '/elevationsimages/' . end($exploded)
                         ), 'property_elevations');
-                        rename($image, 'uploads/' . $slug . '/' . end($exploded));
+                         $path = 'uploads/'. $cityName .'/'.$builderName .'/'. $slug .'/elevationsimages/';
+        if (!is_dir($path)) {
+                        mkdir($path, 0777, true);
+                        }
+                        rename($image, 'uploads/'.$cityName."/".$builderName."/"  . $slug . '/elevationsimages/' . end($exploded));
                     }
                 }
 
@@ -998,7 +1058,7 @@ $img = $this->properties_model->getWhere(array("property_id"=>$id),"property_log
             if ($_FILES['file']['error'] == 0) {
                 $filetype = null;
                 //upload and update the file
-                $config['upload_path'] = './uploads/' . $folder . '/';
+                $config['upload_path'] = './uploads/'.$cityName."/".$builderName."/" . $folder . '/';
                 $config['max_size'] = '102428800';
                 $type = $_FILES['file']['type'];
                 // switch ($type) {
@@ -1015,8 +1075,8 @@ $img = $this->properties_model->getWhere(array("property_id"=>$id),"property_log
                 $config['allowed_types'] = '*';
                 $config['overwrite'] = false;
                 $config['remove_spaces'] = true;
-                if (!file_exists('./uploads/' . $folder)) {
-                    if (!mkdir('./uploads/' . $folder . '/', 0755, true)) {
+                if (!file_exists('./uploads/'.$cityName."/".$builderName."/" . $folder)) {
+                    if (!mkdir('./uploads/'.$cityName."/".$builderName."/" . $folder . '/', 0755, true)) {
 
                     }
                 }
@@ -1092,419 +1152,6 @@ $img = $this->properties_model->getWhere(array("property_id"=>$id),"property_log
         $content_data = $this->data;
 
         $data['content'] = $this->load->view('admin/properties/favourites', $content_data, true);
-        $this->load->view($this->template, $data);
-    }
-     public function new_add()
-    {
-
-        $image='';
-        $slug='';
-        if ($this->input->post()) {
-               $data = array(
-                        'builder_id' => $this->input->post('builder'),
-                        'location_id' => $this->input->post('location'),
-                        'title' => $this->input->post('title'),
-                        'meta_title' => $this->input->post('meta_title'),
-                        'meta_keywords' => $this->input->post('meta_keywords'),
-                        'meta_desc' => $this->input->post('meta_desc'),
-                        'area' => $this->input->post('area'),
-                        'budget' => $this->input->post('budget'),
-                        'property_type_id' => $this->input->post('type'),
-                        'city_id' => $this->input->post('city'),
-                        'alt' => $this->input->post('alt'),
-                        'image' => $image,
-                        'alt_title'=>$this->input->post('alt_title'),
-                        'image_desc'=>$this->input->post('image_description'),
-                        'gallery_alt'=>$this->input->post('gallery_alt'),
-                        'gallery_desc'=>$this->input->post('gallery_description'),
-                        'brochure_alt'=>$this->input->post('brochure_alt'),
-                        'brochure_desc'=>$this->input->post('brochure_description'),
-                        'floor_alt'=>$this->input->post('floor_alt'),
-                        'floor_desc'=>$this->input->post('floor_description'),
-                        'location_alt'=>$this->input->post('location_alt'),
-                        'location_desc'=>$this->input->post('location_description'),
-                        'master_alt'=>$this->input->post('master_alt'),
-                        'master_desc'=>$this->input->post('master_description'),
-                        'construction_alt'=>$this->input->post('construction_alt'),
-                        'construction_desc'=>$this->input->post('construction_description'),
-                        'elevations_alt'=>$this->input->post('elevations_alt'),
-                        'elevations_desc'=>$this->input->post('elevations_description'),
-                        'rera_number'=>$this->input->post('rera_number'),
-                        'slug' => $slug,
-                        'date_added' => date('Y-m-d'),
-                        /**  Additional property details added on 02/02/2018 by Vineeth Krishnan */
-                        'uid' =>/* $this->input->post('uid')*/2019,
-                        'rera_number' => $this->input->post('rera_number'),
-                        'issue_date' => $this->input->post('issue_date'),
-                        'property_for' => $this->input->post('property_for'),
-                        'price_per_unit' => $this->input->post('price_per_unit'),
-                        'build' => $this->input->post('build'),
-                        'face' => $this->input->post('face'),
-                        'builtup_area' => $this->input->post('builtup_area'),
-                        'builtup_area_unit' => $this->input->post('builtup_area_unit'),
-                        'carpet_area' => $this->input->post('carpet_area'),
-                        'carpet_area_unit' => $this->input->post('carpet_area_unit'),
-                        'plot_area' => $this->input->post('plot_area'),
-                        'plot_area_unit' => $this->input->post('plot_area_unit'),
-                        'lat' => $this->input->post('lat'),
-                        'lng' => $this->input->post('lng'),
-                        'bathrooms' => $this->input->post('bathrooms'),
-                        'bedrooms' => $this->input->post('bedrooms'),
-                        'units' => $this->input->post('units'),
-                        'floors' => $this->input->post('floors'),
-                        'towers' => $this->input->post('towers'),
-                        'facades' => $this->input->post('facades'),
-                        'property_status_id' => $this->input->post('property_status_id'),
-                        'description' => $this->input->post('description'),
-                        'usp' => $this->input->post('usp'),
-                        'facebook' => $this->input->post('facebook'),
-                        'twitter' => $this->input->post('twitter'),
-                        'google' => $this->input->post('google'),
-                        'possession_date' => $this->input->post('possession_date'),
-                        'walkthrough' => $this->input->post('walkthrough'),
-                        /** Additional properties ends here */
-                    );
-                    $prop = $data;
-                   /* $amenities = $this->input->post('amenities');
-                    $b=array();
-                    foreach ($amenities as $am) {
-                      $b['amenities'.($am)]=$am;
-                      
-                    }
-                    
-                 
-                    $this->session->set_userdata($b);
-                    $this->session->set_userdata($prop);*/
-            $this->form_validation->set_rules('title', 'Title', 'trim|required');
-            $this->form_validation->set_rules('area', 'Area', 'trim|required');
-           $this->form_validation->set_rules('amenities[]', 'Amenities', 'trim|required');
-            $this->form_validation->set_rules('budget', 'Budget', 'trim|required');
-
-            if ($this->form_validation->run() != false) {
-                $slug = strtolower(url_title($this->input->post('title')));
-                $check = $this->properties_model->getOneWhere(array('slug' => $slug), 'properties');
-                if ($check) {
-                    $slug = strtolower(url_title($this->input->post('title'))) . uniqid(5);
-                }
-
-
-                if (isset($_FILES) && isset($_FILES["uploadfile"]['tmp_name']) && $_FILES["uploadfile"]['tmp_name']) {
-                    $file = $_FILES["uploadfile"]['tmp_name'];
-                    $path = './uploads/' . $slug . '/';
-                    if (!is_dir($path)) {
-                        mkdir($path, 0777, true);
-                    }
-                    $file_type = '*';
-                    $config = $this->set_upload_options($path, $file_type);
-                    $this->upload->initialize($config);
-                    if (!$this->upload->do_upload('uploadfile')) {
-                        $this->session->set_flashdata('error', $this->upload->display_errors());
-                        redirect('admin/properties/new_add');
-                    } else {
-                        $image = $this->upload->data('file_name');
-                    }
-                 
- $data = array(
-                        'builder_id' => $this->input->post('builder'),
-                        'location_id' => $this->input->post('location'),
-                        'title' => $this->input->post('title'),
-                        'meta_title' => $this->input->post('meta_title'),
-                        'meta_keywords' => $this->input->post('meta_keywords'),
-                        'meta_desc' => $this->input->post('meta_desc'),
-                        'area' => $this->input->post('area'),
-                        'budget' => $this->input->post('budget'),
-                        'property_type_id' => $this->input->post('type'),
-                        'city_id' => $this->input->post('city'),
-                        'alt' => $this->input->post('alt'),
-                        'image' => $image,
-                        'alt_title'=>$this->input->post('alt_title'),
-                        'image_desc'=>$this->input->post('image_description'),
-                        'gallery_alt'=>$this->input->post('gallery_alt'),
-                        'gallery_desc'=>$this->input->post('gallery_description'),
-                        'brochure_alt'=>$this->input->post('brochure_alt'),
-                        'brochure_desc'=>$this->input->post('brochure_description'),
-                        'floor_alt'=>$this->input->post('floor_alt'),
-                        'floor_desc'=>$this->input->post('floor_description'),
-                        'location_alt'=>$this->input->post('location_alt'),
-                        'location_desc'=>$this->input->post('location_description'),
-                        'master_alt'=>$this->input->post('master_alt'),
-                        'master_desc'=>$this->input->post('master_description'),
-                        'construction_alt'=>$this->input->post('construction_alt'),
-                        'construction_desc'=>$this->input->post('construction_description'),
-                        'elevations_alt'=>$this->input->post('elevations_alt'),
-                        'elevations_desc'=>$this->input->post('elevations_description'),
-                        'rera_number'=>$this->input->post('rera_number'),
-                        'slug' => $slug,
-                        'date_added' => date('Y-m-d'),
-                        /**  Additional property details added on 02/02/2018 by Vineeth Krishnan */
-                        'uid' =>/* $this->input->post('uid')*/2019,
-                        'rera_number' => $this->input->post('rera_number'),
-                        'issue_date' => $this->input->post('issue_date'),
-                        'property_for' => $this->input->post('property_for'),
-                        'price_per_unit' => $this->input->post('price_per_unit'),
-                        'build' => $this->input->post('build'),
-                        'face' => $this->input->post('face'),
-                        'builtup_area' => $this->input->post('builtup_area'),
-                        'builtup_area_unit' => $this->input->post('builtup_area_unit'),
-                        'carpet_area' => $this->input->post('carpet_area'),
-                        'carpet_area_unit' => $this->input->post('carpet_area_unit'),
-                        'plot_area' => $this->input->post('plot_area'),
-                        'plot_area_unit' => $this->input->post('plot_area_unit'),
-                        'lat' => $this->input->post('lat'),
-                        'lng' => $this->input->post('lng'),
-                        'bathrooms' => $this->input->post('bathrooms'),
-                        'bedrooms' => $this->input->post('bedrooms'),
-                        'units' => $this->input->post('units'),
-                        'floors' => $this->input->post('floors'),
-                        'towers' => $this->input->post('towers'),
-                        'facades' => $this->input->post('facades'),
-                        'property_status_id' => $this->input->post('property_status_id'),
-                        'description' => $this->input->post('description'),
-                        'usp' => $this->input->post('usp'),
-                        'facebook' => $this->input->post('facebook'),
-                        'twitter' => $this->input->post('twitter'),
-                        'google' => $this->input->post('google'),
-                        'possession_date' => $this->input->post('possession_date'),
-                        'walkthrough' => $this->input->post('walkthrough'),
-                        /** Additional properties ends here */
-                    );
-if (isset($_FILES) && isset($_FILES["map"]['tmp_name']) && $_FILES["map"]['tmp_name']) {
-    $path = './uploads/' . $slug . '/map/';
-    if (!is_dir($path)) {
-        mkdir($path, 0777, true);
-    }
-    $file_type = '*';
-    $config = $this->set_upload_options($path, $file_type);
-    $this->upload->initialize($config);
-    if ($this->upload->do_upload('map')) {
-        $data['map'] = $this->upload->data('file_name');
-    }
-}
-
-if (isset($_FILES) && isset($_FILES["brochure"]['tmp_name']) && $_FILES["brochure"]['tmp_name']) {
-    $path = './uploads/' . $slug . '/brochure/';
-    if (!is_dir($path)) {
-        mkdir($path, 0777, true);
-    }
-    $file_type = '*';
-    $config = $this->set_upload_options($path, $file_type);
-    $this->upload->initialize($config);
-    if ($this->upload->do_upload('brochure')) {
-        $data['brochure'] = $this->upload->data('file_name');
-    }
-}
-
-
-$property_id = $this->properties_model->insertRow($data, 'properties');
-$data['propert_id']=$property_id;
-/** attach the specifications if any */
-if ($this->input->post('specification')) {
-    foreach ($this->input->post('specification') as $id => $specification) {
-        $this->properties_model->insertRow(array(
-            'property_id' => $property_id,
-            'specification_id' => $id,
-            'content' => $specification,
-            'created_at' => date('Y-m-d H:i:s')
-        ), 'property_specification_relation');
-    }
-}
-if (isset($_FILES) && isset($_FILES["logo_1"]['tmp_name']) && $_FILES["logo_1"]['tmp_name']) {
-    $path = './uploads/' . $slug . '/logos/';
-   // print_r($this->upload->data());die;
-    $this->properties_model->insertRow(array(
-            'property_id' => $property_id,
-            'logo_1' => $this->upload->data('file_name'),
-        ), 'property_logo');
-    if (!is_dir($path)) {
-        mkdir($path, 0777, true);
-    }
-    $file_type = '*';
-    $config = $this->set_upload_options($path, $file_type);
-    $this->upload->initialize($config);
-    if ($this->upload->do_upload('logo_1')) {
-        $data['logo_1'] = $this->upload->data('file_name');
-    }
-}
-
-$data['logo'] =  $this->properties_model->getWhere(array('property_id' => $property_id), 'property_logo');
-$amenities = $this->input->post('amenities');
-if ($amenities) {
-    foreach ($amenities as $amenity) {
-        $this->properties_model->insertRow(array(
-            'property_id' => $property_id,
-            'amenity_id' => $amenity
-        ), 'property_amenities');
-    }
-}
-
-/** Gallery Images */
-// $banners = $this->input->post('banners');
-// if ($banners) {
-//     foreach ($banners as $image) {
-//         $exploded = explode('/', $image);
-//         $this->properties_model->insertRow(array(
-//             'property_id' => $property_id,
-//             'banner_path' => 'uploads/' . $slug . '/' . end($exploded)
-//         ), 'property_desktop_banners');
-//         rename($image, 'uploads/' . $slug . '/' . end($exploded));
-//     }
-// }
-// $mobilebanners = $this->input->post('mobilebanners');
-// if ($mobilebanners) {
-//     foreach ($mobilebanners as $image) {
-//         $exploded = explode('/', $image);
-//         $this->properties_model->insertRow(array(
-//             'property_id' => $property_id,
-//             'mobile_banner_path' => 'uploads/' . $slug . '/' . end($exploded)
-//         ), 'property_mobile_banners');
-//         rename($image, 'uploads/' . $slug . '/' . end($exploded));
-//     }
-// }
-$gallery = $this->input->post('images');
-if ($gallery) {
-    foreach ($gallery as $image) {
-        $exploded = explode('/', $image);
-        $this->properties_model->insertRow(array(
-            'property_id' => $property_id,
-            'image' => 'uploads/' . $slug . '/' . end($exploded)
-        ), 'property_mobile_banners');
-        rename($image, 'uploads/' . $slug . '/' . end($exploded));
-    }
-}
-
-
-/** Floor Plan Images */
-$floorImages = $this->input->post('floorimages');
-if ($floorImages) {
-    foreach ($floorImages as $image) {
-        $exploded = explode('/', $image);
-        $this->properties_model->insertRow(array(
-            'property_id' => $property_id,
-            'image' => 'uploads/' . $slug . '/' . end($exploded)
-        ), 'property_floor_plans');
-        rename($image, 'uploads/' . $slug . '/' . end($exploded));
-    }
-}
-
-/** Master Plan Images */
-$masterImages = $this->input->post('masterimages');
-if ($masterImages) {
-    foreach ($masterImages as $image) {
-        $exploded = explode('/', $image);
-        $this->properties_model->insertRow(array(
-            'property_id' => $property_id,
-            'image' => 'uploads/' . $slug . '/' . end($exploded)
-        ), 'property_master_plans');
-        rename($image, 'uploads/' . $slug . '/' . end($exploded));
-    }
-}
-
-/** Construction Update Images */
-$constructionImages = $this->input->post('constructionimages');
-if ($constructionImages) {
-    foreach ($constructionImages as $image) {
-        $exploded = explode('/', $image);
-        $this->properties_model->insertRow(array(
-            'property_id' => $property_id,
-            'image' => 'uploads/' . $slug . '/' . end($exploded)
-        ), 'property_construction_updates');
-        rename($image, 'uploads/' . $slug . '/' . end($exploded));
-    }
-}
-
-                    /** Construction Update Images
-                    $walkthroughImages = $this->input->post('walkthroughimages');
-                    if ($walkthroughImages) {
-                        foreach ($walkthroughImages as $image) {
-                            $exploded = explode('/', $image);
-                            $this->properties_model->insertRow(array(
-                                'property_id' => $property_id,
-                                'image' => 'uploads/' . $slug . '/' . end($exploded)
-                            ), 'property_project_walkthrough');
-                            rename($image, 'uploads/' . $slug . '/' . end($exploded));
-                        }
-                    }
-                    */
-                    /** Elevations Images */
-                    $elevationsImages = $this->input->post('elevationsimages');
-
-                    if ($elevationsImages) {
-                        foreach ($elevationsImages as $image) {
-                            $exploded = explode('/', $image);
-                            $this->properties_model->insertRow(array(
-                                'property_id' => $property_id,
-                                'image' => 'uploads/' . $slug . '/' . end($exploded)
-                            ), 'property_elevations');
-                            rename($image, 'uploads/' . $slug . '/' . end($exploded));
-                        }
-                    }
-
-
-                    // add property flat types
-                    $property_flat_types = $this->input->post('flat_type');
-                    if (isset($property_flat_types) && is_array($property_flat_types)) {
-                        foreach ($property_flat_types as $flat_type_id => $property_flat_type) {
-                            if (isset($property_flat_type['name']) && $property_flat_type['name']) {
-                                foreach ($property_flat_type['name'] as $index => $item) {
-                                    if (isset($property_flat_type['name'][$index]) && $property_flat_type['name'][$index]) {
-                                        $flatData = array(
-                                            'property_id' => $property_id,
-                                            'flat_type_id' => $flat_type_id,
-                                            'name' => isset($property_flat_type['name'][$index]) ? $property_flat_type['name'][$index] : "",
-                                            'size' => isset($property_flat_type['size'][$index]) ? $property_flat_type['size'][$index] : 0,
-                                            'unit' => isset($property_flat_type['unit'][$index]) ? $property_flat_type['unit'][$index] : "Sqft",
-                                            'price' => isset($property_flat_type['price'][$index]) ? $property_flat_type['price'][$index] : 0,
-                                            'carpet_area' => isset($property_flat_type['carpet_area'][$index]) ? $property_flat_type['carpet_area'][$index] : 0,
-                                            'price_on_request' => isset($property_flat_type['price_on_request'][$index]) ? 1 : 0
-                                        );
-                                        $flatData['total'] = floatval($flatData['size']) * floatval($flatData['price']);
-                                        $this->properties_model->insertRow($flatData, 'property_flat_types');
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-
-
-                   
-                    foreach ($prop as $am => $value) {
-                          $this->session->unset_userdata($am);
-                        }
-                    /*foreach ($b as $am => $value) {
-                       $this->session->unset_userdata($am);
-                    }*/
-                    $this->session->set_flashdata('message', 'Property added Successfully');
-                    if($this->session->set_flashdata('message', 'Property added Successfully'))
-                    
-                    redirect('admin/properties');
-                } else {
-                    $this->session->set_flashdata('error', 'Image is mandatory');
-                    redirect('admin/properties/new_add');
-                }
-            }
-        }
-
-        $this->data['property_types'] = $this->properties_model->getWhere(array('status' => 1), 'property_types');
-        $this->data['cities'] = $this->properties_model->getWhere(array('status' => 1), 'cities');
-        $this->data['builders'] = $this->properties_model->getWhere(array('status' => 1), 'builders');
-        $this->data['amenities'] = $this->properties_model->getWhere(array('status' => 1), 'amenities');
-        // setup page header data
-        $this->set_title(lang('properties title add_property'))
-        ->add_external_js(array(
-            '//cdnjs.cloudflare.com/ajax/libs/dropzone/5.2.0/min/dropzone.min.js',
-            '//cdnjs.cloudflare.com/ajax/libs/ckeditor/4.7.2/ckeditor.js',
-            base_url($this->settings->themes_folder . '/admin/js/bootstrap-datepicker.js'),
-            base_url($this->settings->themes_folder . '/admin/js/properties.js')
-        ))
-        ->add_external_css(array(
-            base_url($this->settings->themes_folder . '/admin/css/bootstrap-datepicker.css')
-        ));
-        $data = $this->includes;
-        // set content data
-        $content_data = $this->data;
-
-        $data['content'] = $this->load->view('admin/properties/add', $content_data, true);
         $this->load->view($this->template, $data);
     }
     public function DeleteLocation()

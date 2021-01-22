@@ -190,7 +190,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.2.0/min/dropzone.min.css
             <input type="file" name="uploadfile" class="form-control">
         </div>
         <div class="col-sm-6 text-center">
-            <img src="<?= base_url('uploads/' . $property->slug . '/' . $property->image) ?>"
+            <img src="<?= base_url('uploads/'.str_replace(" ","-",strtolower($property->city_name))."/".str_replace(" ","-",strtolower($property->builder))."/" . $property->slug . '/' . $property->image) ?>"
             id="prevImage" style="height: 90px; width: 90px; display: inline-block;">
         </div>
     </div>
