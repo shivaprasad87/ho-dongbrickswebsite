@@ -23,7 +23,7 @@
                   <div class="right-corner-badges">
                     <span class="featured">
                     <ul class="social-icons">
-                      <li><a class="facebook" href="<?= $social_links->facebook ?>#" target="_blank"><i class="icon-facebook"></i></a></li>
+                      <li><a class="facebook" href="<?= $social_links->facebook ?>" target="_blank"><i class="icon-facebook"></i></a></li>
                       <li><a class="twitter" href="<?= $social_links->twitter ?>" target="_blank"><i class="icon-twitter"></i></a></li>
                       <li><a class="instagram" href="<?= $social_links->instagram ?>" target="_blank"><i class="icon-instagram"></i></a></li>
                       <li><a class="linkedin" href="<?= $social_links->linked_in ?>" target="_blank"><i class="icon-linkedin"></i></a></li>
@@ -62,7 +62,7 @@
 
                   <!-- Social Icons -->
                   <ul class="social-icons">
-                    <li><a class="facebook" target="_blank" href="https://<?= $social_links->facebook ?>"><i class="icon-facebook"></i></a></li>
+                    <li><a class="facebook" target="_blank" href="<?= $social_links->facebook ?>"><i class="icon-facebook"></i></a></li>
                     <li><a class="twitter" target="_blank" href="<?= $social_links->twitter ?>"><i class="icon-twitter"></i></a></li> 
                     <li><a class="linkedin" target="_blank" href="<?= $social_links->linked_in ?>"><i class="icon-linkedin"></i></a></li>
                     <li><a class="instagram" target="_blank" href="<?= $social_links->instagram ?>"><i class="icon-instagram"></i></a></li>
