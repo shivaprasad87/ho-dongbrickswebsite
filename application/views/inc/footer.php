@@ -325,7 +325,7 @@
 						<li><a class="twitter" href="<?= $social_links->twitter ?>" target="_blank"><i class="icon-twitter"></i></a></li>
 						<li><a class="linkedin" href="<?= $social_links->linked_in ?>" target="_blank"><i class="icon-linkedin"></i></a></li>
 					
-						<li><a class="whatsapp" href="#"><i class="icon-whatsapp"></i></a></li>
+						<li><a class="whatsapp" href="https://api.whatsapp.com/send?phone=+91<?= $social_links->whatsapp ?>&text=HI I'm Intrested"><i class="icon-whatsapp"></i></a></li>
 						<li><a class="pinterest" href="#"><i class="icon-pinterest"></i></a></li>
 					
 					</ul></p>

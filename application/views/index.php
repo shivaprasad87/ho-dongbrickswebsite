@@ -545,7 +545,7 @@
 			</a>
 
 			<div class="widget-follow">
-				<a href="https://api.whatsapp.com/send?phone=<?= $social_links->whatsapp ?>, HI I'm Intrested" id="follow-button" title="Follow Us">
+				<a href="https://api.whatsapp.com/send?phone=+91<?= $social_links->whatsapp ?>&text=HI I'm Intrested" id="follow-button" title="Follow Us">
 					<span class=""><i class="fa fa-whatsapp" aria-hidden="true"></i></span><!-- Follow Us -->
 				</a>
 
