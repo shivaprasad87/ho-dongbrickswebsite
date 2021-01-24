@@ -83,16 +83,41 @@
 
 			</div>
 
-			<!-- <div class="row mb-40">
+			 <div class="row mb-40">
 				<div class="col-md-3 col-xs-12 ">
 					<h5>Top Builders In Bangalore</h5>
 					<ul class="footer-links">
-						<li><a href="#">Prestige Group</a></li>
+						<?php
+                $data = $this->home_model->where_order_by(array('status' => 1,'line'=>1),array('priority'=>'asc'), 'property_type');
+                if(count($data)>0)
+                {
+                foreach ($data as $data) {
+
+                    if($data['city']=='')
+                                    {
+                echo " <li>
+                 <a href=".base_url('listing')."?place=".$data['search_key']." target='_blank'>".$data['name']."</a></li>";
+                                    }
+                    else
+                    {
+                        echo " <li> <a href=".base_url('city/').$data['city']."?place=".$data['search_key']." target='_blank'>".$data['name']."</a></li>";
+                    }
+             
+                             } 
+                         }
+                    else
+                    {
+                    	?>
+                    	<li><a href="#">Prestige Group</a></li>
 						<li><a href="#">Brigade Group</a></li>
 						<li><a href="#">Godrej Properties</a></li>
 						<li><a href="#">Sobha Limited</a></li>
 						<li><a href="#">Purvankara</a></li>
 						<li><a href="#">Mahindra Life Spaces</a></li>
+                    	<?php
+                    }
+                ?>
+              
 					
 					</ul>
 				</div>
@@ -100,12 +125,36 @@
 				<div class="col-md-3 col-xs-12 ">
 					<h5>Top Builders In Pune</h5>
 					<ul class="footer-links">
+						<?php
+                 $data = $this->home_model->where_order_by(array('status' => 1,'line'=>2),array('priority'=>'asc'), 'property_type');
+                if(count($data)>0)
+                {
+                foreach ($data as $data) {
+
+                    if($data['city']=='')
+                                    {
+                echo " <li>
+                 <a href=".base_url('listing')."?place=".$data['search_key']." target='_blank'>".$data['name']."</a></li>";
+                                    }
+                    else
+                    {
+                        echo " <li> <a href=".base_url('city/').$data['city']."?place=".$data['search_key']." target='_blank'>".$data['name']."</a></li>";
+                    }
+             
+                             }
+                         }
+                             else
+                             {
+                             	?>
 						<li><a href="#">Kolte Patil Developers</a></li>
 						<li><a href="#">Vilas Javdekar</a></li>
 						<li><a href="#">Kohinoor Group Construction</a></li>
 						<li><a href="#">Shapoorji Pallonji</a></li>
 						<li><a href="#">Kalpataru Group</a></li>
 						<li><a href="#">Lodha Group</a></li>
+						<?php
+					}
+					?>
 					
 					</ul>
 				</div>
@@ -113,12 +162,36 @@
 				<div class="col-md-3 col-xs-12 ">
 					<h5>Featured Properties (Bangalore)</h5>
 					<ul class="footer-links">
+						<?php
+                   $data = $this->home_model->where_order_by(array('status' => 1,'line'=>3),array('priority'=>'asc'), 'property_type');
+                   if(count($data)>0)
+                {
+                foreach ($data as $data) {
+
+                    if($data['city']=='')
+                                    {
+                echo " <li>
+                 <a href=".base_url('listing')."?place=".$data['search_key']." target='_blank'>".$data['name']."</a></li>";
+                                    }
+                    else
+                    {
+                        echo " <li> <a href=".base_url('city/').$data['city']."?place=".$data['search_key']." target='_blank'>".$data['name']."</a></li>";
+                    }
+             
+                             }
+                         }
+                             else
+                             {
+                             ?>
 						<li><a href="#">2 BHK Apartments </a></li>
 						<li><a href="#">3 BHK Apartments </a></li>
 						<li><a href="#">4 BHK Apartments </a></li>
 						<li><a href="#"> Villas Properties </a></li>
 						<li><a href="#">Commercial & Office Spaces </a></li>
 						<li><a href="#">Plotted Development</a></li>
+						<?php
+					}
+					?>
 					
 					</ul>
 				</div>
@@ -126,12 +199,36 @@
 				<div class="col-md-3 col-xs-12">
 					<h5>Featured Properties (Pune)</h5>
 					<ul class="footer-links">
+						<?php
+                   $data = $this->home_model->where_order_by(array('status' => 1,'line'=>4),array('priority'=>'asc'), 'property_type');
+                   if(count($data)>0)
+                {
+                foreach ($data as $data) {
+
+                    if($data['city']=='')
+                                    {
+                echo " <li>
+                 <a href=".base_url('listing')."?place=".$data['search_key']." target='_blank'>".$data['name']."</a></li>";
+                                    }
+                    else
+                    {
+                        echo " <li> <a href=".base_url('city/').$data['city']."?place=".$data['search_key']." target='_blank'>".$data['name']."</a></li>";
+                    }
+             
+                             }
+                         }
+                             else
+                             {
+                             ?>
 						<li><a href="#">2 BHK Apartments </a></li>
 						<li><a href="#">3 BHK Apartments </a></li>
 						<li><a href="#">4 BHK Apartments </a></li>
 						<li><a href="#"> Villas Properties </a></li>
 						<li><a href="#">Commercial & Office Spaces </a></li>
 						<li><a href="#">Plotted Development</a></li>
+						<?php
+					}
+					?>
 					
 					</ul>
 				</div>
@@ -141,6 +238,27 @@
 				<div class="col-md-3 col-xs-12 ">
 					<h5>Locality ( Bangalore )</h5>
 					<ul class="footer-links">
+						<?php
+                   $data = $this->home_model->where_order_by(array('status' => 1,'line'=>5),array('priority'=>'asc'), 'property_type');
+                   if(count($data)>0)
+                {
+                foreach ($data as $data) {
+
+                    if($data['city']=='')
+                                    {
+                echo " <li>
+                 <a href=".base_url('listing')."?place=".$data['search_key']." target='_blank'>".$data['name']."</a></li>";
+                                    }
+                    else
+                    {
+                        echo " <li> <a href=".base_url('city/').$data['city']."?place=".$data['search_key']." target='_blank'>".$data['name']."</a></li>";
+                    }
+             
+                             }
+                         }
+                             else
+                             {
+                             ?>
 						<li><a href="#">Properties in Whitefield</a></li>
 						<li><a href="#">Properties in Kanakapura Road</a></li>
 						<li><a href="#">Properties in Sarjapura Road</a></li>
@@ -148,6 +266,9 @@
 						<li><a href="#">Properties in K.R Puram</a></li>
 						<li><a href="#">Properties in Yashwantpur</a></li>
 						<li><a href="#">Properties in Yelahanka</a></li>
+						<?php
+					}
+					?>
 					
 					</ul>
 				</div>
@@ -155,6 +276,28 @@
 				<div class="col-md-3 col-xs-12 ">
 					<h5>Locality ( Pune )</h5>
 					<ul class="footer-links">
+						<?php
+                   $data = $this->home_model->where_order_by(array('status' => 1,'line'=>5),array('priority'=>'asc'), 'property_type');
+                   if(count($data)>0)
+                {
+                foreach ($data as $data) {
+
+                    if($data['city']=='')
+                                    {
+                echo " <li>
+                 <a href=".base_url('listing')."?place=".$data['search_key']." target='_blank'>".$data['name']."</a></li>";
+                                    }
+                    else
+                    {
+                        echo " <li> <a href=".base_url('city/').$data['city']."?place=".$data['search_key']." target='_blank'>".$data['name']."</a></li>";
+                    }
+             
+                             }
+                         }
+                             else
+                             {
+                             	?>
+
 						<li><a href="#">Properties in Hinjewadi </a></li>
 						<li><a href="#">Properties in Wakad</a></li>
 						<li><a href="#">Properties in Baner</a></li>
@@ -162,6 +305,9 @@
 						<li><a href="#">Properties in Wagholi</a></li>
 						<li><a href="#">Properties in Balewadi</a></li>
 						<li><a href="#">Properties in Pimpri-Chinchwad</a></li>
+						<?php
+                             }
+                             ?>
 					
 					</ul>
 				</div>
@@ -173,11 +319,11 @@
 					
 					<p><ul class="social-icons rounded margin-top-20 text-center">
 						
-						<li><a class="facebook" href="#"><i class="icon-facebook"></i></a></li>
-						<li><a class="instagram" href="#"><i class="icon-instagram"></i></a></li>
+						<li><a class="facebook" href="<?= $social_links->facebook ?>" target="_blank"><i class="icon-facebook"></i></a></li>
+						<li><a class="instagram" href="<?= $social_links->instagram ?>" target="_blank"><i class="icon-instagram"></i></a></li>
 						
-						<li><a class="twitter" href="#"><i class="icon-twitter"></i></a></li>
-						<li><a class="linkedin" href="#"><i class="icon-linkedin"></i></a></li>
+						<li><a class="twitter" href="<?= $social_links->twitter ?>" target="_blank"><i class="icon-twitter"></i></a></li>
+						<li><a class="linkedin" href="<?= $social_links->linked_in ?>" target="_blank"><i class="icon-linkedin"></i></a></li>
 					
 						<li><a class="whatsapp" href="#"><i class="icon-whatsapp"></i></a></li>
 						<li><a class="pinterest" href="#"><i class="icon-pinterest"></i></a></li>
@@ -185,7 +331,7 @@
 					</ul></p>
 				</center>
 				</div>
-			</div> -->
+			</div> 
 						
 		
 
