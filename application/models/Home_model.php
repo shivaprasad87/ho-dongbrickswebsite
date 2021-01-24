@@ -371,6 +371,29 @@ class Home_model extends MY_Model {
         ->result();
         return  json_decode(json_encode($data[0]->id),true);
     }
+     public function properties_site_map()
+    {
+        $this->db->select('p.*, c.name as city_name,ps.name as property_status, pt.name as prop_type, b.name as builder, l.name as location')
+                ->distinct()
+                ->from('properties p')
+                ->join('cities c', 'p.city_id = c.id', 'LEFT')
+                ->join('builders b', 'p.builder_id = b.id', 'LEFT')
+                ->join('locations l', 'p.location_id = l.id', 'LEFT')
+                ->join('property_types pt', 'p.property_type_id = pt.id', 'LEFT')
+                ->join('property_status ps', 'p.property_status_id = ps.id', 'LEFT')
+                ->join('property_amenities pa', 'pa.property_id = p.id', 'LEFT')
+                ->join('property_flat_types pft', 'pft.property_id = p.id', 'LEFT');
+                $result = $this->db->get()->result();
+         return $result;
+    }
+    public function locations_like($value='')
+    {
+        return $this->db->select('name')
+                        ->from('locations')
+                        ->like('name',$value)
+                        ->get()
+                        ->row();
+    }
 
     
 
