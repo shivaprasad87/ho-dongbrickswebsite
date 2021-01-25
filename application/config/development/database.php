@@ -64,11 +64,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
     'dsn'          => '',
-    'hostname'     => 'localhost', 
-    'username'     => 'root', 
-    'password'     => '',
-    'database'     => 'realestate_website',
-    //'database'     => 'nkmtein_fullbasket_new',
+    'hostname'     => '149.56.9.68', 
+    'username'     => 'digilance5_real', 
+    'password'     => 'Password1982',
+    'database'     => 'digilance5_real', 
     'dbdriver'     => 'mysqli',
     'dbprefix'     => '',
     'pconnect'     => FALSE,
