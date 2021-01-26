@@ -212,7 +212,7 @@ if (($images = $this->properties_model->getWhere(array('property_id' => $propert
 				<div class="col-md-12">
 					<div class="individualproject_title">
 		
-						<h5 itemprop="name">Project Cyberscape Pricing</h5>
+						<h5 itemprop="name"><?= $property->title ? $property->title : '' ?> Pricing</h5>
 						
 					</div>
 					<table class="table">
@@ -225,28 +225,67 @@ if (($images = $this->properties_model->getWhere(array('property_id' => $propert
 						  </tr>
 						</thead>
 						<tbody>
-						  <tr>
-							<td>1 BHK</td>
-							<td>550 - 990 </td>
-							<td>550 - 990</td>
-							<td>20 Lakhs</td>
-						  </tr>
+                                                                <?php
+                                                                if (($flatTypes = $this->properties_model->getPropertyFlatType(null,
+                                                                        $property->id)) != null) {
+                                                                    foreach ($flatTypes as $flatType) {
+                                                                        ?>
+                                                                    <tr style="background: #ededed;">
+                                                                        <td>
+                                                                            <?= $flatType->flat_type ?>
+                                                                        </td>
+                                                                        <td>
+                                                                            <?= $this->properties_model->getPropertyRange(array(
+                                                            'property_id' => $property->id,
+                                                            'flat_type_id' => $flatType->flat_type_id
+                                                        ), 'property_flat_types',
+                                                            'size') ?>
+                                                                                <?= $this->properties_model->getPropertyParam(array(
+                                                            'property_id' => $property->id,
+                                                            'flat_type_id' => $flatType->flat_type_id
+                                                        ), 'property_flat_types', 'unit') ?>
+                                                                        </td>
+                                                                        <td>
+                                                                            <?= $this->properties_model->getPropertyRange(array(
+                                                            'property_id' => $property->id,
+                                                            'flat_type_id' => $flatType->flat_type_id
+                                                        ), 'property_flat_types', 'carpet_area') ?> Sq.ft
+                                                                        </td>
+                                                                        <td>
+                                                                            <?php
+                                                        if ($flatType->price_on_request) {
+                                                            echo "Price on Request";
+                                                        } else {
+                                                            ?>
+                                                                                <i class="fa fa-inr" aria-hidden="true"></i>
+                                                                                <?= (($row = $this->properties_model->getPropertyParam(array(
+                                                                    'property_id' => $property->id,
+                                                                    'flat_type_id' => $flatType->flat_type_id
+                                                                ), 'property_flat_types', null,
+                                                                    'MIN(total) as amount')) != null) ? number_format_short($row->amount) : 0 ?>
+                                                                                    -
+                                                                                    <?= (($row = $this->properties_model->getPropertyParam(array(
+                                                                    'property_id' => $property->id,
+                                                                    'flat_type_id' => $flatType->flat_type_id
+                                                                ), 'property_flat_types', null,
+                                                                    'MAX(total) as amount')) != null) ? number_format_short($row->amount) : 0 ?>
+                                                                                        <?php
+                                                        }
+                                                        ?>
+                                                                        </td> 
+                                                                    </tr>
+                                                                    <?php
+                                            }
+                                        } else {
+                                            ?>
+                                                                        <tr style="background: #ededed;">
+                                                                            <td colspan="6" class="text-center">No data available</td>
+                                                                        </tr>
+                                                                        <?php
+                                        }
+                                        ?>
 
-						  <tr>
-							<td>2 BHK</td>
-							<td>550 - 990 </td>
-							<td>550 - 990</td>
-							<td>30 Lakhs</td>
-						  </tr>
-
-						  <tr>
-							<td>3 BHK</td>
-							<td>550 - 990 </td>
-							<td>550 - 990</td>
-							<td>50 Lakhs</td>
-						  </tr>
-						 
-						</tbody>
+                                                            </tbody>
 					  </table>
 			
 		
@@ -687,9 +726,10 @@ if (($images = $this->properties_model->getWhere(array('property_id' => $propert
         </div>
   
           <div id="propertyMap-container">
-            <div id="propertyMap" data-latitude="40.7427837" data-longitude="-73.11445617675781" style="position: relative; overflow: hidden;"><div style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background-color: rgb(229, 227, 223);"><div class="gm-err-container"><div class="gm-err-content"><div class="gm-err-icon"><img src="<?= base_url(" uploads/$property->slug/map/$property->map") ?>" draggable="false" style="user-select: none;"></div><div class="gm-err-title">Oops! Something went wrong.</div><div class="gm-err-message">This page didn't load Google Maps correctly. See the JavaScript console for technical details.</div></div></div></div></div>
-            <a href="#" id="streetView">Street View</a>
-          </div>
+            <!-- <div id="propertyMap" data-latitude="40.7427837" data-longitude="-73.11445617675781" style="position: relative; overflow: hidden;"><div style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background-color: rgb(229, 227, 223);"><div class="gm-err-container"><div class="gm-err-content"><div class="gm-err-icon"></div><div class="gm-err-title">Oops! Something went wrong.</div><div class="gm-err-message">This page didn't load Google Maps correctly. See the JavaScript console for technical details.</div></div></div></div></div>
+            <a href="#" id="streetView">Street View</a>-->
+          </div> 
+          <img src="<?= base_url(" uploads/$property->slug/map/$property->map") ?>" draggable="false" style="user-select: none;">
       </div>
     </div>
                              <?php 
