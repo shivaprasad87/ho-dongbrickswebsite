@@ -730,7 +730,7 @@ if (($images = $this->properties_model->getWhere(array('property_id' => $propert
             <!-- <div id="propertyMap" data-latitude="40.7427837" data-longitude="-73.11445617675781" style="position: relative; overflow: hidden;"><div style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background-color: rgb(229, 227, 223);"><div class="gm-err-container"><div class="gm-err-content"><div class="gm-err-icon"></div><div class="gm-err-title">Oops! Something went wrong.</div><div class="gm-err-message">This page didn't load Google Maps correctly. See the JavaScript console for technical details.</div></div></div></div></div>
             <a href="#" id="streetView">Street View</a>-->
           </div> 
-          <img src="<?= base_url(" uploads/$property->slug/map/$property->map") ?>" draggable="false" style="user-select: none;">
+          <img src="<?= base_url("uploads/".strtolower($property->city_name)."/".str_replace(' ','-',strtolower($property->builder))."/$property->slug/map/$property->map") ?>" draggable="false" style="user-select: none;">
       </div>
     </div>
                              <?php 
