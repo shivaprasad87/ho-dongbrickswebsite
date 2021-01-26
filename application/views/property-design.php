@@ -207,6 +207,56 @@ if (($images = $this->properties_model->getWhere(array('property_id' => $propert
       </div>
     </div>
 
+    <div class="div_info mt-10" id="Pricing">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="individualproject_title">
+		
+						<h5 itemprop="name">Project Cyberscape Pricing</h5>
+						
+					</div>
+					<table class="table">
+						<thead class="table-head">
+						  <tr>
+							<th>Type</th>
+							<th>SBA (sqft)</th>
+							<th>Carpet Area (sqft)</th>
+							<th>Price</th>
+						  </tr>
+						</thead>
+						<tbody>
+						  <tr>
+							<td>1 BHK</td>
+							<td>550 - 990 </td>
+							<td>550 - 990</td>
+							<td>20 Lakhs</td>
+						  </tr>
+
+						  <tr>
+							<td>2 BHK</td>
+							<td>550 - 990 </td>
+							<td>550 - 990</td>
+							<td>30 Lakhs</td>
+						  </tr>
+
+						  <tr>
+							<td>3 BHK</td>
+							<td>550 - 990 </td>
+							<td>550 - 990</td>
+							<td>50 Lakhs</td>
+						  </tr>
+						 
+						</tbody>
+					  </table>
+			
+		
+				
+					<center class="mt-10"><div class="btn btn-info" data-toggle="modal" data-target="#">Download Costsheet</div></center>
+		
+				</div>
+			</div>
+		</div>
+
 <!--     <div class="div_info mt-10" id="Offers">
       <div class="row">
         <div class="col-md-12">
