@@ -75,7 +75,8 @@ if (($images = $this->properties_model->getWhere(array('property_id' => $propert
 					<ul class="lightgallery" class="list-unstyled row">
 						<li data-src="<?=base_url($gallery_images[0]);?>" >
 							<a><img class="img-responsive" src="<?=base_url($gallery_images[0]);?>"></a>
-						</li>
+            </li>
+            
 					</ul>
 				</div>
       

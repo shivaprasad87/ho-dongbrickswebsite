@@ -899,7 +899,7 @@
 					});
 	
 					$('.listing-item').each(function(){
-						$(this).find(resizeObjects).css('height', 'auto');
+						$(this).find(resizeObjects).css('height', '220px');
 					});
 	
 				}

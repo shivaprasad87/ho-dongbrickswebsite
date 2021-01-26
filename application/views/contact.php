@@ -18,7 +18,7 @@
  
   <!-- Office -->
   <div class="address-box-container">
-    <div class="address-container" data-background-image="images/our-office.jpg">
+    <div class="address-container" data-background-image="<?=base_url('assets/')?>images/our-office.jpg">
       <div class="office-address">
         <h3>Bangalore Office</h3>
         <ul>
@@ -93,7 +93,7 @@
           </div>
 
           <div>
-            <input name="phone" type="tel" id="phone" placeholder="Subject" required="required" />
+            <input name="phone" type="tel" id="phone" placeholder="Phone" required="required" />
           </div>
 
           <div>

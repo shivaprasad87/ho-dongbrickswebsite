@@ -327,7 +327,7 @@ data-img-height="505">
 						</form>
 						<div class="mb-40">
 							<div class="offers-wrap lead-offer no-bg-style"> 
-								<div class="spl-img va-top bg-img-default bg-img-contain"  style=" background-image:url('images/cashback.png')">
+								<div class="spl-img va-top bg-img-default bg-img-contain"  style=" background-image:url('<?=base_url('assets/')?>images/cashback.png')">
 								</div>  
 								<div class="spl-txt-wrap va-middle"> 
 									<div class="spl-title va-top">Assured Callback in 5 mins</div> 
@@ -337,7 +337,7 @@ data-img-height="505">
 									</div>      
 							</div>
 							<div class="offers-wrap lead-offer no-bg-style">
-								<div class="spl-img va-top bg-img-default bg-img-contain"  style=" background-image:url('images/offer.png')"> 
+								<div class="spl-img va-top bg-img-default bg-img-contain"  style=" background-image:url('<?=base_url('assets/')?>images/offer.png')"> 
 								</div>                 
 								<div class="spl-txt-wrap va-middle"> 
 									<div class="spl-title va-top">Authorised Channel Partner</div>

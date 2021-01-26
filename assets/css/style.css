@@ -357,6 +357,10 @@ header.fullwidth .container {
 }
 /* Header Style 2 - Right Side Menu Items */
 @media (min-width: 992px) {
+	.reserveserenityforever_right {
+		
+		height: 350px;
+	}
 	.modal-content .left_col{
 		position: absolute;
 		bottom: 16px;
@@ -472,6 +476,9 @@ display: block;
 }
 
 @media (max-width: 992px) {
+	.reserveserenityforever_right {
+		height: 135px;
+	}
 	.modal-content .left_col {
 		position: absolute;
 		bottom: 0px;
@@ -5503,7 +5510,7 @@ a.button.preview i { margin-left: 5px; }
 .contact-map .google-map-container #propertyMap { height: 100%; width: 100%; }
 
 @media (min-width: 1680px) { .contact-map .address-box-container { height: 480px; } }
-@media (max-width: 1440px) { .contact-map .address-box-container { height: 420px; } }
+@media (max-width: 1440px) { .contact-map .address-box-container { height: 450px; } }
 
 
 /* Contact Details */
@@ -12309,7 +12316,8 @@ body .daterangepicker .drp-buttons button.cancelBtn {
 	textarea, select, input[type="button"], input[type="submit"], button, #tiptip_content
 	{ font-family: "Varela Round", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif; text-transform: none; }
 
-	input, input[type="text"], input[type="password"], input[type="email"], input[type="number"], textarea, select {
+	input, input[type="text"], input[type="password"], input[type="email"], 
+	input[type="number"],input[type="tel"], textarea, select {
 		height: 51px;
 		line-height: 51px;
 		padding: 0 20px;
@@ -12321,7 +12329,6 @@ body .daterangepicker .drp-buttons button.cancelBtn {
 		width: 100%;
 		box-sizing: border-box;
 		display: block;
-		background-color: #fcfcfc;
 		font-weight: 500;
 		border: 1px solid #e0e0e0;
 		opacity: 1;
@@ -14170,7 +14177,7 @@ text-decoration: none;
   }
   
   .rating > label { 
-	color: green; 
+	color: #f38b0a; 
    float: right; 
   }
   

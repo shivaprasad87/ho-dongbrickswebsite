@@ -1134,18 +1134,6 @@ header{width:100%;transition:all ease .5s;
 
 /* Caeer page */
 
-input[type="text"],
-input[type="password"],
-input[type="email"], textarea {
-    background: #e4e4e4 none repeat scroll 0 0;
-    border: medium none;
-    float: left;
-    font-size: 12px;
-    font-weight: 400;
-    margin-bottom: 20px;
-    padding: 19px 28px;
-    width: 100%;
-}
  input[type=file],input[type=button] {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
