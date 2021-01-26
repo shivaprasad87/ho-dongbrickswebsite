@@ -203,7 +203,7 @@ if (($images = $this->properties_model->getWhere(array('property_id' => $propert
         <h6>Project Overview:</h6>
         <?= $property->description?$property->description:''; ?>
         <!-- <a href="#" class="show-more-button">Show More <i class="fa fa-angle-down"></i></a> -->
-        <center><div class="btn btn-info" data-toggle="modal" data-target="#main-pop">Download Brochure</div></center>
+        <center><div class="btn btn-info" data-toggle="modal" data-target="#Brochure-pop">Download Brochure</div></center>
       </div>
     </div>
 
@@ -251,7 +251,7 @@ if (($images = $this->properties_model->getWhere(array('property_id' => $propert
 			
 		
 				
-					<center class="mt-10"><div class="btn btn-info" data-toggle="modal" data-target="#">Download Costsheet</div></center>
+					<center class="mt-10"><div class="btn btn-info" data-toggle="modal" data-target="#Price-pop">Download Costsheet</div></center>
 		
 				</div>
 			</div>
@@ -1183,12 +1183,14 @@ if (($images = $this->properties_model->getWhere(array('property_id' => $propert
 <!-- Flip banner / End -->
 
 
-<div class="modal Home-pupup fade in" tabindex="-1" role="dialog" id="main-pop" style="opacity: 1;">
+<div class="modal Home-pupup fade in" tabindex="-1" role="dialog" id="Brochure-pop" style="opacity: 1;">
   <!-- data-backdrop="static" data-keyboard="false" -->
 <div class="modal-dialog" role="document">
     <div class="modal-content">
       
     <div class="modal-body text-center needhelp_form-modal" style="margin: auto;">
+    <li class="property-col"><img class="text-center modal-logo" src="<?=base_url('assets/')?>images/Holding-bricks.png"></li>
+    
     <li class="left_col"><img class="text-center modal-logo" src="<?=base_url('assets/')?>images/Holding-bricks.png"></li>  
     <li class="right_col"><h5><?=$property->title?> Brochure</h5></li>
     
@@ -1220,6 +1222,82 @@ if (($images = $this->properties_model->getWhere(array('property_id' => $propert
 </div><!-- /.modal-dialog -->
 </div>
 
+<div class="modal Home-pupup fade in" tabindex="-1" role="dialog" id="main-pop" style="opacity: 1;">
+  <!-- data-backdrop="static" data-keyboard="false" -->
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+      
+    <div class="modal-body text-center needhelp_form-modal" style="margin: auto;">
+    <li class="property-col"><img class="text-center modal-logo" src="<?=base_url('assets/')?>images/Holding-bricks.png"></li>
+    
+    <li class="left_col"><img class="text-center modal-logo" src="<?=base_url('assets/')?>images/Holding-bricks.png"></li>  
+    <li class="right_col"><h5><?=$property->title?> Brochure</h5></li>
+    
+      <div class="needhelp_form_list">
+          
+        <form action="" name="WebForm-1498709213622" method="POST" id="elqform2">
+            <div class="throwerror" style="color:red;font-size:15px;padding-bottom:18px;"></div>
+            <ul>
+              <li class="form-sec"> 
+                <input type="text" placeholder="Name*" id="" required="" name="name"></li>
+              
+          
+              <li class="form-sec">
+            
+            <input type="tel" placeholder="Phone Number*" id="" required="" name="phone">
+          </li>
+            <li class="form-sec">
+              <input type="email" placeholder="Email ID*" required="" name="email" id="fcemail" autocomplete="off" class="emailcheck">
+            </li>
+
+            <li style="margin-top:20px!important">
+            <center><input type="submit" class="btn btn-submit" name=""> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</nav><!-- <div class="btn btn-submit" data-toggle="modal" data-target="#main-pop">Close</div> --></center>
+          </li>
+          </ul>
+        </form>
+      </div>
+        </div>
+    </div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+</div>
+
+<div class="modal Home-pupup fade in" tabindex="-1" role="dialog" id="Price-pop" style="opacity: 1;">
+  <!-- data-backdrop="static" data-keyboard="false" -->
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+      
+    <div class="modal-body text-center needhelp_form-modal" style="margin: auto;">
+    <li class="property-col"><img class="text-center modal-logo" src="<?=base_url('assets/')?>images/Holding-bricks.png"></li>
+    <li class="left_col"><img class="text-center modal-logo" src="<?=base_url('assets/')?>images/Holding-bricks.png"></li>  
+    <li class="right_col"><h5><?=$property->title?> Download Costsheet</h5></li>
+    
+      <div class="needhelp_form_list">
+          
+        <form action="" name="WebForm-1498709213622" method="POST" id="elqform2">
+            <div class="throwerror" style="color:red;font-size:15px;padding-bottom:18px;"></div>
+            <ul>
+              <li class="form-sec"> 
+                <input type="text" placeholder="Name*" id="" required="" name="name"></li>
+              
+          
+              <li class="form-sec">
+            
+            <input type="tel" placeholder="Phone Number*" id="" required="" name="phone">
+          </li>
+            <li class="form-sec">
+              <input type="email" placeholder="Email ID*" required="" name="email" id="fcemail" autocomplete="off" class="emailcheck">
+            </li>
+
+            <li style="margin-top:20px!important">
+            <center><input type="submit" class="btn btn-submit" name=""> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</nav><!-- <div class="btn btn-submit" data-toggle="modal" data-target="#main-pop">Close</div> --></center>
+          </li>
+          </ul>
+        </form>
+      </div>
+        </div>
+    </div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+</div>
 
 <?php $this->load->view('inc/footer'); ?>
 
