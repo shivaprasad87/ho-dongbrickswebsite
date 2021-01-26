@@ -878,12 +878,21 @@ else echo "unchecked";
                     </div>
 
                     <div class="clearfix"></div>
-                    <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="col-sm-6 col-md-6 col-lg-6">
                         <div class="form-group">
                             <label class="control-label" for="description">Description</label>
                             <div class=" <?= form_error('description') ? 'has-error' : '' ?>">
                                 <textarea id="description" class="form-control"
                                 name="description"><?=set_value('description')?></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="form-group">
+                            <label class="control-label" for="description">Location Advantages</label>
+                            <div class=" <?= form_error('location_advantages') ? 'has-error' : '' ?>">
+                                <textarea id="description" class="form-control"
+                                name="location_advantages"><?=set_value('location_advantages')?></textarea>
                             </div>
                         </div>
                     </div>
