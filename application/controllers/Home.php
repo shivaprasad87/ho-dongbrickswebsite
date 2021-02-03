@@ -1002,7 +1002,11 @@ $this->email->bcc('shivas8787@gmail.com');
               redirect(base_url('thankyou'));
         }
         $property->amenities = $this->properties_model->getAmenities($property->id);
-        $property->gallery = $this->properties_model->getGallery($property->id);
+        
+        $property->gallery[] = $this->properties_model->getGallery($property->id);
+        $property->gallery[] = $this->properties_model->getWhere(array("property_id"=>$property->id),"property_floor_plans");
+        $property->gallery[] = $this->properties_model->getWhere(array("property_id"=>$property->id),"property_master_plans");
+        $property->gallery[] = $this->properties_model->getWhere(array("property_id"=>$property->id),"property_elevations");
         $property->testimonials = $this->home_model->get_testimonials($property->id);
        
         $this->data['property'] = $property;
