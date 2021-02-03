@@ -47,8 +47,14 @@ data-img-height="505">
             <i class="im im-icon-Checked-User"></i>
           </div>
 
-          <h3>Abcd</h3>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+           <?php
+                    if (($option = $this->aboutUs_model->getOption('client_title')) != null) {
+                        ?>
+                        <h3><?= $option ?></h2><br>
+                        <?php
+                    }
+                    ?>
+          <p><?= $this->aboutUs_model->getOption('client_content') ?></p>
         </div>
       </div>
 
@@ -60,8 +66,14 @@ data-img-height="505">
             <i class="im im-icon-Checked-User"></i>
           </div>
 
-          <h3>Abcd</h3>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+          <?php
+                    if (($option = $this->aboutUs_model->getOption('client_title_2')) != null) {
+                        ?>
+                        <h3><?= $option ?></h2><br>
+                        <?php
+                    }
+                    ?>
+          <p><?= $this->aboutUs_model->getOption('client_content_2') ?></p>
         </div>
       </div>
 
@@ -74,8 +86,14 @@ data-img-height="505">
             <i class="im im-icon-Checked-User"></i>
           </div>
 
-          <h3>Abcd</h3>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+             <?php
+                    if (($option = $this->aboutUs_model->getOption('client_title_3')) != null) {
+                        ?>
+                        <h3><?= $option ?></h2><br>
+                        <?php
+                    }
+                    ?>
+           <p><?= $this->aboutUs_model->getOption('client_content_3') ?></p>
         </div>
       </div>
 
@@ -167,9 +185,9 @@ data-img-height="505">
 
 				<div class="row">
 					<div class="col-lg-6 col-sm-8">
-						<h2>It's your journey. We're here to help.</h2>
-						<p>We’re full-service, local agents who know how to find people and home each together. We use online tools with an unmatched search capability to make you smarter and faster.</p>
-						<a href="" class="button margin-top-25">Get Started</a>
+						<h2><?= $this->aboutUs_model->getOption('first_title') ?></h2>
+						<p><?= $this->aboutUs_model->getOption('first_content') ?> </p>
+						<a href="<?=base_url('listing');?>" class="button margin-top-25">Get Started</a>
 					</div>
 				</div>
 

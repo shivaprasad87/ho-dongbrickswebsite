@@ -282,8 +282,7 @@
                         <input type="button" onclick="history.go(-1);" class="btn btn-default" value="Back"/>
                     </div>
                 </div>
-            </div>
-        </div>
+            </div> 
         <!--    Clients-->
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -442,6 +441,5 @@
             </div>
         </div>
     </form>
-</section>
-</div>
+</section> 
 <div class="clearfix"></div><br><br>
