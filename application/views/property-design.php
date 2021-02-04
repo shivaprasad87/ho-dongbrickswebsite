@@ -1,8 +1,18 @@
 <?php 
 $property->gallery = json_decode(json_encode($property->gallery),true);
+//print_r($property->gallery);die;
 $gallery_images = array();
 foreach($property->gallery as $gallery) {
+  if(is_array($gallery))
+  {
+    foreach ($gallery as $gal) {
+     array_push($gallery_images, $gal['image']);
+    }
+  }
+  else
+  {
   array_push($gallery_images, $gallery['image']);
+  }
 } 
 if (($images = $this->properties_model->getWhere(array('property_id' => $property->id),
                                                 'property_desktop_banners')) != null ) {
