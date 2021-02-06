@@ -76,7 +76,7 @@
 
         <div id="contact-message"></div> 
 
-          <form method="post" action="<?=base_url('contact');?>" name="contactform" id="contactform" autocomplete="on">
+          <form method="post" action="<?=base_url('contact');?>" name="contactform"  autocomplete="on">
 
           <div class="row">
             <div class="col-md-6">
@@ -100,7 +100,7 @@
             <textarea name="message" cols="40" rows="3" id="comments" placeholder="Message" spellcheck="true" required="required"></textarea>
           </div>
 
-          <input type="submit" class="submit button" id="submit" value="Submit Message" />
+          <input type="submit" class="submit button" value="Submit Message" />
 
           </form>
       </section>

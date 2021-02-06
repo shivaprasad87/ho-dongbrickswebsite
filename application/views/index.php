@@ -133,8 +133,8 @@
 										*Avail Special Offers*
 									</div>
 										
-											<a target="_blank" href="<?= site_url(url_title($property->city_name)."/".( url_title($property->area) )."/$property->slug") ?>" style="text-decoration: none;">
-											<div class="property-img" style="background-image: url(<?= base_url('uploads/' . $property->slug . '/' . $property->image) ?>)">
+											<a target="_blank" href="<?=strtolower(site_url(url_title($property->city_name)."/".( url_title($property->area) )."/$property->slug/"))?>" style="text-decoration: none;">
+											<div class="property-img" style="background-image: url(<?= base_url('uploads/'.str_replace(" ","-",strtolower($property->city_name))."/".str_replace(" ","-",strtolower($property->builder))."/" .$property->slug.'/'.$property->image) ?>)">
 											
 											</div>
 											
@@ -159,7 +159,7 @@
 										</div>
 										<div class="clearfix"></div>
 											<!-- <div class="sharethis-inline-share-buttons"></div>-->
-										<a target="_blank" href="<?= site_url(url_title($property->city_name)."/".( url_title($property->area) )."/$property->slug") ?>" class="btn btn-primary btn-block" style="border-radius: 0">Know More</a>
+										<a target="_blank" href="<?=strtolower(site_url(url_title($property->city_name)."/".( url_title($property->area) )."/$property->slug/"))?>" class="btn btn-primary btn-block" style="border-radius: 0">Know More</a>
 									</div>
 									</div>
 								</div>
@@ -365,8 +365,8 @@
 									<div class="card border-0 work-container work-grid position-relative d-block">
 
 										<div class="card-body p-0">
-											<a href="<?= site_url(url_title($property->city_name)."/".( url_title($property->area) )."/$property->slug") ?>">
-												<img src="<?= base_url('uploads/' . $property->slug . '/' . $property->image) ?>" class="img-fluid" alt="prestige-fairfield">
+											<a href="<?=strtolower(site_url(url_title($property->city_name)."/".( url_title($property->area) )."/$property->slug/"))?>">
+												<img src="<?= base_url('uploads/'.str_replace(" ","-",strtolower($property->city_name))."/".str_replace(" ","-",strtolower($property->builder))."/" .$property->slug.'/'.$property->image) ?>" class="img-fluid" alt="prestige-fairfield">
 											</a>
 											<div class="content bg-white p-3 pull-center">
 												
@@ -382,10 +382,10 @@
 												<div class="post-meta d-flex justify-content-between mt-3">
 													<div class="row">
 														<div class="col-lg-6 col-xs-6">
-															<a href="<?= site_url(url_title($property->city_name)."/".( url_title($property->area) )."/$property->slug") ?>" class="btn btn-sm btn-info">Price on request </a>
+															<a href="<?=strtolower(site_url(url_title($property->city_name)."/".( url_title($property->area) )."/$property->slug/"))?>" class="btn btn-sm btn-info">Price on request </a>
 														</div>
 														<div class="col-lg-6 col-xs-6">
-															<a href="<?= site_url(url_title($property->city_name)."/".( url_title($property->area) )."/$property->slug") ?>" class="btn btn-sm btn-info">Know More </a>
+															<a href="<?=strtolower(site_url(url_title($property->city_name)."/".( url_title($property->area) )."/$property->slug/"))?>" class="btn btn-sm btn-info">Know More </a>
 														</div>
 													</div>
 												

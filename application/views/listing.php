@@ -1,6 +1,4 @@
 <div class="clearfix"></div>
-
-
 <!-- Titlebar
 ================================================== -->
 <div class="parallax titlebar"
