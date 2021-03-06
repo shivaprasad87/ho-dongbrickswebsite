@@ -527,7 +527,15 @@ if ($constructionImages) {
                     }
 
 
-
+                    if ($this->input->post('fq')) {
+                        foreach ($this->input->post('fa') as $fq) {
+                            $this->properties_model->insertRow(array(
+                                'p_id' => $property_id,
+                                'fq' => $fq,
+                                'fa' => $this->input->post('fa'), 
+                            ), 'faq');
+                        }
+                    }
                    
                     foreach ($prop as $am => $value) {
                           $this->session->unset_userdata($am);
@@ -920,6 +928,23 @@ $img = $this->properties_model->getWhere(array("property_id"=>$id),"property_log
                         ), 'property_specification_relation');
                     }
                 }
+                // print_r($this->input->post('fq'));
+                // print_r($this->input->post('fa'));
+                if ($this->input->post('fq')) {
+                    $a=0;
+                        foreach ($this->input->post('fq') as $fq) {
+                            if($fq!='')
+                            {
+                            $this->properties_model->insertRow(array(
+                                'p_id' => $id,
+                                'fq' => $fq,
+                                'fa' => $this->input->post('fa')[$a], 
+                            ), 'faq');
+                            }
+                            $a++;
+                        }
+                        $a=0;
+                    } 
 
                 /**
                  * Detach and re-attach property flat types to update with new data
@@ -960,6 +985,7 @@ $img = $this->properties_model->getWhere(array("property_id"=>$id),"property_log
         $this->data['locations'] = $this->properties_model->getWhere(array('city_id' => $blog->city_id), 'locations');
         $this->data['builders'] = $this->properties_model->getWhere(array('status' => 1), 'builders');
         $this->data['amenities'] = $this->properties_model->getWhere(array('status' => 1), 'amenities');
+        $this->data['faq'] = $this->properties_model->getWhere(array('p_id' => $id), 'faq');
         $property = $this->properties_model->getProperty($id);
         $banners=$this->properties_model->getWhere(array('property_id' => $property->id),
                                                 'property_desktop_banners');

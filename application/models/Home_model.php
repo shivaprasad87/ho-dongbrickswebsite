@@ -22,7 +22,16 @@ class Home_model extends MY_Model {
                 ->get()
                 ->result();
     }
-        public function getBestdealProperties() {
+        public function getBestdealProperties($city_id = null, $property_id = null ,$limit = null) {
+       if ($limit){
+            $this->db->limit($limit);
+        }
+        if ($property_id){
+            $this->db->where('p.id !=', $property_id);
+        }
+        if ($city_id){
+        $this->db->where('p.city_id', $city_id);
+        }
         return $this->db->select('p.*, c.name as city_name, pt.name as prop_type, b.name as builder, l.name as location')
                 ->from('properties p')
                 ->join('cities c', 'p.city_id = c.id', 'LEFT')

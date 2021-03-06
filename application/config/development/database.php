@@ -64,10 +64,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
     'dsn'          => '',
-    'hostname'     => '149.56.9.68', 
-    'username'     => 'digilance5_real', 
-    'password'     => 'Password1982',
-    'database'     => 'digilance5_real', 
+    'hostname'     => 'localhost', 
+    'username'     => 'root', 
+    'password'     => '',
+    'database'     => 'holdingbricks', 
     'dbdriver'     => 'mysqli',
     'dbprefix'     => '',
     'pconnect'     => FALSE,

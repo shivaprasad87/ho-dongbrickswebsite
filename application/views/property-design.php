@@ -1,6 +1,5 @@
 <?php 
-$property->gallery = json_decode(json_encode($property->gallery),true);
-//print_r($property->gallery);die;
+$property->gallery = json_decode(json_encode($property->gallery),true); 
 $gallery_images = array();
 foreach($property->gallery as $gallery) {
   if(is_array($gallery))
@@ -357,54 +356,36 @@ if (($images = $this->properties_model->getWhere(array('property_id' => $propert
       </div>
       <div class="amenities_list" id="content-1">
         <ul>
+          <?php
+    if (isset($property->amenities) && $property->amenities) {
+        foreach ($property->amenities as $amenity) {
+            ?>
           <li>
             <div class="amenities_img">
-               <div class="amenities childrensPlayArea" data-name="Children's Play Area"></div>
+               <?php
+                if ($amenity->image) {
+                    ?>
+                    <img class="animated fadeInUp wow"  alt="<?= $amenity->alt_title ?>"
+                            title="<?=$amenity->image_desc?>"
+                          
+                          src="<?= base_url('uploads/amenities/' . $amenity->image) ?>">
+                             <?php
+                } 
+                else {
+                    ?>
+                    <img class="animated fadeInUp wow" alt="<?= $amenity->image ?>"
+                         src="https://placehold.it/58x58">
+                    <?php
+                }
+                ?>
             </div>
-            <div class="amenities_cont">Children's Play Area</div>
+            <div class="amenities_cont"><?= ucwords($amenity->name) ?></div>
           </li>
-          
-          <li><div class="amenities_img"><div class="amenities communityHall" data-name="Multipurpose Hall"></div></div><div class="amenities_cont">Multipurpose Hall</div></li>
-          
-          <li><div class="amenities_img"><div class="amenities joggingTrack" data-name="Jogging Track"></div></div><div class="amenities_cont">Jogging Track</div></li>
-          
-          <li><div class="amenities_img"><div class="amenities gymnasium" data-name="Gymnasium"></div></div><div class="amenities_cont">Gymnasium</div></li>
-          
-          <li><div class="amenities_img"><div class="amenities internet" data-name="Internet"></div></div><div class="amenities_cont">Internet</div></li>
-          
-          <li><div class="amenities_img"><div class="amenities library" data-name="Library"></div></div><div class="amenities_cont">Library</div></li>
-          
-          <li><div class="amenities_img"><div class="amenities lift" data-name="Lift"></div></div><div class="amenities_cont">Lift</div></li>
-          
-          <li><div class="amenities_img"><div class="amenities security" data-name="Security"></div></div><div class="amenities_cont">Security</div></li>
-          
-          <li><div class="amenities_img"><div class="amenities swimmingPool" data-name="Swimming Pool"></div></div><div class="amenities_cont">Swimming Pool</div></li>
-          
-          <li><div class="amenities_img"><div class="amenities gasLine" data-name="Gas Line"></div></div><div class="amenities_cont">Gas Line</div></li>
-          
-          <li><div class="amenities_img"><div class="amenities intercom" data-name="Intercom"></div></div><div class="amenities_cont">Intercom</div></li>
-          
-          <li><div class="amenities_img"><div class="amenities powerBackup" data-name="Power Backup"></div></div><div class="amenities_cont">Power Backup</div></li>
-          
-          <li><div class="amenities_img"><div class="amenities washingMarea" data-name="Washing Machine Area"></div></div><div class="amenities_cont">Washing Machine Area</div></li>
-          
-          <li><div class="amenities_img"><div class="amenities gatedCommunity" data-name="Gated Community"></div></div><div class="amenities_cont">Gated Community</div></li>
-          
-          <li><div class="amenities_img"><div class="amenities parking" data-name="Parking"></div></div><div class="amenities_cont">Parking</div></li>
-          
-          <li><div class="amenities_img"><div class="amenities utilityStores" data-name="Utility Stores"></div></div><div class="amenities_cont">Utility Stores</div></li>
-          
-          <li><div class="amenities_img"><div class="amenities basketball" data-name="Basketball"></div></div><div class="amenities_cont">Basketball</div></li>
-          
-          <li><div class="amenities_img"><div class="amenities cricket" data-name="Cricket"></div></div><div class="amenities_cont">Cricket</div></li>
-          
-          <li><div class="amenities_img"><div class="amenities badminton" data-name="Badminton"></div></div><div class="amenities_cont">Badminton</div></li>
-          
-          <li><div class="amenities_img"><div class="amenities squash" data-name="Squash"></div></div><div class="amenities_cont">Squash</div></li>
-          
-          <li><div class="amenities_img"><div class="amenities spa" data-name="Spa"></div></div><div class="amenities_cont">Spa</div></li>
-          
-          <li><div class="amenities_img"><div class="amenities tennis" data-name="Tennis"></div></div><div class="amenities_cont">Tennis</div></li>
+          <?php
+        }
+      }
+      ?>
+         
         
         </ul>
       </div>
@@ -803,74 +784,64 @@ if (($images = $this->properties_model->getWhere(array('property_id' => $propert
          <?=$property->builder_description?>
         
       </div>
-
-      <!-- <div class="div_info mt-10" id="FAQ">
+      <?php
+      if(count($property->faq)>=1)
+      {
+        ?>
+      
+      <div class="div_info mt-10" id="FAQ">
         <div class="FAQ-title">
         
           <h5 itemprop="name">FAQ's</h5>
           
         </div>
         <div class="panel-group" id="accordion">
-          
+          <?php
+          $a=1; 
+          foreach ($property->faq as $faq) {
+            if($a==1)
+            {
+         ?>
           <div class="panel panel-default">
             <div class="panel-heading">
               <h4 class="panel-title">
-                <a class="accordion-toggle text-left" data-toggle="collapse" data-parent="#accordion" href="#collapseNine">Is account registration required?</a>
+                <a class="accordion-toggle text-left" data-toggle="collapse" data-parent="#accordion" href="#collapseNine"><?=$faq->fq?></a>
               </h4>
             </div>
             <div id="collapseNine" class="panel-collapse collapse in">
-              <div class="panel-body">
-                Account registration at <strong>PrepBootstrap</strong> is only required if you will be selling or buying themes. 
-                This ensures a valid communication channel for all parties involved in any transactions. 
+              <div class="panel-body"><?=$faq->fa?>
               </div>
             </div>
           </div>
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4 class="panel-title">
-                <a class="accordion-toggle text-left collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTen">Is account registration required?</a>
-              </h4>
-            </div>
-            <div id="collapseTen" class="panel-collapse collapse">
-              <div class="panel-body">
-                Account registration at <strong>PrepBootstrap</strong> is only required if you will be selling or buying themes. 
-                This ensures a valid communication channel for all parties involved in any transactions. 
-              </div>
-            </div>
-          </div>
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4 class="panel-title">
-                <a class="accordion-toggle text-left collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseEleven">Is account registration required?</a>
-              </h4>
-            </div>
-            <div id="collapseEleven" class="panel-collapse collapse">
-              <div class="panel-body">
-                Account registration at <strong>PrepBootstrap</strong> is only required if you will be selling or buying themes. 
-                This ensures a valid communication channel for all parties involved in any transactions. </strong>
-              </div>
-            </div>
-          </div>
+          <?php
+           }
+           else
+            {
+              ?>
 
           <div class="panel panel-default">
             <div class="panel-heading">
               <h4 class="panel-title">
-                <a class="accordion-toggle text-left collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwelve">Is account registration required?</a>
+                <a class="accordion-toggle text-left collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTen"><?=$faq->fq?></a>
               </h4>
             </div>
-            <div id="collapseTwelve" class="panel-collapse collapse">
+            <div id="collapseTen" class="panel-collapse collapse">
               <div class="panel-body">
-                Account registration at <strong>PrepBootstrap</strong> is only required if you will be selling or buying themes. 
-                This ensures a valid communication channel for all parties involved in any transactions. </strong>
+              <?=$faq->fa?>
               </div>
             </div>
           </div>
-      
-          
-        
-          
+          <?php 
+        }
+        $a++;
+          }
+          ?>
+
         </div>
-      </div> -->
+      </div> 
+      <?php
+    }
+    ?>
   </div>
 
   
@@ -934,19 +905,41 @@ if (($images = $this->properties_model->getWhere(array('property_id' => $propert
 				<div class="underline margin-bottom-35"></div>
 
 				<div class="outer" id="scroll-nearby">
+          <?php
+
+        if (($projects = $this->home_model->getsameLocationProjects($property->location_id, $property->id,
+                3)) != null) { 
+                  foreach ($projects as $project) { 
+                    ?>
 					<!-- Item -->
 					<div class="item">
 						<div class="listing-item compact box">
 
-							<a href="#" class="listing-img-container corner-box">
+							<a href="<?= site_url(url_title($project->city_name) . "/" . (url_title($project->area)) . "/$project->slug/") ?>" class="listing-img-container corner-box">
 
-								<div class="corner"><h2><span> 68.7L</span></h2></div>
+								<div class="corner"><h2><span>
+                 <?php
+                    if ($this->properties_model->hasPriceRequest($project->id->id)) {
+                        echo "Price on Request";
+                    } else {
+                        ?>
+                        &#8377; <?= (($row = $this->properties_model->getPropertyParam(array('property_id' => $project->id),
+                                'property_flat_types', null,
+                                'MIN(total) as amount')) != null) ? number_format_short($row->amount) : 0 ?>
+                        - <?= (($row = $this->properties_model->getPropertyParam(array('property_id' => $project->id),
+                                'property_flat_types', null,
+                                'MAX(total) as amount')) != null) ? number_format_short($row->amount) : 0 ?>
+                        <?php
+                    }
+                    ?>
+                                                          
+                  </span></h2></div>
 								<div class="listing-corner-badges">
 									<span class="featured">Onwards*</span>
 									
 								</div>
 								<div class="listing-img-content">
-									<span class="listing-compact-title">Eagle Apartments <i>Sarjapur road</i></span>
+									<span class="listing-compact-title"><?= $project->title ?> <i><?= $project->location ?></i></span>
 
 									<!-- <ul class="listing-hidden-content">
 										<li>Area <span></span></li>
@@ -955,83 +948,23 @@ if (($images = $this->properties_model->getWhere(array('property_id' => $propert
 									</ul> -->
 								</div>
 
-								<img src="<?=base_url('assets/')?>images/listing-01.jpg" alt="">
+								<img src="<?= base_url('uploads/'.str_replace(" ","-",strtolower($project->city_name))."/".str_replace(" ","-",strtolower($project->builder))."/" .$project->slug.'/'.$project->image) ?>" alt="">
 							</a>
 
 						</div>
 					</div>
 					<!-- Item / End -->
+        <?php
+      }
+      }
+      else
+        { echo "No Properties Found!";  }
 
-					<!-- Item -->
-					<div class="item">
-						<div class="listing-item compact box">
-
-							<a href="#" class="listing-img-container">
-								<div class="corner"><h2><span> 68.7L</span> </h2></div>
-								<div class="listing-corner-badges">
-									<span class="featured">Onwards*</span>
-									
-								</div>
-								<div class="listing-badges">
-									<!-- <span class="featured">Best Deals</span> -->
-									<span>For Sale</span>
-								</div>
-
-								<div class="listing-img-content">
-									<span class="listing-compact-title">Eagle Apartments <i>Sarjapur road</i></span>
-
-									<!-- <ul class="listing-hidden-content">
-										<li>Area <span></span></li>
-										
-										<li>Price <span>1 Cr</span></li>
-									</ul> -->
-								</div>
-
-								<img src="<?=base_url('assets/')?>images/listing-01.jpg" alt="">
-							</a>
-
-						</div>
-					</div>
-					<!-- Item / End -->
-
-				<!-- Item -->
-				<div class="item">
-					<div class="listing-item compact box">
-
-						<a href="#" class="listing-img-container">
-
-							<!-- <div class="ribbon ribbon-top-left"><span>ribbon</span></div> -->
-							<div class="corner"><h2><span> 68.7L</span></h2></div>
-								<div class="listing-corner-badges">
-									<span class="featured">Onwards*</span>
-									
-								</div>
-								<div class="listing-badges">
-									<!-- <span class="featured">Best Deals</span> -->
-									<span>For Sale</span>
-								</div>
-
-							<div class="listing-img-content">
-								<span class="listing-compact-title">Eagle Apartments <i>Sarjapur road</i></span>
-
-								<!-- <ul class="listing-hidden-content">
-									<li>Area <span></span></li>
-									
-									<li>Price <span>1 Cr</span></li>
-								</ul> -->
-							</div>
-
-							<img src="<?=base_url('assets/')?>images/listing-01.jpg" alt="">
-						</a>
-
-					</div>
-				</div>
-				<!-- Item / End -->
-
-					
+					?>
+   
 				</div>
 				<center>
-					<button class="btn btn-view"><a style="color: white;">See More</a></button>
+					<button class="btn btn-view"><a href="<?php echo base_url('listing') ?>" style="color: white;">See More</a></button>
 				</center>
 
 			</div>
@@ -1042,93 +975,64 @@ if (($images = $this->properties_model->getWhere(array('property_id' => $propert
 				<h3 class="">Best Deals In Your City :</h3>
 				<div class="underline-widget margin-bottom-35"></div>
 
-				<div class="outer" id="scroll-bestdeals">
-					<!-- Item -->
-					<div class="item">
-						<div class="listing-item compact">
+				<div class="outer" id="scroll-bestdeals"> 
+          <?php
 
-							<a href="#" class="listing-img-container">
+        if (($projects = $this->home_model->getBestdealProperties($property->city_id, $property->id,3)) != null) { 
+                  foreach ($projects as $project) { 
+                    ?>
+          <!-- Item -->
+          <div class="item">
+            <div class="listing-item compact box">
 
-								<div class="listing-badges">
-									<span class="featured">Best Deals</span>
-									<span>For Sale</span>
-								</div>
+              <a href="<?= site_url(url_title($project->city_name) . "/" . (url_title($project->area)) . "/$project->slug/") ?>" class="listing-img-container corner-box">
 
-								<div class="listing-img-content">
-									<span class="listing-compact-title">Eagle Apartments <i>Sarjapur road</i></span>
+                <div class="corner"><h2><span>
+                 <?php
+                    if ($this->properties_model->hasPriceRequest($project->id->id)) {
+                        echo "Price on Request";
+                    } else {
+                        ?>
+                        &#8377; <?= (($row = $this->properties_model->getPropertyParam(array('property_id' => $project->id),
+                                'property_flat_types', null,
+                                'MIN(total) as amount')) != null) ? number_format_short($row->amount) : 0 ?>
+                        - <?= (($row = $this->properties_model->getPropertyParam(array('property_id' => $project->id),
+                                'property_flat_types', null,
+                                'MAX(total) as amount')) != null) ? number_format_short($row->amount) : 0 ?>
+                        <?php
+                    }
+                    ?>
+                                                          
+                  </span></h2></div>
+                <div class="listing-corner-badges">
+                  <span class="featured">Onwards*</span>
+                  
+                </div>
+                <div class="listing-img-content">
+                  <span class="listing-compact-title"><?= $project->title ?> <i><?= $project->location ?></i></span>
 
-									<!-- <ul class="listing-hidden-content">
-										<li>Area <span></span></li>
-										
-										<li>Price <span>1 Cr</span></li>
-									</ul> -->
-								</div>
+                  <!-- <ul class="listing-hidden-content">
+                    <li>Area <span></span></li>
+                    
+                    <li>Price <span>1 Cr</span></li>
+                  </ul> -->
+                </div>
 
-								<img src="<?=base_url('assets/')?>images/listing-01.jpg" alt="">
-							</a>
+                <img src="<?= base_url('uploads/'.str_replace(" ","-",strtolower($project->city_name))."/".str_replace(" ","-",strtolower($project->builder))."/" .$project->slug.'/'.$project->image) ?>" alt="">
+              </a>
 
-						</div>
-					</div>
-					<!-- Item / End -->
+            </div>
+          </div>
+          <!-- Item / End -->
+        <?php
+      }
+      }
+      else
+        { echo "No Properties Found!";  }
 
-					<!-- Item -->
-					<div class="item">
-						<div class="listing-item compact">
-
-							<a href="#" class="listing-img-container">
-
-								<div class="listing-badges">
-									<span class="featured">Best Deals</span>
-									<span>For Sale</span>
-								</div>
-
-								<div class="listing-img-content">
-									<span class="listing-compact-title">Eagle Apartments <i>Sarjapur road</i></span>
-
-									<!-- <ul class="listing-hidden-content">
-										<li>Area <span></span></li>
-										
-										<li>Price <span>1 Cr</span></li>
-									</ul> -->
-								</div>
-
-								<img src="<?=base_url('assets/')?>images/listing-01.jpg" alt="">
-							</a>
-
-						</div>
-					</div>
-					<!-- Item / End -->
-
-				<!-- Item -->
-				<div class="item">
-					<div class="listing-item compact">
-
-						<a href="#" class="listing-img-container">
-
-							<div class="listing-badges">
-								<span class="featured">Best Deals</span>
-								<span>For Sale</span>
-							</div>
-
-							<div class="listing-img-content">
-								<span class="listing-compact-title">Eagle Apartments <i>Sarjapur road</i></span>
-
-								<!-- <ul class="listing-hidden-content">
-									<li>Area <span></span></li>
-									
-									<li>Price <span>1 Cr</span></li>
-								</ul> -->
-							</div>
-
-							<img src="<?=base_url('assets/')?>images/listing-01.jpg" alt="">
-						</a>
-
-					</div>
-				</div>
-				<!-- Item / End -->
-
-					
-				</div>
+          ?>
+   
+        </div>
 				<center>
 					<button class="btn btn-view"><a style="color: white;">See More</a></button>
 				</center>
@@ -1142,78 +1046,35 @@ if (($images = $this->properties_model->getWhere(array('property_id' => $propert
 				<div class="underline-blog margin-bottom-35"></div>
 
 				<div class="outer" id="scroll-Blogs">
+           <?php
+
+        if (($blogs = $this->blogs_model->loadBlogslimit(3)) != null) { 
+                  foreach ($blogs as $blog) { 
+                    ?>
 					<!-- Item -->
 					<div class="item">
 						
 						<div class="listing-item compact">
 
-							<a href="#" class="listing-img-container">
+							<a href="<?=base_url('blog/').$blog->slug?>" class="listing-img-container">
 
 							
 								<div class="listing-img-content">
-									<span class="listing-compact-title">Blog Heading </span>
-
-									<!-- <ul class="listing-hidden-content">
-										<li>Area <span></span></li>
-										
-										<li>Price <span>1 Cr</span></li>
-									</ul> -->
+									<span class="listing-compact-title"><?=$blog->title?> </span> 
 								</div>
 
-								<img src="<?=base_url('assets/')?>images/listing-01.jpg" alt="">
+								<img src="<?=base_url('uploads/')?>blog_images/<?=$blog->image?>" alt="">
 							</a>
 
 						</div>
 					</div>
-					<!-- Item / End -->
-
-					<div class="item">
-						
-						<div class="listing-item compact">
-
-							<a href="#" class="listing-img-container">
-
-							
-								<div class="listing-img-content">
-									<span class="listing-compact-title">Blog Heading </span>
-
-									<!-- <ul class="listing-hidden-content">
-										<li>Area <span></span></li>
-										
-										<li>Price <span>1 Cr</span></li>
-									</ul> -->
-								</div>
-
-								<img src="<?=base_url('assets/')?>images/listing-01.jpg" alt="">
-							</a>
-
-						</div>
-					</div>
-					<div class="item">
-						
-						<div class="listing-item compact">
-
-							<a href="#" class="listing-img-container">
-
-							
-								<div class="listing-img-content">
-									<span class="listing-compact-title">Blog Heading </span>
-
-									<!-- <ul class="listing-hidden-content">
-										<li>Area <span></span></li>
-										
-										<li>Price <span>1 Cr</span></li>
-									</ul> -->
-								</div>
-
-								<img src="<?=base_url('assets/')?>images/listing-01.jpg" alt="">
-							</a>
-
-						</div>
-					</div>
-
-				
+					 
 				</div>
+        <?php
+          }
+
+          }
+        ?>
 				<center>
 					<button class="btn btn-view"><a style="color: white;">See More</a></button>
 				</center>
