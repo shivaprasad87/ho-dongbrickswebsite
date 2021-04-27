@@ -1112,6 +1112,59 @@ value="Cents">Cents
 }
 ?>
 <!-- End Additional Data-->
+ <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="table-responsive">
+                            <table class="table table-hover table-bordered table-stripped">
+                                <caption><strong>FAQ</strong></caption>
+                                 <?php
+                                 $a=1;
+                                if(count($faq)>=1)
+                                {
+                                    foreach ($faq as $faq) {
+                                        ?>
+                                        <tr>
+                                            <td><?=$a?></td>
+
+                                            <td>
+                                    
+                                    <textarea name="fq[]"
+                                       class="form-control" title=""
+                                       placeholder="Freuently Asked Question"><?=$faq->fq; ?></textarea>
+                                   </td>
+                                    <td>
+                                    <textarea name="fa[]"
+                                       class="form-control" title=""
+                                       placeholder="Answer"><?=$faq->fa; ?></textarea>
+                                   </td>
+                               </tr>
+                               <?php
+                               $a++;
+                               }
+                                }
+                                
+                                for($i=$a;$i<=$a+6;$i++)
+                                {
+                                    ?>
+                                    <tr>
+                                        <td>
+                                            <?=$i?>.
+                                        </td>
+                                    <td>
+                                    <textarea name="fq[]"
+                                       class="form-control" title=""
+                                       placeholder="Freuently Asked Question"></textarea>
+                                   </td>
+                                    <td>
+                                    <textarea name="fa[]"
+                                       class="form-control" title=""
+                                       placeholder="Answer"></textarea>
+                                   </td>
+                               </tr>
+                                    <?php
+                                }?>
+                               </table>
+                           </div>
+                       </div>
 
 </div>
 <!-- /.box-body -->

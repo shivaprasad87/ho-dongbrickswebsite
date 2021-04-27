@@ -1067,6 +1067,33 @@ else echo "unchecked";
                 }
                 ?>
             </div>
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="table-responsive">
+                            <table class="table table-hover table-bordered table-stripped">
+                                <caption><strong>FAQ</strong></caption>
+                                <?php for($i=1;$i<=5;$i++)
+                                {
+                                    ?>
+                                    <tr>
+                                        <td>
+                                            <?=$i?>.
+                                        </td>
+                                    <td>
+                                    <textarea name="fq[]"
+                                       class="form-control" title=""
+                                       placeholder="Freuently Asked Question"></textarea>
+                                   </td>
+                                    <td>
+                                    <textarea name="fa[]"
+                                       class="form-control" title=""
+                                       placeholder="Answer"></textarea>
+                                   </td>
+                               </tr>
+                                    <?php
+                                }?>
+                               </table>
+                           </div>
+                       </div>
             <!-- /.box-body -->
             <div class="box-footer">
                 <button type="submit" class="btn btn-default" id="submit2" onclick="history.go(-1);">Back

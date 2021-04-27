@@ -134,7 +134,7 @@
            "logo": "<?=$logo_url?>",
            "contactPoint": {
              "@type": "ContactPoint",
-             "telephone": "7894561230",
+             "telephone": "<?= $social_links->mobile ?>",
              "contactType": "customer service",
              "contactOption": "TollFree",
              "areaServed": "IN",
@@ -250,11 +250,12 @@
          {
              "@context": "https:\/\/schema.org",
              "@type": "RealEstateAgent",
-             "name": "<?=$property->title?>",
+             "name": "Holdingbricks Private Limited",
              "image": ["<?= base_url('uploads/'.$property->slug.'/'.$property->image) ?>"],
-             "telephone": "7894561230",
+             "telephone": "<?= $social_links->mobile ?>",
              "url": "<?=base_url();?>",
-             "address": { "@type": "PostalAddress","addressLocality": "<?=$property->location?>","addressRegion": "<?=$property->city_name?>", "addressCountry": "IN" },
+             "address": { "@type": "PostalAddress","addressLocality": "5/2 Trumph Tower, Eagles Street, Langford Town,
+Bengaluru, Karnataka","addressRegion": "<?=$property->city_name?>", "addressCountry": "IN" },
              "priceRange": "<?=min($price)?>",
              "openingHoursSpecification": [
                  { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], "opens": "10:00", "closes": "18:30" },
@@ -263,11 +264,11 @@
              "ContactPoint": {
                  "@type": "ContactPoint",
                  "contactType": "sales",
-                 "telephone": "+91-9019-000-400",
+                 "telephone": "<?= $social_links->mobile ?>",
                  "url": "<?=current_url();?>",
                  "email": "sales@holdingbricks.com",
                  "areaServed": "IN",
-                 "contactOption": ["7894561230", "TollFree"],
+                 "contactOption": ["<?= $social_links->mobile ?>", "TollFree"],
                  "availableLanguage": "English"
              }
          }

@@ -27,6 +27,18 @@ class Blogs_model extends MY_Model {
         }
         return $data->result();
     }
+    public function loadBlogslimit($limit=null) {
+        $data = array();
+        $this->db->select('b.*, bc.name as category_name')
+                ->from('blog b')
+                ->join('blog_category bc', 'b.category_id = bc.id');
+
+        $this->db->where('bc.status', 1);
+        $this->db->order_by("b.id", "DESC"); 
+        $this->db->limit(3);
+        $data = $this->db->get(); 
+        return $data->result();
+    }
      public function loadBlogTypes($perpage, $page, $count, $content = "") {
         $data = array();
         $this->db->select('*')

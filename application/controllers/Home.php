@@ -15,6 +15,7 @@ class Home extends Public_Controller
         $this->load->model('home_model');
         $this->load->model('properties_model');
         $this->load->model('achievements_model');
+        $this->load->model('blogs_model');
 
         // $this->session->unset_userdata('city');
         $this->data['property_types'] = $this->home_model->getWhere(array('status' => 1), 'property_types');
@@ -1003,10 +1004,17 @@ $this->email->bcc('shivas8787@gmail.com');
         }
         $property->amenities = $this->properties_model->getAmenities($property->id);
         
-        $property->gallery[] = $this->properties_model->getGallery($property->id);
+        //$property->gallery[] = $this->properties_model->getGallery($property->id);
+        $property->gallery[] = $this->properties_model->getWhere(array("property_id"=>$property->id),"property_elevations");
         $property->gallery[] = $this->properties_model->getWhere(array("property_id"=>$property->id),"property_floor_plans");
         $property->gallery[] = $this->properties_model->getWhere(array("property_id"=>$property->id),"property_master_plans");
-        $property->gallery[] = $this->properties_model->getWhere(array("property_id"=>$property->id),"property_elevations");
+        if($property->map)
+        {
+            $property->gallery[] = "uploads/".strtolower($property->city_name)."/".str_replace(' ','-',strtolower($property->builder))."/$property->slug/map/$property->map";
+        }
+        
+        $property->faq = $this->properties_model->getWhere(array("p_id"=>$property->id),"faq");
+        
         $property->testimonials = $this->home_model->get_testimonials($property->id);
        
         $this->data['property'] = $property;
